@@ -14,7 +14,6 @@ class AmiConnector
     private $port;
     private $username;
     private $password;
-    private $config;
     private $errno;
     private $errsrt;
     private $fp = null;
