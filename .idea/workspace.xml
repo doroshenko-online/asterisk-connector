@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="369fc1b5-1bdb-4b98-ae37-84d0095abe05" name="Default Changelist" comment="Start project">
-      <change afterPath="$PROJECT_DIR$/ami/AmiConnector.php" afterDir="false" />
-    </list>
+    <list default="true" id="369fc1b5-1bdb-4b98-ae37-84d0095abe05" name="Default Changelist" comment="Start project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +9,9 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,7 +40,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606310361929</updated>
       <workItem from="1606310363124" duration="114000" />
-      <workItem from="1606312789725" duration="4109000" />
+      <workItem from="1606312789725" duration="4417000" />
     </task>
     <task id="LOCAL-00001" summary="Start project">
       <created>1606315838799</created>
@@ -48,7 +49,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606315838799</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Start project">
+      <created>1606318984028</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606318984028</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Start project">
+      <created>1606319024198</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606319024198</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,10 +98,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606312817638" />
-    <state x="461" y="157" key="SettingsEditor" timestamp="1606312993351">
+    <state x="461" y="157" key="SettingsEditor" timestamp="1606318965822">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="157" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606312993351" />
+    <state x="461" y="157" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606318965822" />
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2" timestamp="1606319094037">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="188" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606319094037" />
+    <state x="736" y="415" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606319030765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="736" y="415" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606319030765" />
     <state x="600" y="0" width="719" height="1040" key="find.popup" timestamp="1606315245484">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
