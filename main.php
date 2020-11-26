@@ -1,19 +1,20 @@
 <?php
+require_once 'config.php';
 require_once 'ami\AmiConnector.php';
 
-
-$connector = \ami\AmiConnector::createConnector();
+$connector = \ami\AmiConnector::getConnectorOrCreate();
 try{
-    $socket = $connector->getSocket();
+    $socket = $connector->getSocketOrCreateAndAuth();
 }catch (Exception $e){
-    print 'Ami connection error. '.$e;
+    print $e;
     die();
 }
 
-fwrite($socket, "Action: Login\r\n");
-fwrite($socket, "Username: ".$connector->getUsername()."\r\n");
-fwrite($socket, "Secret: ".$connector->getPassword()."\r\n\r\n");
+$messages = '';
+
 while (!feof($socket)){
-    $data = fgets($socket, 2048);
-    echo $data;
+    $data = fgets($socket, 1024);
+    print $data;
 }
+
+$connector->destructConnector();

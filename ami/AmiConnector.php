@@ -16,7 +16,7 @@ class AmiConnector
     private $password;
     private $errno;
     private $errsrt;
-    private $fp = null;
+    private static $fp = null;
 
     private static $instance = null;
 
@@ -27,32 +27,43 @@ class AmiConnector
 
 
     private function init(){
-        $this->host = 'localhost';
-//        $this->port = '5038';
-        $this->port = '8423';
-        $this->username = 'admin';
-        $this->password = 'eLmfSg';
+        $this->host = AMI_SETTINGS['host'];
+        $this->port = AMI_SETTINGS['port'];
+        $this->username = AMI_SETTINGS['user'];
+        $this->password = AMI_SETTINGS['secret'];
     }
 
     /**
      * @return AmiConnector|null
      */
-    static function createConnector(){
+    static function getConnectorOrCreate(){
         if(is_null(self::$instance)){
             self::$instance = new self();
+            self::$instance->init();
         }
         return self::$instance;
     }
 
-    public function getSocket(){
-        if(is_null($this->fp)){
-            $this->init();
-            $this->fp = stream_socket_client($this->host.':'.$this->port, $this->errno, $this->errsrt);
-            if(!$this->fp){
-                throw new \Exception($this->errno.':'.$this->errsrt);
+    public function getSocketOrCreateAndAuth(){
+        if(is_null(self::$fp)){
+            self::$fp = stream_socket_client($this->host.':'.$this->port, $this->errno, $this->errsrt);
+            fwrite(self::$fp, "Action: Login\r\n");
+            fwrite(self::$fp, "Username: ".$this->username."\r\n");
+            fwrite(self::$fp, "Secret: ".$this->password."\r\n\r\n");
+            $auth = $this->checkAuth();
+            if(! $auth){
+                $this->destructConnector();
+                throw new \Exception('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения');
             }
         }
-        return $this->fp;
+        return self::$fp;
+    }
+
+    private function checkAuth(){
+        fgets(self::$fp);
+        fgets(self::$fp);
+        $enter_phrase = fgets(self::$fp);
+        return stristr($enter_phrase, 'Authentication accepted')? true : false;
     }
 
     /**
@@ -71,10 +82,10 @@ class AmiConnector
         return $this->password;
     }
 
-    public function closeConnector(){
-        fwrite($this->fp, "Action: Logoff\r\n\r\n");
-        fclose($this->fp);
-        $this->fp = null;
+    public function destructConnector(){
+        fwrite(self::$fp, "Action: Logoff\r\n\r\n");
+        fclose(self::$fp);
+        self::$fp = null;
         self::$instance = null;
         print "Соеденение с AMI закрыто\n";
     }
