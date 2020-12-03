@@ -18,7 +18,7 @@ class Logger
     {
         $filename = Utils::getLogFIleName();
         $fp = self::$logDir.$filename;
-        self::$logFile = fopen($fp, 'at');
+        self::$logFile = fopen($fp, 'ab');
     }
 
     private function fileClose() : void
