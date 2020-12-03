@@ -4,6 +4,8 @@
 namespace ami;
 
 
+use RuntimeException;
+
 /**
  * Class AmiConnector
  * @package ami
@@ -16,10 +18,10 @@ class AmiConnector
     private $password;
     private $errno;
     private $errstr;
-    private static $fp = null;
-    private $auth = null;
+    private static $fp;
+    private $auth;
 
-    private static $instance = null;
+    private static $instance;
 
     /**
      * AmiConnector private constructor.
@@ -39,7 +41,7 @@ class AmiConnector
     /**
      * @return AmiConnector|null
      */
-    static function getConnectorOrCreate(){
+    public static function getConnectorOrCreate(){
         if(is_null(self::$instance)){
             self::$instance = new self();
             self::$instance->init();
@@ -56,39 +58,25 @@ class AmiConnector
             $this->auth = $this->checkAuth();
             if(! $this->auth){
                 $this->destructConnector();
-                throw new \Exception('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения');
+                throw new RuntimeException('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения');
             }
         }
         return self::$fp;
     }
 
     private function checkAuth(){
-        if(is_null($this->auth) && ! is_null(self::$fp)) {
+        if (is_null($this->auth) && ! is_null(self::$fp)) {
             fgets(self::$fp);
             fgets(self::$fp);
             $enter_phrase = fgets(self::$fp);
-            return stristr($enter_phrase, 'Authentication accepted') ? true : false;
-        }elseif (is_null(self::$fp) && is_null($this->auth)){
-            throw new \Exception("Сначала необходимо создать сокет-клиент");
-        }else {
-            return $this->auth;
+            return stripos($enter_phrase, 'Authentication accepted') !== false;
         }
-    }
 
-    /**
-     * @return mixed
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
+        if(is_null(self::$fp) && is_null($this->auth)) {
+            throw new RuntimeException("Сначала необходимо создать сокет-клиент");
+        }
 
-    /**
-     * @return mixed
-     */
-    public function getPassword()
-    {
-        return $this->password;
+        return $this->auth;
     }
 
     public function destructConnector(){

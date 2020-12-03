@@ -1,8 +1,11 @@
 <?php
+
+use ami\AmiConnector;
+
 require_once 'config.php';
 require_once 'ami\AmiConnector.php';
 
-$connector = \ami\AmiConnector::getConnectorOrCreate();
+$connector = AmiConnector::getConnectorOrCreate();
 try{
     $socket = $connector->getSocketOrCreateAndAuth();
 }catch (Exception $e){
