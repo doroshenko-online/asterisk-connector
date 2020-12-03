@@ -4,7 +4,7 @@ namespace ami;
 
 
 use Exception;
-use logger\Logger;
+use utils\Logger;
 use RuntimeException;
 
 /**

@@ -1,9 +1,9 @@
 <?php
 
-namespace logger;
-
+namespace utils;
 
 use RuntimeException;
+use config;
 
 class Logger
 {
@@ -17,7 +17,7 @@ class Logger
 
     private function init() : void
     {
-        $filename = getLogFIleName();
+        $filename = Utils::getLogFIleName();
         $fp = self::$logDir.$filename;
         self::$logFile = fopen($fp, 'at');
     }
@@ -45,7 +45,7 @@ class Logger
             throw new RuntimeException('Сначала необходимо создать экземпляр объекта логгера');
         }
 
-        if (!file_exists(self::$logDir.getLogFIleName()))
+        if (!file_exists(self::$logDir.Utils::getLogFIleName()))
         {
             self::$instance->fileClose();
             self::$instance->init();
@@ -83,7 +83,7 @@ class Logger
         }
         if ($write)
         {
-            $currDateTime = getCurrentDateTime();
+            $currDateTime = Utils::getCurrentDateTime();
             $record = "[$currDateTime][$level] $message"."\n";
             fwrite(self::$logFile,$record);
             print $record;

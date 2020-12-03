@@ -2,14 +2,23 @@
 
 declare(strict_types = 1);
 
+
 use ami\AmiConnector;
-use logger\Logger;
+use utils\Logger;
 
-
-require_once 'utils/utils.php';
 require_once 'config.php';
-require_once 'ami/AmiConnector.php';
-require_once 'utils/Logger.php';
+
+spl_autoload_register(static function($classname)
+    {
+        $fn = $classname . '.php';
+        $fn = str_replace('\\', '/', $fn);
+
+        if (is_file($fn)) {
+            require_once $fn;
+        }
+    }, $prepend=true);
+
+date_default_timezone_set('Europe/Kiev');
 
 
 try {
