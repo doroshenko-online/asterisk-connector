@@ -3,7 +3,9 @@
 namespace config;
 
 // Настройка временной зоны
-date_default_timezone_set('Europe/Kiev');
+$TIMEZONE = 'Europe/Kiev';
+
+date_default_timezone_set($TIMEZONE);
 
 // Настройки для подключения к AMI
 define('AMI_SETTINGS', [

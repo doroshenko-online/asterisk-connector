@@ -100,10 +100,17 @@ class AmiConnector
 
     public function destructConnector(): void
     {
-        fwrite(self::$fp, "Action: Logoff\r\n\r\n");
-        fclose(self::$fp);
-        self::$fp = null;
-        self::$instance = null;
-        Logger::log(INFO, 'Соеденение с AMI закрыто');
+        if (! is_null(self::$fp) && ! is_null(self::$instance)) {
+            fwrite(self::$fp, "Action: Logoff\r\n\r\n");
+            fclose(self::$fp);
+            self::$fp = null;
+            self::$instance = null;
+            Logger::log(INFO, 'Соеденение с AMI закрыто');
+        }
+    }
+
+    public function __destruct()
+    {
+        $this->destructConnector();
     }
 }

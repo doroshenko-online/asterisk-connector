@@ -2,15 +2,16 @@
 
 declare(strict_types = 1);
 
+require_once 'utils/autoload.php';
+
 use ami\AmiConnector;
 use utils\Logger;
 
-require_once 'utils/autoload.php';
 
 try {
     Logger::getLoggerOrCreate();
-
     $connector = AmiConnector::getConnectorOrCreate();
+
     try {
         $socket = $connector->getSocketOrCreateAndAuth();
     } catch (Exception $e) {
@@ -24,7 +25,7 @@ try {
         Logger::log(DEBUG, str_replace("\r\n", '', $data, $count));
     }
 
-    $connector->destructConnector();
+    $connector = $socket = $connector->destructConnector();
 } catch (Exception $e)
 {
     Logger::log(ERROR, (string)$e);

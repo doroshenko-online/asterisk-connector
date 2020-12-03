@@ -10,4 +10,4 @@ spl_autoload_register(static function($classname)
     if (is_file($fn)) {
         require_once $fn;
     }
-}, $prepend=true);
+});

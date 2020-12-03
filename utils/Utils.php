@@ -15,7 +15,7 @@ class Utils
         return 'log_' . $currentDate . '.log';
     }
 
-    public static function getCurrentDateTime($format = 'Y-m-d H:i:s'): string
+    public static function getCurrentDateTime(string $format = 'Y-m-d H:i:s'): string
     {
         $currentDateTime = new DateTime();
         $currentDateTime = $currentDateTime->format($format);
