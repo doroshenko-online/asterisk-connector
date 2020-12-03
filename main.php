@@ -2,15 +2,10 @@
 
 declare(strict_types = 1);
 
-
 use ami\AmiConnector;
 use utils\Logger;
 
-require_once 'config.php';
 require_once 'utils/autoload.php';
-
-date_default_timezone_set('Europe/Kiev');
-
 
 try {
     Logger::getLoggerOrCreate();
