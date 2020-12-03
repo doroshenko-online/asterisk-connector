@@ -15,16 +15,19 @@ class AmiConnector
     private $username;
     private $password;
     private $errno;
-    private $errsrt;
+    private $errstr;
     private static $fp = null;
+    private $auth = null;
 
     private static $instance = null;
 
     /**
-     * AmiConnector constructor.
+     * AmiConnector private constructor.
      */
-    private function __construct(){}
+    private function __construct()
+    {
 
+    }
 
     private function init(){
         $this->host = AMI_SETTINGS['host'];
@@ -46,12 +49,12 @@ class AmiConnector
 
     public function getSocketOrCreateAndAuth(){
         if(is_null(self::$fp)){
-            self::$fp = stream_socket_client($this->host.':'.$this->port, $this->errno, $this->errsrt);
+            self::$fp = stream_socket_client($this->host.':'.$this->port, $this->errno, $this->errstr);
             fwrite(self::$fp, "Action: Login\r\n");
             fwrite(self::$fp, "Username: ".$this->username."\r\n");
             fwrite(self::$fp, "Secret: ".$this->password."\r\n\r\n");
-            $auth = $this->checkAuth();
-            if(! $auth){
+            $this->auth = $this->checkAuth();
+            if(! $this->auth){
                 $this->destructConnector();
                 throw new \Exception('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения');
             }
@@ -60,10 +63,16 @@ class AmiConnector
     }
 
     private function checkAuth(){
-        fgets(self::$fp);
-        fgets(self::$fp);
-        $enter_phrase = fgets(self::$fp);
-        return stristr($enter_phrase, 'Authentication accepted')? true : false;
+        if(is_null($this->auth) && ! is_null(self::$fp)) {
+            fgets(self::$fp);
+            fgets(self::$fp);
+            $enter_phrase = fgets(self::$fp);
+            return stristr($enter_phrase, 'Authentication accepted') ? true : false;
+        }elseif (is_null(self::$fp) && is_null($this->auth)){
+            throw new \Exception("Сначала необходимо создать сокет-клиент");
+        }else {
+            return $this->auth;
+        }
     }
 
     /**

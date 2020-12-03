@@ -10,8 +10,6 @@ try{
     die();
 }
 
-$messages = '';
-
 while (!feof($socket)){
     $data = fgets($socket, 1024);
     print $data;
