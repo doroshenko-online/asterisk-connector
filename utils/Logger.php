@@ -3,7 +3,6 @@
 namespace utils;
 
 use RuntimeException;
-use config;
 
 class Logger
 {
