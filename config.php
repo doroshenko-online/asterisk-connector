@@ -9,3 +9,11 @@ define('AMI_SETTINGS', [
     'user' => 'admin',
     'secret' => 'eLmfSg'
 ]);
+
+/*
+Настройка логирования
+set log level. Available levels: OFF, ERROR, WARNING, INFO, TRACE, DEBUG
+TRACE - all levels without DEBUG level
+*/
+
+define('LOG_LEVEL', DEBUG);

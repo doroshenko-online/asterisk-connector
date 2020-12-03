@@ -1,9 +1,10 @@
 <?php
 
-
 namespace ami;
 
 
+use Exception;
+use logger\Logger;
 use RuntimeException;
 
 /**
@@ -12,16 +13,16 @@ use RuntimeException;
  */
 class AmiConnector
 {
-    private $host;
-    private $port;
-    private $username;
-    private $password;
-    private $errno;
-    private $errstr;
+    private ?string $host;
+    private ?string $port;
+    private ?string $username;
+    private ?string $password;
+    private ?int $errno;
+    private ?string $erst;
     private static $fp;
-    private $auth;
+    private ?bool $auth = null;
 
-    private static $instance;
+    private static ?AmiConnector $instance = null;
 
     /**
      * AmiConnector private constructor.
@@ -46,37 +47,52 @@ class AmiConnector
     {
         if(is_null(self::$instance)){
             self::$instance = new self();
+            Logger::log(INFO, 'Инициализация коннектора...');
             self::$instance->init();
         }
         return self::$instance;
     }
 
-    public function getSocketOrCreateAndAuth(){
+    public function getSocketOrCreateAndAuth()
+    {
         if(is_null(self::$fp)){
-            self::$fp = stream_socket_client($this->host.':'.$this->port, $this->errno, $this->errstr);
+            Logger::log(INFO, 'Создание сокета...');
+            try {
+                self::$fp = stream_socket_client($this->host . ':' . $this->port, $this->errno, $this->erst);
+            } catch (Exception $e)
+            {
+                Logger::log(ERROR, $e);
+                die();
+            }
+            Logger::log(INFO, 'Соединение с AMI установлено');
             fwrite(self::$fp, "Action: Login\r\n");
             fwrite(self::$fp, "Username: ".$this->username."\r\n");
             fwrite(self::$fp, "Secret: ".$this->password."\r\n\r\n");
             $this->auth = $this->checkAuth();
-            if(! $this->auth){
+            if (! $this->auth) {
                 $this->destructConnector();
                 throw new RuntimeException('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения');
             }
+            Logger::log(INFO, 'Авторизация на AMI прошла успешно');
         }
         return self::$fp;
     }
 
     private function checkAuth(): bool
     {
-        if (is_null($this->auth) && ! is_null(self::$fp)) {
-            fgets(self::$fp);
-            fgets(self::$fp);
-            $enter_phrase = fgets(self::$fp);
-            return stripos($enter_phrase, 'Authentication accepted') !== false;
+        if (is_null($this->auth) && ! is_null(self::$fp))
+        {
+            for($i = 0; $i < 4; $i++) {
+                if (stripos(fgets(self::$fp, 4096), 'Authentication accepted') !== false) {
+                    return true;
+                }
+            }
+            return false;
         }
 
-        if(is_null(self::$fp) && is_null($this->auth)) {
-            throw new RuntimeException("Сначала необходимо создать сокет-клиент");
+        if(is_null(self::$fp) && is_null($this->auth))
+        {
+            throw new RuntimeException("Сначала необходимо открыть соединение с сокетом AMI");
         }
 
         return $this->auth;
@@ -88,6 +104,6 @@ class AmiConnector
         fclose(self::$fp);
         self::$fp = null;
         self::$instance = null;
-        print "Соеденение с AMI закрыто\n";
+        Logger::log(INFO, 'Соеденение с AMI закрыто');
     }
 }
