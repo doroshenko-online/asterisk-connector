@@ -1,0 +1,643 @@
+---------------- outbound answer call ----------------
+
+Инициализация звонка:
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/333
+State: INUSE
+
+Event: Newchannel
+ChannelStateDesc: Down
+CallerIDNum: 333
+CallerIDName: agent-333
+Exten: 0639498374
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+
+Звонок пошел от агента:
+
+Event: Newstate
+ChannelStateDesc: Ring
+CallerIDNum: 333
+CallerIDName: agent-333
+Exten: 0639498374
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+
+Попытка набора с линии(удачная):
+
+Event: Newchannel
+Channel: SIP/channel2-00000035
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Context: incoming_calls
+Exten: s
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/channel2-00000035
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+Extension: 380639498374
+Application: AppDial
+AppData: (Outgoing Line)
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/channel2-00000035
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/channel2-00000035
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/channel2-00000035
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/333-00000034
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+DestChannel: SIP/channel2-00000035
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 333
+DestConnectedLineName: agent-333
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1606401944.1090
+DestLinkedid: 1606401944.1088
+DialString: channel2/20639498374
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: RINGING
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/333-00000034
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+DestChannel: SIP/channel2-00000035
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 333
+DestConnectedLineName: agent-333
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1606401944.1090
+DestLinkedid: 1606401944.1088
+DialStatus: PROGRESS
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/333-00000034
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+DestChannel: SIP/channel2-00000035
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 333
+DestConnectedLineName: agent-333
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1606401944.1090
+DestLinkedid: 1606401944.1088
+DialStatus: PROGRESS
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/333-00000034
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+DestChannel: SIP/channel2-00000035
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 333
+DestConnectedLineName: agent-333
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1606401944.1090
+DestLinkedid: 1606401944.1088
+DialStatus: PROGRESS
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: INUSE
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/channel2-00000035
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/333-00000034
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+Variable: DIALSTATUS
+Value: ANSWER
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/333-00000034
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+DestChannel: SIP/channel2-00000035
+DestChannelState: 6
+DestChannelStateDesc: Up
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 333
+DestConnectedLineName: agent-333
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten:
+DestPriority: 1
+DestUniqueid: 1606401944.1090
+DestLinkedid: 1606401944.1088
+DialStatus: ANSWER
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/333-00000034
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+
+Event: BridgeCreate
+Privilege: call,all
+BridgeUniqueid: 3d5a0db2-8978-42c0-951c-f333cd603834
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/channel2-00000035
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+Extension:
+Application: AppDial
+AppData: (Outgoing Line)
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: 3d5a0db2-8978-42c0-951c-f333cd603834
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-00000035
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: 3d5a0db2-8978-42c0-951c-f333cd603834
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+Channel: SIP/333-00000034
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/channel2-00000035
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+Variable: BRIDGEPEER
+Value: SIP/333-00000034
+
+Event: HangupRequest
+Privilege: call,all
+Channel: SIP/channel2-00000035
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+Cause: 16
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: 3d5a0db2-8978-42c0-951c-f333cd603834
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-00000035
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/channel2-00000035
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 333
+ConnectedLineName: agent-333
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1606401944.1090
+Linkedid: 1606401944.1088
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: NOT_INUSE
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: 3d5a0db2-8978-42c0-951c-f333cd603834
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+Channel: SIP/333-00000034
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+
+Event: BridgeDestroy
+Privilege: call,all
+BridgeUniqueid: 3d5a0db2-8978-42c0-951c-f333cd603834
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/333-00000034
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+Variable: ANSWEREDTIME
+Value: 4
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/333-00000034
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+Variable: DIALEDTIME
+Value: 20
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/333-00000034
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+Variable: DIALSTATUS
+Value: ANSWER
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: SIP/333-00000034
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+Cause: 16
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/333
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/333-00000034
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 333
+CallerIDName: agent-333
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: h
+Priority: 3
+Uniqueid: 1606401944.1088
+Linkedid: 1606401944.1088
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: MIXMONITOR_END
+AppFile: app_mixmonitor.c
+AppFunction: mixmonitor_thread
+AppLine: 777
+File: /var/spool/asterisk/monitor/1606401944.1088

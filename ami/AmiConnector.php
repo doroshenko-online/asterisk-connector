@@ -31,7 +31,8 @@ class AmiConnector
 
     }
 
-    private function init(){
+    private function init(): void
+    {
         $this->host = AMI_SETTINGS['host'];
         $this->port = AMI_SETTINGS['port'];
         $this->username = AMI_SETTINGS['user'];
@@ -41,7 +42,8 @@ class AmiConnector
     /**
      * @return AmiConnector|null
      */
-    public static function getConnectorOrCreate(){
+    public static function getConnectorOrCreate(): ?AmiConnector
+    {
         if(is_null(self::$instance)){
             self::$instance = new self();
             self::$instance->init();
@@ -64,7 +66,8 @@ class AmiConnector
         return self::$fp;
     }
 
-    private function checkAuth(){
+    private function checkAuth(): bool
+    {
         if (is_null($this->auth) && ! is_null(self::$fp)) {
             fgets(self::$fp);
             fgets(self::$fp);
@@ -79,7 +82,8 @@ class AmiConnector
         return $this->auth;
     }
 
-    public function destructConnector(){
+    public function destructConnector(): void
+    {
         fwrite(self::$fp, "Action: Logoff\r\n\r\n");
         fclose(self::$fp);
         self::$fp = null;
