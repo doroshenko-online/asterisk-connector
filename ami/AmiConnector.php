@@ -60,7 +60,7 @@ class AmiConnector
         return self::$instance;
     }
 
-    public function getSocketOrCreateAndAuth(): bool
+    public function getSocketOrCreateAndAuth()
     {
         if(is_null(self::$fp)){
             Logger::log(INFO, 'Создание сокета...');
