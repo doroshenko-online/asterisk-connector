@@ -13,10 +13,10 @@ use RuntimeException;
  */
 class AmiConnector
 {
-    private ?string $host;
-    private ?string $port;
-    private ?string $username;
-    private ?string $password;
+    private string $host;
+    private string $port;
+    private string $username;
+    private string $password;
     private ?int $errno;
     private ?string $erst;
     private static $fp;
@@ -43,17 +43,24 @@ class AmiConnector
     /**
      * @return AmiConnector|null
      */
-    public static function getConnectorOrCreate(): ?AmiConnector
+    public static function getConnectorOrCreate(): AmiConnector
     {
         if(is_null(self::$instance)){
-            self::$instance = new self();
+            try
+            {
+                self::$instance = new self();
+            } catch (Exception $e)
+            {
+                Logger::log(ERROR, $e);
+                die();
+            }
             Logger::log(INFO, 'Инициализация коннектора...');
             self::$instance->init();
         }
         return self::$instance;
     }
 
-    public function getSocketOrCreateAndAuth()
+    public function getSocketOrCreateAndAuth(): bool
     {
         if(is_null(self::$fp)){
             Logger::log(INFO, 'Создание сокета...');
