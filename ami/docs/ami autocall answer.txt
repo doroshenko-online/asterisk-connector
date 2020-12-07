@@ -1,0 +1,4691 @@
+--------------- autocall answer -------------------
+
+Event: Newchannel
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+
+Event: Newchannel
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Extension: 0639498374
+Application: AppDial2
+AppData: (Outgoing Line)
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Variable: TNSettings
+Value: 192.168.1.3:8989
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Variable: Guid
+Value: 1100
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Variable: MEDIA
+Value: /var/autocall/RUS/sorry_no_car
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Variable: PATH
+Value: /var/lib/asterisk/sounds/custom/
+
+Event: NewCallerid
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: PATH
+Value: /var/lib/asterisk/sounds/custom/
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MEDIA
+Value: /var/autocall/RUS/sorry_no_car
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: Guid
+Value: 1100
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: TNSettings
+Value: 192.168.1.3:8989
+
+Event: NewCallerid
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+
+Event: LocalBridge
+Privilege: call,all
+LocalOneChannel: Local/0639498374@autocall-0000003d;1
+LocalOneChannelState: 0
+LocalOneChannelStateDesc: Down
+LocalOneCallerIDNum: 0639498374
+LocalOneCallerIDName: <unknown>
+LocalOneConnectedLineNum: 0639498374
+LocalOneConnectedLineName: <unknown>
+LocalOneLanguage: en
+LocalOneAccountCode:
+LocalOneContext: autocall
+LocalOneExten: 0639498374
+LocalOnePriority: 1
+LocalOneUniqueid: 1607359938.2352
+LocalOneLinkedid: 1607359938.2352
+LocalTwoChannel: Local/0639498374@autocall-0000003d;2
+LocalTwoChannelState: 4
+LocalTwoChannelStateDesc: Ring
+LocalTwoCallerIDNum: 0639498374
+LocalTwoCallerIDName: <unknown>
+LocalTwoConnectedLineNum: 0639498374
+LocalTwoConnectedLineName: <unknown>
+LocalTwoLanguage: en
+LocalTwoAccountCode:
+LocalTwoContext: autocall
+LocalTwoExten: 0639498374
+LocalTwoPriority: 1
+LocalTwoUniqueid: 1607359938.2354
+LocalTwoLinkedid: 1607359938.2352
+Context: autocall
+Exten: 0639498374
+LocalOptimization: No
+
+Event: DialBegin
+Privilege: call,all
+DestChannel: Local/0639498374@autocall-0000003d;1
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 0639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: autocall
+DestExten: 0639498374
+DestPriority: 1
+DestUniqueid: 1607359938.2352
+DestLinkedid: 1607359938.2352
+DialString: 0639498374@autocall/n
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: CallIDChange
+AppFile: channel_internal_api.c
+AppFunction: ast_channel_callid_set
+AppLine: 775
+State: CallIDChange
+Channel: Local/0639498374@autocall-0000003d;2
+CallID: [C-0000008f]
+PriorCallID:
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: 0639498374
+Application: Goto
+AppData: 380639498374,1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: 380639498374
+Application: NoOp
+AppData: --AUTOCALL--
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 2
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: 380639498374
+Application: CELGenUserEvent
+AppData: AC_GUID,1100;192.168.1.3:8989
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 3
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: 380639498374
+Application: CELGenUserEvent
+AppData: GUID,1100;192.168.1.3:8989
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 4
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: 380639498374
+Application: CELGenUserEvent
+AppData: PBX_NUM,380631032686
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: 380639498374
+Application: Macro
+AppData: outbound_channel,channel16,0639498374,10,16
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_EXTEN
+Value: 380639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_CONTEXT
+Value: autocall
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_PRIORITY
+Value: 5
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG1
+Value: channel16
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG2
+Value: 0639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG3
+Value: 10
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG4
+Value: 16
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: NoOp
+AppData:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 2
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: CDR(src_num_out)=0639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 2
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 3
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: CDR(dst_num_out)=380639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 3
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 4
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: LENGTH_NUM_SRC=10
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 4
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: LENGTH_NUM_SRC
+Value: 10
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 4
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: LENGTH_NUM_DST=12
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: LENGTH_NUM_DST
+Value: 12
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 6
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Verbose
+AppData: LENGTH_NUM is: 10 and 12
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 6
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: SUBLENG_SRC=2
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: SUBLENG_SRC
+Value: 2
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 8
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: SUBLENG_DST=0
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 8
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: SUBLENG_DST
+Value: 0
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 8
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 9
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Verbose
+AppData: SUBLENG is: 2 and 0
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 9
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 10
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: FULL_CODE=380
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 10
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: FULL_CODE
+Value: 380
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 10
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 11
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: FULL_CODE_SRC=38
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 11
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: FULL_CODE_SRC
+Value: 38
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 11
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 12
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: FULL_CODE_DST=
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 12
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: FULL_CODE_DST
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 12
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 13
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Verbose
+AppData: FULL_CODE is: 38 and
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 13
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 14
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: CDR(src_num_out)=0639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 14
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 15
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: CDR(dst_num_out)=380639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 15
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 16
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: DST_NUM_OUT=380639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 16
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DST_NUM_OUT
+Value: 380639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 16
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 17
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: MixMonitor
+AppData: 1607359938.2354.wav,ab,/usr/local/sbin/extconv.sh 1607359938.2354.wav
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 17
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MIXMONITOR_FILENAME
+Value: /var/spool/asterisk/monitor/1607359938.2354.wav
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 17
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Dial
+AppData: SIP/channel16/160639498374,40,Tt
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALSTATUS
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALEDPEERNUMBER
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALEDPEERNAME
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ANSWEREDTIME
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALEDTIME
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALSTATUS
+Value: CHANUNAVAIL
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 0
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG1
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG2
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG3
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG4
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_EXTEN
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_CONTEXT
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_PRIORITY
+Value:
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 6
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: 380639498374
+Application: CELGenUserEvent
+AppData: PBX_NUM,380931601750
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: 380639498374
+Application: Macro
+AppData: outbound_channel,channel2,0639498374,10,2
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_EXTEN
+Value: 380639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_CONTEXT
+Value: autocall
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_PRIORITY
+Value: 7
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG1
+Value: channel2
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG2
+Value: 0639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG3
+Value: 10
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG4
+Value: 2
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: NoOp
+AppData:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 1
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 2
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: CDR(src_num_out)=0639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 2
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 3
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: CDR(dst_num_out)=380639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 3
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 4
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: LENGTH_NUM_SRC=10
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 4
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: LENGTH_NUM_SRC
+Value: 10
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 4
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: LENGTH_NUM_DST=12
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: LENGTH_NUM_DST
+Value: 12
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 5
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 6
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Verbose
+AppData: LENGTH_NUM is: 10 and 12
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 6
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: SUBLENG_SRC=2
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: SUBLENG_SRC
+Value: 2
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 8
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: SUBLENG_DST=0
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 8
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: SUBLENG_DST
+Value: 0
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 8
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 9
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Verbose
+AppData: SUBLENG is: 2 and 0
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 9
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 10
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: FULL_CODE=380
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 10
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: FULL_CODE
+Value: 380
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 10
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 11
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: FULL_CODE_SRC=38
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 11
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: FULL_CODE_SRC
+Value: 38
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 11
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 12
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: FULL_CODE_DST=
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 12
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: FULL_CODE_DST
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 12
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 13
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Verbose
+AppData: FULL_CODE is: 38 and
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 13
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 14
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: CDR(src_num_out)=0639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 14
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 15
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: CDR(dst_num_out)=380639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 15
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 16
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Set
+AppData: DST_NUM_OUT=380639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 16
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DST_NUM_OUT
+Value: 380639498374
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 16
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 17
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: MixMonitor
+AppData: 1607359938.2354.wav,ab,/usr/local/sbin/extconv.sh 1607359938.2354.wav
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 17
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MIXMONITOR_FILENAME
+Value: /var/spool/asterisk/monitor/1607359938.2354.wav
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 17
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 1
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Extension: s
+Application: Dial
+AppData: SIP/channel2/20639498374,40,Tt
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALSTATUS
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALEDPEERNUMBER
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALEDPEERNAME
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ANSWEREDTIME
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALEDTIME
+Value:
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: RTP_PORT_ALLOCATED
+AppFile: res_rtp_asterisk.c
+AppFunction: rtp_allocate_transport
+AppLine: 3496
+Port: 10334
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/channel2-000000ac
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: s
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: CallIDChange
+AppFile: channel_internal_api.c
+AppFunction: ast_channel_callid_set
+AppLine: 775
+State: CallIDChange
+Channel: SIP/channel2-000000ac
+CallID: [C-0000008f]
+PriorCallID:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: s
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Variable: SIPCALLID
+Value: 22b9e8361cd08e3e7f64723e7aecb48a@88.99.98.167:5060
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: CallIDChange
+AppFile: channel_internal_api.c
+AppFunction: ast_channel_callid_set
+AppLine: 775
+State: CallIDChange
+Channel: SIP/channel2-000000ac
+CallID: [C-0000008f]
+PriorCallID: [C-0000008f]
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Variable: DIALEDPEERNUMBER
+Value: channel2/20639498374
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Extension: 380639498374
+Application: AppDial
+AppData: (Outgoing Line)
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/channel2-000000ac
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/channel2-000000ac
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: RINGING
+
+Event: DialBegin
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+DestChannel: SIP/channel2-000000ac
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1607359938.2355
+DestLinkedid: 1607359938.2352
+DialString: channel2/20639498374
+
+Event: DialState
+Privilege: call,all
+DestChannel: Local/0639498374@autocall-0000003d;1
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 0639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: autocall
+DestExten: 0639498374
+DestPriority: 1
+DestUniqueid: 1607359938.2352
+DestLinkedid: 1607359938.2352
+DialStatus: PROGRESS
+
+Event: DialState
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+DestChannel: SIP/channel2-000000ac
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1607359938.2355
+DestLinkedid: 1607359938.2352
+DialStatus: PROGRESS
+
+Event: DialState
+Privilege: call,all
+DestChannel: Local/0639498374@autocall-0000003d;1
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 0639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: autocall
+DestExten: 0639498374
+DestPriority: 1
+DestUniqueid: 1607359938.2352
+DestLinkedid: 1607359938.2352
+DialStatus: PROGRESS
+
+Event: DialState
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+DestChannel: SIP/channel2-000000ac
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1607359938.2355
+DestLinkedid: 1607359938.2352
+DialStatus: PROGRESS
+
+Event: RTCPReceived
+Privilege: reporting,all
+Channel: SIP/channel2-000000ac
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+To: 10.10.10.241:10335
+From: 194.183.169.149:10001
+RTT: 0.0000
+SSRC: 0x83aba3da
+PT: 200(SR)
+ReportCount: 0
+SentNTP: 75098.718636
+SentRTP: 14169463
+SentPackets: 86
+SentOctets: 13760
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: STRICT_RTP_LEARN
+AppFile: res_rtp_asterisk.c
+AppFunction: ast_rtp_read
+AppLine: 6738
+Source: 194.183.169.149:10000
+
+Event: RTCPSent
+Privilege: reporting,all
+Channel: SIP/channel2-000000ac
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+To: 194.183.169.149:10001
+From: 10.10.10.241:10335
+SSRC: 0x3a3ef59d
+PT: 201(RR)
+ReportCount: 1
+Report0SourceSSRC: 0x1148b893
+Report0FractionLost: 0
+Report0CumulativeLost: 16711680
+Report0HighestSequence: 85
+Report0SequenceNumberCycles: 0
+Report0IAJitter: 5
+Report0LSR: 2749020152
+Report0DLSR: 3.4190
+
+Event: DialState
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+DestChannel: SIP/channel2-000000ac
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1607359938.2355
+DestLinkedid: 1607359938.2352
+DialStatus: PROGRESS
+
+Event: DialState
+Privilege: call,all
+DestChannel: Local/0639498374@autocall-0000003d;1
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 0639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: autocall
+DestExten: 0639498374
+DestPriority: 1
+DestUniqueid: 1607359938.2352
+DestLinkedid: 1607359938.2352
+DialStatus: PROGRESS
+
+Event: RTCPSent
+Privilege: reporting,all
+Channel: SIP/channel2-000000ac
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+To: 194.183.169.149:10001
+From: 10.10.10.241:10335
+SSRC: 0x3a3ef59d
+PT: 201(RR)
+ReportCount: 1
+Report0SourceSSRC: 0x1148b893
+Report0FractionLost: 0
+Report0CumulativeLost: 16711680
+Report0HighestSequence: 333
+Report0SequenceNumberCycles: 0
+Report0IAJitter: 10
+Report0LSR: 2749020152
+Report0DLSR: 8.4190
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: INUSE
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALSTATUS
+Value: ANSWER
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALEDPEERNAME
+Value: SIP/channel2-000000ac
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALEDPEERNUMBER
+Value: channel2/20639498374
+
+Event: DialEnd
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+DestChannel: SIP/channel2-000000ac
+DestChannelState: 6
+DestChannelStateDesc: Up
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten:
+DestPriority: 1
+DestUniqueid: 1607359938.2355
+DestLinkedid: 1607359938.2352
+DialStatus: ANSWER
+
+Event: Newstate
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Local/0639498374@autocall
+State: INUSE
+
+Event: BridgeCreate
+Privilege: call,all
+BridgeUniqueid: 67dac387-8168-4406-85a7-b31e1ad535a2
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Extension:
+Application: AppDial
+AppData: (Outgoing Line)
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: 67dac387-8168-4406-85a7-b31e1ad535a2
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: 67dac387-8168-4406-85a7-b31e1ad535a2
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Variable: BRIDGEPEER
+Value: Local/0639498374@autocall-0000003d;2
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: BRIDGEPEER
+Value: SIP/channel2-000000ac
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: BRIDGEPVTCALLID
+Value: 22b9e8361cd08e3e7f64723e7aecb48a@88.99.98.167:5060
+
+Event: Newstate
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Local/0639498374@autocall
+State: INUSE
+
+Event: DialEnd
+Privilege: call,all
+DestChannel: Local/0639498374@autocall-0000003d;1
+DestChannelState: 6
+DestChannelStateDesc: Up
+DestCallerIDNum: 0639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: autocall
+DestExten: 0639498374
+DestPriority: 1
+DestUniqueid: 1607359938.2352
+DestLinkedid: 1607359938.2352
+DialStatus: ANSWER
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: CallIDChange
+AppFile: channel_internal_api.c
+AppFunction: ast_channel_callid_set
+AppLine: 775
+State: CallIDChange
+Channel: Local/0639498374@autocall-0000003d;1
+CallID: [C-00000090]
+PriorCallID:
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 1
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Extension: s
+Application: NoOp
+AppData:
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 2
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Extension: s
+Application: Answer
+AppData:
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 3
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Extension: s
+Application: WaitExten
+AppData: 2
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 4
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Extension: s
+Application: MixMonitor
+AppData: 1607359938.2352.wav,a
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 4
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Variable: MIXMONITOR_FILENAME
+Value: /var/spool/asterisk/monitor/1607359938.2352.wav
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 5
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Extension: s
+Application: CELGenUserEvent
+AppData: AC_PLAY_TEXT
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 6
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Extension: s
+Application: Playback
+AppData: /var/autocall/RUS/sorry_no_car
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: PLAYBACK
+AppFile: file.c
+AppFunction: ast_streamfile
+AppLine: 1285
+Message: /var/autocall/RUS/sorry_no_car
+Channel: Local/0639498374@autocall-0000003d;1
+
+Event: RTCPSent
+Privilege: reporting,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+To: 194.183.169.149:10001
+From: 10.10.10.241:10335
+SSRC: 0x5c6cc189
+PT: 200(SR)
+ReportCount: 1
+SentNTP: 1607359954.157737
+SentRTP: 7680
+SentPackets: 48
+SentOctets: 7680
+Report0SourceSSRC: 0x1148b893
+Report0FractionLost: 0
+Report0CumulativeLost: 16711680
+Report0HighestSequence: 580
+Report0SequenceNumberCycles: 0
+Report0IAJitter: 447
+Report0LSR: 2749020152
+Report0DLSR: 13.4180
+
+Event: RTCPSent
+Privilege: reporting,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+To: 194.183.169.149:10001
+From: 10.10.10.241:10335
+SSRC: 0x5c6cc189
+PT: 200(SR)
+ReportCount: 1
+SentNTP: 1607359959.159048
+SentRTP: 47080
+SentPackets: 290
+SentOctets: 46400
+Report0SourceSSRC: 0x1148b893
+Report0FractionLost: 0
+Report0CumulativeLost: 16711680
+Report0HighestSequence: 830
+Report0SequenceNumberCycles: 0
+Report0IAJitter: 8
+Report0LSR: 2749020152
+Report0DLSR: 18.4200
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 6
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Variable: PLAYBACKSTATUS
+Value: SUCCESS
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 7
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Extension: s
+Application: WaitExten
+AppData: 1
+
+Event: ChallengeSent
+Privilege: security,all
+EventTV: 2020-12-07T18:52:41.838+0200
+Severity: Informational
+Service: SIP
+EventVersion: 1
+AccountID: channel2
+SessionID: 0x7ff29405a180
+LocalAddress: IPV4/UDP/88.99.98.167/5060
+RemoteAddress: IPV4/UDP/194.183.169.149/5045
+Challenge: 4b1aae22
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 8
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Extension: s
+Application: Playback
+AppData: /var/autocall/RUS/sorry_no_car
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: PLAYBACK
+AppFile: file.c
+AppFunction: ast_streamfile
+AppLine: 1285
+Message: /var/autocall/RUS/sorry_no_car
+Channel: Local/0639498374@autocall-0000003d;1
+
+Event: SuccessfulAuth
+Privilege: security,all
+EventTV: 2020-12-07T18:52:41.956+0200
+Severity: Informational
+Service: SIP
+EventVersion: 1
+AccountID: channel2
+SessionID: 0x7ff29405a180
+LocalAddress: IPV4/UDP/88.99.98.167/5060
+RemoteAddress: IPV4/UDP/194.183.169.149/5045
+UsingPassword: 1
+
+Event: PeerStatus
+Privilege: system,all
+ChannelType: SIP
+Peer: SIP/channel2
+PeerStatus: Registered
+Address: 194.183.169.149:5045
+
+Event: RTCPSent
+Privilege: reporting,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+To: 194.183.169.149:10001
+From: 10.10.10.241:10335
+SSRC: 0x5c6cc189
+PT: 200(SR)
+ReportCount: 1
+SentNTP: 1607359964.157998
+SentRTP: 87128
+SentPackets: 483
+SentOctets: 77280
+Report0SourceSSRC: 0x1148b893
+Report0FractionLost: 0
+Report0CumulativeLost: 16711680
+Report0HighestSequence: 1080
+Report0SequenceNumberCycles: 0
+Report0IAJitter: 13
+Report0LSR: 2749020152
+Report0DLSR: 23.4190
+
+Event: RTCPReceived
+Privilege: reporting,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+To: 10.10.10.241:10335
+From: 194.183.169.149:10001
+RTT: 0.0000
+SSRC: 0x83aba3f4
+PT: 200(SR)
+ReportCount: 1
+SentNTP: 75124.051321
+SentRTP: 14651639
+SentPackets: 1350
+SentOctets: 216000
+Report0SourceSSRC: 0x5c6cc189
+Report0FractionLost: 0
+Report0CumulativeLost: 1
+Report0HighestSequence: 30126
+Report0SequenceNumberCycles: 0
+Report0IAJitter: 268385218
+Report0LSR: 0
+Report0DLSR: 0.0000
+
+Event: RTCPSent
+Privilege: reporting,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+To: 194.183.169.149:10001
+From: 10.10.10.241:10335
+SSRC: 0x5c6cc189
+PT: 200(SR)
+ReportCount: 1
+SentNTP: 1607359969.158900
+SentRTP: 127128
+SentPackets: 733
+SentOctets: 117280
+Report0SourceSSRC: 0x1148b893
+Report0FractionLost: 0
+Report0CumulativeLost: 16711680
+Report0HighestSequence: 1330
+Report0SequenceNumberCycles: 0
+Report0IAJitter: 5
+Report0LSR: 2750680355
+Report0DLSR: 3.0550
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 8
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Variable: PLAYBACKSTATUS
+Value: SUCCESS
+
+Event: Newexten
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 9
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Extension: s
+Application: Hangup
+AppData:
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 9
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Cause: 16
+
+Event: HangupRequest
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Cause: 16
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: BRIDGEPEER
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: BRIDGEPVTCALLID
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Variable: BRIDGEPEER
+Value:
+
+Event: Hangup
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;1
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: s
+Priority: 9
+Uniqueid: 1607359938.2352
+Linkedid: 1607359938.2352
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: 67dac387-8168-4406-85a7-b31e1ad535a2
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ANSWEREDTIME
+Value: 18
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALEDTIME
+Value: 30
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: DIALSTATUS
+Value: ANSWER
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: 67dac387-8168-4406-85a7-b31e1ad535a2
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+
+Event: BridgeDestroy
+Privilege: call,all
+BridgeUniqueid: 67dac387-8168-4406-85a7-b31e1ad535a2
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Variable: RTPAUDIOQOS
+Value: ssrc=1565955558;themssrc=289978515;lp=4294901760;rxjitter=4095.000000;rxcount=1518;txjitter=0.000608;txcount=754;rlp=1;rtt=0.000000
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Variable: RTPAUDIOQOSJITTER
+Value: minrxjitter=0.000007;maxrxjitter=0.888113;avgrxjitter=0.024387;stdevrxjitter=inf;reported_minjitter=268385218.000000;reported_maxjitter=268385218.000000;reported_avgjitter=268385218.000000;reported_stdevjitter=268385218.000000;
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Variable: RTPAUDIOQOSLOSS
+Value: minrxlost=0.000000;maxrxlost=0.000000;avgrxlost=0.000000;stdevrxlost=0.000000;reported_minlost=1.000000;reported_maxlost=1.000000;reported_avglost=1.000000;reported_stdevlost=1.000000;
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Variable: RTPAUDIOQOSRTT
+Value: minrtt=0.000000;maxrtt=0.000000;avgrtt=0.000000;stdevrtt=0.000000;
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Variable: RTPAUDIOQOS
+Value: ssrc=1565955558;themssrc=289978515;lp=4294901760;rxjitter=4095.000000;rxcount=1518;txjitter=0.000608;txcount=754;rlp=1;rtt=0.000000
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_DEPTH
+Value: 0
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG1
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG2
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG3
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: ARG4
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_EXTEN
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_CONTEXT
+Value:
+
+Event: VarSet
+Privilege: dialplan,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Variable: MACRO_PRIORITY
+Value:
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/channel2-000000ac
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607359938.2355
+Linkedid: 1607359938.2352
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Cause: 16
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Local/0639498374@autocall
+State: NOT_INUSE
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: Local/0639498374@autocall-0000003d;2
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: autocall
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607359938.2354
+Linkedid: 1607359938.2352
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Local/0639498374@autocall
+State: NOT_INUSE
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: MIXMONITOR_END
+AppFile: app_mixmonitor.c
+AppFunction: mixmonitor_thread
+AppLine: 777
+File: /var/spool/asterisk/monitor/1607359938.2352
+
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: MIXMONITOR_END
+AppFile: app_mixmonitor.c
+AppFunction: mixmonitor_thread
+AppLine: 777
+File: /var/spool/asterisk/monitor/1607359938.2354
+
+
+Event: TestEvent
+Privilege: reporting,all
+Type: StateChange
+State: MIXMONITOR_END
+AppFile: app_mixmonitor.c
+AppFunction: mixmonitor_thread
+AppLine: 777
+File: /var/spool/asterisk/monitor/1607359938.2354
