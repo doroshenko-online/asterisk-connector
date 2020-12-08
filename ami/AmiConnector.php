@@ -41,7 +41,7 @@ class AmiConnector
     }
 
     /**
-     * @return AmiConnector|null
+     * @return AmiConnector
      */
     public static function getConnectorOrCreate(): AmiConnector
     {
@@ -90,7 +90,7 @@ class AmiConnector
         if (is_null($this->auth) && ! is_null(self::$fp))
         {
             for($i = 0; $i < 4; $i++) {
-                if (stripos(fgets(self::$fp, 4096), 'Authentication accepted') !== false) {
+                if (str_contains(fgets(self::$fp, 4096), 'Authentication accepted') !== false) {
                     return true;
                 }
             }
