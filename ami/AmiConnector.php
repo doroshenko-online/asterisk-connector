@@ -22,7 +22,7 @@ class AmiConnector
     private $errno;
     private $erst;
     private static $fp;
-    private $auth;
+    public $auth;
 
     private function init()
     {
