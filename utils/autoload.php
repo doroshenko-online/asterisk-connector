@@ -1,6 +1,7 @@
 <?php
 
 require_once 'config.php';
+require_once 'utils.php';
 
 spl_autoload_register(static function($classname)
 {

@@ -2,22 +2,18 @@
 
 namespace utils;
 
-use RuntimeException;
+use Exception;
 
 class Logger
 {
-    private static string $logDir = 'Logs/';
+    use TSingleton;
+
     private static $logFile;
-    private static ?Logger $instance = null;
 
-    private function __construct()
+    private function init()
     {
-    }
-
-    private function init() : void
-    {
-        $filename = Utils::getLogFIleName();
-        $fp = self::$logDir.$filename;
+        $filename = getLogFIleName();
+        $fp = LOGS.$filename;
         self::$logFile = fopen($fp, 'ab');
     }
 
@@ -26,7 +22,7 @@ class Logger
         fclose(self::$logFile);
     }
 
-    public static function getLoggerOrCreate() : ?Logger
+    public static function getInstance()
     {
         if (is_null(self::$instance))
         {
@@ -40,11 +36,10 @@ class Logger
     {
         if (is_null(self::$instance))
         {
-            print 'Сначала необходимо создать экземпляр объекта логгера';
-            throw new RuntimeException('Сначала необходимо создать экземпляр объекта логгера');
+            throw new Exception('Сначала необходимо создать экземпляр объекта логгера', 500);
         }
 
-        if (!file_exists(self::$logDir.Utils::getLogFIleName()))
+        if (!file_exists(LOGS.getLogFIleName()))
         {
             self::$instance->fileClose();
             self::$instance->init();
@@ -55,12 +50,6 @@ class Logger
         switch (LOG_LEVEL) {
             case ERROR:
                 if ($level === ERROR) {
-                    $write = true;
-                }
-                break;
-            case WARNING:
-                if ($level === WARNING)
-                {
                     $write = true;
                 }
                 break;
@@ -82,7 +71,7 @@ class Logger
         }
         if ($write)
         {
-            $currDateTime = Utils::getCurrentDateTime();
+            $currDateTime = getCurrentDateTime();
             $record = "[$currDateTime][$level] $message".PHP_EOL;
             fwrite(self::$logFile,$record);
             print $message.PHP_EOL;

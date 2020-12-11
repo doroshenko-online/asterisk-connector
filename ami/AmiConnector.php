@@ -5,7 +5,7 @@ namespace ami;
 
 use Exception;
 use utils\Logger;
-use RuntimeException;
+use utils\TSingleton;
 
 /**
  * Class AmiConnector
@@ -13,26 +13,18 @@ use RuntimeException;
  */
 class AmiConnector
 {
-    private string $host;
-    private string $port;
-    private string $username;
-    private string $password;
-    private ?int $errno;
-    private ?string $erst;
+    use TSingleton;
+
+    private $host;
+    private $port;
+    private $username;
+    private $password;
+    private $errno;
+    private $erst;
     private static $fp;
-    private ?bool $auth = null;
+    private $auth;
 
-    private static ?AmiConnector $instance = null;
-
-    /**
-     * AmiConnector private constructor.
-     */
-    private function __construct()
-    {
-
-    }
-
-    private function init(): void
+    private function init()
     {
         $this->host = AMI_SETTINGS['host'];
         $this->port = AMI_SETTINGS['port'];
@@ -40,37 +32,12 @@ class AmiConnector
         $this->password = AMI_SETTINGS['secret'];
     }
 
-    /**
-     * @return AmiConnector
-     */
-    public static function getConnectorOrCreate(): AmiConnector
-    {
-        if(is_null(self::$instance)){
-            try
-            {
-                self::$instance = new self();
-            } catch (Exception $e)
-            {
-                Logger::log(ERROR, $e);
-                die();
-            }
-            Logger::log(INFO, 'Инициализация коннектора...');
-            self::$instance->init();
-        }
-        return self::$instance;
-    }
-
     public function getSocketOrCreateAndAuth()
     {
+        $this->init();
         if(is_null(self::$fp)){
             Logger::log(INFO, 'Создание сокета...');
-            try {
-                self::$fp = stream_socket_client($this->host . ':' . $this->port, $this->errno, $this->erst);
-            } catch (Exception $e)
-            {
-                Logger::log(ERROR, $e);
-                die();
-            }
+            self::$fp = stream_socket_client($this->host . ':' . $this->port, $this->errno, $this->erst);
             Logger::log(INFO, 'Соединение с AMI установлено');
             fwrite(self::$fp, "Action: Login\r\n");
             fwrite(self::$fp, "Username: ".$this->username."\r\n");
@@ -78,14 +45,14 @@ class AmiConnector
             $this->auth = $this->checkAuth();
             if (! $this->auth) {
                 $this->destructConnector();
-                throw new RuntimeException('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения');
+                throw new Exception('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения', 401);
             }
             Logger::log(INFO, 'Авторизация на AMI прошла успешно');
         }
         return self::$fp;
     }
 
-    private function checkAuth(): bool
+    private function checkAuth()
     {
         if (is_null($this->auth) && ! is_null(self::$fp))
         {
@@ -99,13 +66,13 @@ class AmiConnector
 
         if(is_null(self::$fp) && is_null($this->auth))
         {
-            throw new RuntimeException("Сначала необходимо открыть соединение с сокетом AMI");
+            throw new Exception("Сначала необходимо открыть соединение с сокетом AMI", 500);
         }
 
         return $this->auth;
     }
 
-    public function destructConnector(): void
+    public function destructConnector()
     {
         if (! is_null(self::$fp) && ! is_null(self::$instance)) {
             fwrite(self::$fp, "Action: Logoff\r\n\r\n");

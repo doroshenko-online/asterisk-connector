@@ -11,7 +11,7 @@ date_default_timezone_set($TIMEZONE);
 define('AMI_SETTINGS', [
     'host' => 'localhost',
     'port' => '7462',
-    'user' => 'admin',
+    'user' => 'connector',
     'secret' => 'eLmfSg'
 ]);
 
@@ -21,7 +21,6 @@ define('AMI_SETTINGS', [
 
 define('OFF', 'OFF');
 define('ERROR', 'ERROR');
-define('WARNING', 'WARNING');
 define('INFO', 'INFO');
 define('TRACE', 'TRACE');
 define('DEBUG', 'DEBUG');
@@ -32,3 +31,5 @@ TRACE - all levels without DEBUG level
 */
 
 define('LOG_LEVEL', DEBUG);
+
+define("LOGS", 'Logs'.DIRECTORY_SEPARATOR);
