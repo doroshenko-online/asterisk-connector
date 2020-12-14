@@ -1,0 +1,1340 @@
+----------------- исходящий звонок отвечен с двойным трансфером(отвечен, 201->203->202) --------------------
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: INUSE
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 0639498374
+Priority: 1
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: s
+Priority: 1
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: dimad
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: dimad
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+DestChannel: SIP/channel2-00000041
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 201
+DestConnectedLineName: dimad
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1607957907.510
+DestLinkedid: 1607957907.505
+DialString: channel2/20639498374
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: RINGING
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+DestChannel: SIP/channel2-00000041
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 201
+DestConnectedLineName: dimad
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1607957907.510
+DestLinkedid: 1607957907.505
+DialStatus: PROGRESS
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+DestChannel: SIP/channel2-00000041
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 201
+DestConnectedLineName: dimad
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1607957907.510
+DestLinkedid: 1607957907.505
+DialStatus: PROGRESS
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+DestChannel: SIP/channel2-00000041
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 201
+DestConnectedLineName: dimad
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten: 380639498374
+DestPriority: 1
+DestUniqueid: 1607957907.510
+DestLinkedid: 1607957907.505
+DialStatus: PROGRESS
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: INUSE
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: dimad
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380639498374
+Priority: 1
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+DestChannel: SIP/channel2-00000041
+DestChannelState: 6
+DestChannelStateDesc: Up
+DestCallerIDNum: 380639498374
+DestCallerIDName: <unknown>
+DestConnectedLineNum: 201
+DestConnectedLineName: dimad
+DestLanguage: en
+DestAccountCode:
+DestContext: incoming_calls
+DestExten:
+DestPriority: 1
+DestUniqueid: 1607957907.510
+DestLinkedid: 1607957907.505
+DialStatus: ANSWER
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+
+Event: BridgeCreate
+Privilege: call,all
+BridgeUniqueid: 360d27d4-b270-43c1-b866-cc51e7b4ee19
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: 360d27d4-b270-43c1-b866-cc51e7b4ee19
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: dimad
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten:
+Priority: 1
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: 360d27d4-b270-43c1-b866-cc51e7b4ee19
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+Channel: SIP/201-00000040
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+
+Event: Unhold
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+
+Event: BlindTransfer
+Privilege: call,all
+Result: Success
+TransfererChannel: SIP/201-00000040
+TransfererChannelState: 6
+TransfererChannelStateDesc: Up
+TransfererCallerIDNum: 201
+TransfererCallerIDName: dimad
+TransfererConnectedLineNum: <unknown>
+TransfererConnectedLineName: <unknown>
+TransfererLanguage: en
+TransfererAccountCode:
+TransfererContext: macro-outbound_channel
+TransfererExten: s
+TransfererPriority: 18
+TransfererUniqueid: 1607957907.505
+TransfererLinkedid: 1607957907.505
+TransfereeChannel: SIP/channel2-00000041
+TransfereeChannelState: 6
+TransfereeChannelStateDesc: Up
+TransfereeCallerIDNum: 380639498374
+TransfereeCallerIDName: <unknown>
+TransfereeConnectedLineNum: 201
+TransfereeConnectedLineName: dimad
+TransfereeLanguage: en
+TransfereeAccountCode:
+TransfereeContext: incoming_calls
+TransfereeExten:
+TransfereePriority: 1
+TransfereeUniqueid: 1607957907.510
+TransfereeLinkedid: 1607957907.505
+BridgeUniqueid: 360d27d4-b270-43c1-b866-cc51e7b4ee19
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+IsExternal: Yes
+Context: office_1
+Extension: 203
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: 360d27d4-b270-43c1-b866-cc51e7b4ee19
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: dimad
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 1
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/203-00000042
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: agent-203
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: s
+Priority: 1
+Uniqueid: 1607957936.519
+Linkedid: 1607957907.505
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/203-00000042
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 203
+CallerIDName: dimad
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 1
+Uniqueid: 1607957936.519
+Linkedid: 1607957907.505
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/203-00000042
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 203
+CallerIDName: dimad
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 1
+Uniqueid: 1607957936.519
+Linkedid: 1607957907.505
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/203
+State: RINGING
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: dimad
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+DestChannel: SIP/203-00000042
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 203
+DestCallerIDName: dimad
+DestConnectedLineNum: 380639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 203
+DestPriority: 1
+DestUniqueid: 1607957936.519
+DestLinkedid: 1607957907.505
+DialString: 203
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-203
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: 360d27d4-b270-43c1-b866-cc51e7b4ee19
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+Channel: SIP/201-00000040
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-outbound_channel
+Exten: s
+Priority: 18
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+
+Event: BridgeDestroy
+Privilege: call,all
+BridgeUniqueid: 360d27d4-b270-43c1-b866-cc51e7b4ee19
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380639498374
+Priority: 7
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+Cause: 16
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/201-00000040
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: h
+Priority: 3
+Uniqueid: 1607957907.505
+Linkedid: 1607957907.505
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/203-00000042
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: 203
+CallerIDName: dimad
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 1
+Uniqueid: 1607957936.519
+Linkedid: 1607957907.505
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/203
+State: RINGING
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-203
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+DestChannel: SIP/203-00000042
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: 203
+DestCallerIDName: dimad
+DestConnectedLineNum: 380639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 203
+DestPriority: 1
+DestUniqueid: 1607957936.519
+DestLinkedid: 1607957907.505
+DialStatus: RINGING
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/203
+State: INUSE
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/203-00000042
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 203
+CallerIDName: dimad
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 1
+Uniqueid: 1607957936.519
+Linkedid: 1607957907.505
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-203
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+DestChannel: SIP/203-00000042
+DestChannelState: 6
+DestChannelStateDesc: Up
+DestCallerIDNum: 203
+DestCallerIDName: dimad
+DestConnectedLineNum: 380639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 203
+DestPriority: 1
+DestUniqueid: 1607957936.519
+DestLinkedid: 1607957907.505
+DialStatus: ANSWER
+
+Event: BridgeCreate
+Privilege: call,all
+BridgeUniqueid: a8c884f0-6b29-4822-8075-152b334a690d
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: a8c884f0-6b29-4822-8075-152b334a690d
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: SIP/203-00000042
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 203
+CallerIDName: dimad
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 1
+Uniqueid: 1607957936.519
+Linkedid: 1607957907.505
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: a8c884f0-6b29-4822-8075-152b334a690d
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-203
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: Unhold
+Privilege: call,all
+Channel: SIP/203-00000042
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 203
+CallerIDName: dimad
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 1
+Uniqueid: 1607957936.519
+Linkedid: 1607957907.505
+
+Event: BlindTransfer
+Privilege: call,all
+Result: Success
+TransfererChannel: SIP/203-00000042
+TransfererChannelState: 6
+TransfererChannelStateDesc: Up
+TransfererCallerIDNum: 203
+TransfererCallerIDName: dimad
+TransfererConnectedLineNum: 380639498374
+TransfererConnectedLineName: <unknown>
+TransfererLanguage: en
+TransfererAccountCode:
+TransfererContext: office_1
+TransfererExten: 203
+TransfererPriority: 1
+TransfererUniqueid: 1607957936.519
+TransfererLinkedid: 1607957907.505
+TransfereeChannel: SIP/channel2-00000041
+TransfereeChannelState: 6
+TransfereeChannelStateDesc: Up
+TransfereeCallerIDNum: 380639498374
+TransfereeCallerIDName: <unknown>
+TransfereeConnectedLineNum: 201
+TransfereeConnectedLineName: agent-203
+TransfereeLanguage: en
+TransfereeAccountCode:
+TransfereeContext: office_1
+TransfereeExten: 203
+TransfereePriority: 4
+TransfereeUniqueid: 1607957907.510
+TransfereeLinkedid: 1607957907.505
+BridgeUniqueid: a8c884f0-6b29-4822-8075-152b334a690d
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+IsExternal: Yes
+Context: office_1
+Extension: 202
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: a8c884f0-6b29-4822-8075-152b334a690d
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: SIP/203-00000042
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 203
+CallerIDName: dimad
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 1
+Uniqueid: 1607957936.519
+Linkedid: 1607957907.505
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/203
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/203-00000042
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 203
+CallerIDName: dimad
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 203
+Priority: 1
+Uniqueid: 1607957936.519
+Linkedid: 1607957907.505
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: a8c884f0-6b29-4822-8075-152b334a690d
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-203
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 1
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: BridgeDestroy
+Privilege: call,all
+BridgeUniqueid: a8c884f0-6b29-4822-8075-152b334a690d
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/202-00000043
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: s
+Priority: 1
+Uniqueid: 1607957952.535
+Linkedid: 1607957907.505
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/202-00000043
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 202
+CallerIDName: agent-203
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 1
+Uniqueid: 1607957952.535
+Linkedid: 1607957907.505
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/202-00000043
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 202
+CallerIDName: agent-203
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 1
+Uniqueid: 1607957952.535
+Linkedid: 1607957907.505
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: RINGING
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-203
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+DestChannel: SIP/202-00000043
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: 202
+DestCallerIDName: agent-203
+DestConnectedLineNum: 380639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 202
+DestPriority: 1
+DestUniqueid: 1607957952.535
+DestLinkedid: 1607957907.505
+DialString: 202
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-202
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/202-00000043
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: 202
+CallerIDName: agent-203
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 1
+Uniqueid: 1607957952.535
+Linkedid: 1607957907.505
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: RINGING
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-202
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+DestChannel: SIP/202-00000043
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: 202
+DestCallerIDName: agent-203
+DestConnectedLineNum: 380639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 202
+DestPriority: 1
+DestUniqueid: 1607957952.535
+DestLinkedid: 1607957907.505
+DialStatus: RINGING
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: INUSE
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/202-00000043
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-203
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 1
+Uniqueid: 1607957952.535
+Linkedid: 1607957907.505
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-202
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+DestChannel: SIP/202-00000043
+DestChannelState: 6
+DestChannelStateDesc: Up
+DestCallerIDNum: 202
+DestCallerIDName: agent-203
+DestConnectedLineNum: 380639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 202
+DestPriority: 1
+DestUniqueid: 1607957952.535
+DestLinkedid: 1607957907.505
+DialStatus: ANSWER
+
+Event: BridgeCreate
+Privilege: call,all
+BridgeUniqueid: 7c0a2fa6-6a25-4eaa-8446-c004b5e37f54
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: 7c0a2fa6-6a25-4eaa-8446-c004b5e37f54
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: SIP/202-00000043
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-203
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 1
+Uniqueid: 1607957952.535
+Linkedid: 1607957907.505
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: 7c0a2fa6-6a25-4eaa-8446-c004b5e37f54
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-202
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: HangupRequest
+Privilege: call,all
+Channel: SIP/202-00000043
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-203
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 1
+Uniqueid: 1607957952.535
+Linkedid: 1607957907.505
+Cause: 16
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: 7c0a2fa6-6a25-4eaa-8446-c004b5e37f54
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: SIP/202-00000043
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-203
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 1
+Uniqueid: 1607957952.535
+Linkedid: 1607957907.505
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/202-00000043
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-203
+ConnectedLineNum: 380639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 1
+Uniqueid: 1607957952.535
+Linkedid: 1607957907.505
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: NOT_INUSE
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: 7c0a2fa6-6a25-4eaa-8446-c004b5e37f54
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-202
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-202
+Language: en
+AccountCode:
+Context: office_1
+Exten: 202
+Priority: 4
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+Cause: 16
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/channel2-00000041
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 380639498374
+CallerIDName: <unknown>
+ConnectedLineNum: 201
+ConnectedLineName: agent-202
+Language: en
+AccountCode:
+Context: office_1
+Exten: h
+Priority: 3
+Uniqueid: 1607957907.510
+Linkedid: 1607957907.505
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: BridgeDestroy
+Privilege: call,all
+BridgeUniqueid: 7c0a2fa6-6a25-4eaa-8446-c004b5e37f54
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none

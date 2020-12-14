@@ -4,9 +4,10 @@
 require_once 'utils/autoload.php';
 
 use ami\AmiConnector;
+use utils\ErrorHandlers;
 use utils\Logger;
 
-new \utils\ErrorHandlers();
+new ErrorHandlers();
 
 Logger::getInstance();
 $connector = AmiConnector::getInstance();

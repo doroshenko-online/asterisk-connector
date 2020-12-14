@@ -1,0 +1,517 @@
+------------------------ внутренняя конференция(владелец вышел последним) -----------------------------------
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: INUSE
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/201-00000048
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 1
+Uniqueid: 1607969151.1096
+Linkedid: 1607969151.1096
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/201-00000048
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 1
+Uniqueid: 1607969151.1096
+Linkedid: 1607969151.1096
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/201-00000048
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 2
+Uniqueid: 1607969151.1096
+Linkedid: 1607969151.1096
+
+Event: BridgeCreate
+Privilege: call,all
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: confbridge:1202
+State: INUSE
+
+Event: ConfbridgeRecord
+Privilege: call,all
+Conference: 1202
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+
+Event: ConfbridgeStart
+Privilege: call,all
+Conference: 1202
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 3
+BridgeVideoSourceMode: none
+Channel: SIP/201-00000048
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969151.1096
+Linkedid: 1607969151.1096
+
+Event: ConfbridgeJoin
+Privilege: call,all
+Conference: 1202
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 3
+BridgeVideoSourceMode: none
+Channel: SIP/201-00000048
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969151.1096
+Linkedid: 1607969151.1096
+Admin: No
+Muted: No
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: INUSE
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/202-00000049
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 202
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 1
+Uniqueid: 1607969155.1106
+Linkedid: 1607969155.1106
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/202-00000049
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 202
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 1
+Uniqueid: 1607969155.1106
+Linkedid: 1607969155.1106
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/202-00000049
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 2
+Uniqueid: 1607969155.1106
+Linkedid: 1607969155.1106
+
+Event: BridgeEnter
+Privilege: call,all
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 4
+BridgeVideoSourceMode: none
+Channel: SIP/202-00000049
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969155.1106
+Linkedid: 1607969155.1106
+
+Event: ConfbridgeJoin
+Privilege: call,all
+Conference: 1202
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 4
+BridgeVideoSourceMode: none
+Channel: SIP/202-00000049
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969155.1106
+Linkedid: 1607969155.1106
+Admin: No
+Muted: No
+
+Event: ConfbridgeLeave
+Privilege: call,all
+Conference: 1202
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 4
+BridgeVideoSourceMode: none
+Channel: SIP/202-00000049
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969155.1106
+Linkedid: 1607969155.1106
+Admin: No
+
+Event: HangupRequest
+Privilege: call,all
+Channel: SIP/202-00000049
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969155.1106
+Linkedid: 1607969155.1106
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 3
+BridgeVideoSourceMode: none
+Channel: SIP/202-00000049
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969155.1106
+Linkedid: 1607969155.1106
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: SIP/202-00000049
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969155.1106
+Linkedid: 1607969155.1106
+Cause: 16
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/202-00000049
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 202
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: h
+Priority: 3
+Uniqueid: 1607969155.1106
+Linkedid: 1607969155.1106
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: NOT_INUSE
+
+Event: ConfbridgeLeave
+Privilege: call,all
+Conference: 1202
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 3
+BridgeVideoSourceMode: none
+Channel: SIP/201-00000048
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969151.1096
+Linkedid: 1607969151.1096
+Admin: No
+
+Event: HangupRequest
+Privilege: call,all
+Channel: SIP/201-00000048
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969151.1096
+Linkedid: 1607969151.1096
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+Channel: SIP/201-00000048
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969151.1096
+Linkedid: 1607969151.1096
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: confbridge:1202
+State: NOT_INUSE
+
+Event: ConfbridgeEnd
+Privilege: call,all
+Conference: 1202
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 2
+BridgeVideoSourceMode: none
+
+Event: ConfbridgeStopRecord
+Privilege: call,all
+Conference: 1202
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: CBAnn/1202
+State: UNKNOWN
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: CBAnn/1202
+State: UNKNOWN
+
+Event: BridgeDestroy
+Privilege: call,all
+BridgeUniqueid: aa07723e-ac74-47f3-8dce-935a58895252
+BridgeType: base
+BridgeTechnology: softmix
+BridgeCreator: ConfBridge
+BridgeName: 1202
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: SIP/201-00000048
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: 1202
+Priority: 12
+Uniqueid: 1607969151.1096
+Linkedid: 1607969151.1096
+Cause: 16
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/201-00000048
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 201
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: ru
+AccountCode:
+Context: office_1
+Exten: h
+Priority: 3
+Uniqueid: 1607969151.1096
+Linkedid: 1607969151.1096
+Cause: 16
+Cause-txt: Normal Clearing

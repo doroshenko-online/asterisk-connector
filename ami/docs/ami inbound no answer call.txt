@@ -1,0 +1,2184 @@
+1. -------------- входящий не отвеченный вызов(202-й отбил вызов, 201-й не принял по таймауту) -------------------
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: INUSE
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: 380639498374
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 380639498374
+CallerIDName: 380639498374
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: 380639498374
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-check_normalization_inbound
+Exten: s
+Priority: 22
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-check_blacklist
+Exten: s
+Priority: 8
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 3
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test_avail
+State: INUSE
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test
+State: RINGING
+
+Event: MusicOnHoldStart
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+Class: default
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/201-0000001b
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: s
+Priority: 1
+Uniqueid: 1607956231.222
+Linkedid: 1607956230.217
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: RINGING
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test_avail
+State: NOT_INUSE
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+DestChannel: SIP/201-0000001b
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: <unknown>
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten:
+DestPriority: 1
+DestUniqueid: 1607956231.222
+DestLinkedid: 1607956230.217
+DialString: SIP/201
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/202-0000001c
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: s
+Priority: 1
+Uniqueid: 1607956231.224
+Linkedid: 1607956230.217
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: RINGING
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+DestChannel: SIP/202-0000001c
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: <unknown>
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten:
+DestPriority: 1
+DestUniqueid: 1607956231.224
+DestLinkedid: 1607956230.217
+DialString: SIP/202
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/201-0000001b
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956231.222
+Linkedid: 1607956230.217
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/201-0000001b
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956231.222
+Linkedid: 1607956230.217
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: RINGING
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+DestChannel: SIP/201-0000001b
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956231.222
+DestLinkedid: 1607956230.217
+DialStatus: RINGING
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/202-0000001c
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956231.224
+Linkedid: 1607956230.217
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/202-0000001c
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956231.224
+Linkedid: 1607956230.217
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: RINGING
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+DestChannel: SIP/202-0000001c
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956231.224
+DestLinkedid: 1607956230.217
+DialStatus: RINGING
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+DestChannel: SIP/202-0000001c
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956231.224
+DestLinkedid: 1607956230.217
+DialStatus: BUSY
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/202-0000001c
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956231.224
+Linkedid: 1607956230.217
+Cause: 17
+Cause-txt: User busy
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+DestChannel: SIP/201-0000001b
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956231.222
+DestLinkedid: 1607956230.217
+DialStatus: NOANSWER
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+DestChannel: SIP/201-0000001b
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956231.222
+DestLinkedid: 1607956230.217
+DialStatus: CANCEL
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/201-0000001b
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956231.222
+Linkedid: 1607956230.217
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: MusicOnHoldStop
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test
+State: NOT_INUSE
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 7
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+Cause: 16
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/channel2-0000001a
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 7
+Uniqueid: 1607956230.217
+Linkedid: 1607956230.217
+Cause: 16
+Cause-txt: Normal Clearing
+
+
+
+2. -------------- входящий не отвеченный вызов(202-й и 201-й отбили вызов) -------------------
+
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: INUSE
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: 380639498374
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 380639498374
+CallerIDName: 380639498374
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: 380639498374
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-check_normalization_inbound
+Exten: s
+Priority: 22
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-check_blacklist
+Exten: s
+Priority: 8
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 3
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test_avail
+State: INUSE
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test
+State: RINGING
+
+Event: MusicOnHoldStart
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+Class: default
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/201-0000001e
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: s
+Priority: 1
+Uniqueid: 1607956308.241
+Linkedid: 1607956308.236
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: RINGING
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/201-0000001e
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: <unknown>
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten:
+DestPriority: 1
+DestUniqueid: 1607956308.241
+DestLinkedid: 1607956308.236
+DialString: SIP/201
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test_avail
+State: NOT_INUSE
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/202-0000001f
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: s
+Priority: 1
+Uniqueid: 1607956308.243
+Linkedid: 1607956308.236
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/202-0000001f
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: <unknown>
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten:
+DestPriority: 1
+DestUniqueid: 1607956308.243
+DestLinkedid: 1607956308.236
+DialString: SIP/202
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: RINGING
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/201-0000001e
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956308.241
+Linkedid: 1607956308.236
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/201-0000001e
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956308.241
+Linkedid: 1607956308.236
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: RINGING
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/201-0000001e
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956308.241
+DestLinkedid: 1607956308.236
+DialStatus: RINGING
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/202-0000001f
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956308.243
+Linkedid: 1607956308.236
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/202-0000001f
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956308.243
+Linkedid: 1607956308.236
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: RINGING
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/202-0000001f
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956308.243
+DestLinkedid: 1607956308.236
+DialStatus: RINGING
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/202-0000001f
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956308.243
+DestLinkedid: 1607956308.236
+DialStatus: BUSY
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/202-0000001f
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956308.243
+Linkedid: 1607956308.236
+Cause: 17
+Cause-txt: User busy
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/201-0000001e
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956308.241
+DestLinkedid: 1607956308.236
+DialStatus: BUSY
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/201-0000001e
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956308.241
+Linkedid: 1607956308.236
+Cause: 17
+Cause-txt: User busy
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/201-00000020
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: s
+Priority: 1
+Uniqueid: 1607956319.249
+Linkedid: 1607956308.236
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: RINGING
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/201-00000020
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: <unknown>
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten:
+DestPriority: 1
+DestUniqueid: 1607956319.249
+DestLinkedid: 1607956308.236
+DialString: SIP/201
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/202-00000021
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: s
+Priority: 1
+Uniqueid: 1607956319.251
+Linkedid: 1607956308.236
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: RINGING
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/202-00000021
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: <unknown>
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten:
+DestPriority: 1
+DestUniqueid: 1607956319.251
+DestLinkedid: 1607956308.236
+DialString: SIP/202
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/201-00000020
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956319.249
+Linkedid: 1607956308.236
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/201-00000020
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956319.249
+Linkedid: 1607956308.236
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: RINGING
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/201-00000020
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956319.249
+DestLinkedid: 1607956308.236
+DialStatus: RINGING
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/202-00000021
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956319.251
+Linkedid: 1607956308.236
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/202-00000021
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956319.251
+Linkedid: 1607956308.236
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: RINGING
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/202-00000021
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956319.251
+DestLinkedid: 1607956308.236
+DialStatus: RINGING
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/201-00000020
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956319.249
+DestLinkedid: 1607956308.236
+DialStatus: NOANSWER
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/202-00000021
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956319.251
+DestLinkedid: 1607956308.236
+DialStatus: NOANSWER
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/201-00000020
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956319.249
+DestLinkedid: 1607956308.236
+DialStatus: CANCEL
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/201-00000020
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956319.249
+Linkedid: 1607956308.236
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+DestChannel: SIP/202-00000021
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956319.251
+DestLinkedid: 1607956308.236
+DialStatus: CANCEL
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/202-00000021
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956319.251
+Linkedid: 1607956308.236
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: MusicOnHoldStop
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test
+State: NOT_INUSE
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 7
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+Cause: 16
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/channel2-0000001d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 7
+Uniqueid: 1607956308.236
+Linkedid: 1607956308.236
+Cause: 16
+Cause-txt: Normal Clearing
+
+
+3. -------------- входящий не отвеченный вызов(все агенты были заняты) -------------------
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: INUSE
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 380639498374
+CallerIDName: 380639498374
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 380639498374
+CallerIDName: 380639498374
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: 380639498374
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-check_normalization_inbound
+Exten: s
+Priority: 22
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-check_blacklist
+Exten: s
+Priority: 8
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 3
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test_avail
+State: INUSE
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test
+State: RINGING
+
+Event: MusicOnHoldStart
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+Class: default
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/201-00000025
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: s
+Priority: 1
+Uniqueid: 1607956429.280
+Linkedid: 1607956429.275
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: RINGINUSE
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test_avail
+State: NOT_INUSE
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+DestChannel: SIP/201-00000025
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: <unknown>
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten:
+DestPriority: 1
+DestUniqueid: 1607956429.280
+DestLinkedid: 1607956429.275
+DialString: SIP/201
+
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/202-00000026
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: s
+Priority: 1
+Uniqueid: 1607956429.282
+Linkedid: 1607956429.275
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: RINGINUSE
+
+Event: DialBegin
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+DestChannel: SIP/202-00000026
+DestChannelState: 0
+DestChannelStateDesc: Down
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: <unknown>
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten:
+DestPriority: 1
+DestUniqueid: 1607956429.282
+DestLinkedid: 1607956429.275
+DialString: SIP/202
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/201-00000025
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956429.280
+Linkedid: 1607956429.275
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/201-00000025
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956429.280
+Linkedid: 1607956429.275
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: RINGINUSE
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+DestChannel: SIP/201-00000025
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956429.280
+DestLinkedid: 1607956429.275
+DialStatus: RINGING
+
+Event: Newstate
+Privilege: call,all
+Channel: SIP/202-00000026
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956429.282
+Linkedid: 1607956429.275
+
+Event: NewConnectedLine
+Privilege: call,all
+Channel: SIP/202-00000026
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956429.282
+Linkedid: 1607956429.275
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: RINGINUSE
+
+Event: DialState
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+DestChannel: SIP/202-00000026
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956429.282
+DestLinkedid: 1607956429.275
+DialStatus: RINGING
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+DestChannel: SIP/201-00000025
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956429.280
+DestLinkedid: 1607956429.275
+DialStatus: NOANSWER
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+DestChannel: SIP/202-00000026
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956429.282
+DestLinkedid: 1607956429.275
+DialStatus: NOANSWER
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+DestChannel: SIP/201-00000025
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: dimad
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956429.280
+DestLinkedid: 1607956429.275
+DialStatus: CANCEL
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/201
+State: INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/201-00000025
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: dimad
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956429.280
+Linkedid: 1607956429.275
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: DialEnd
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+DestChannel: SIP/202-00000026
+DestChannelState: 5
+DestChannelStateDesc: Ringing
+DestCallerIDNum: <unknown>
+DestCallerIDName: agent-202
+DestConnectedLineNum: 0639498374
+DestConnectedLineName: <unknown>
+DestLanguage: en
+DestAccountCode:
+DestContext: office_1
+DestExten: 380931601750
+DestPriority: 1
+DestUniqueid: 1607956429.282
+DestLinkedid: 1607956429.275
+DialStatus: CANCEL
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/202
+State: INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/202-00000026
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607956429.282
+Linkedid: 1607956429.275
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: MusicOnHoldStop
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: Queue:test
+State: NOT_INUSE
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 7
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+Cause: 16
+
+Event: DeviceStateChange
+Privilege: call,all
+Device: SIP/channel2
+State: NOT_INUSE
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/channel2-00000024
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 7
+Uniqueid: 1607956429.275
+Linkedid: 1607956429.275
+Cause: 16
+Cause-txt: Normal Clearing
