@@ -1,0 +1,505 @@
+------------------- входящий звонок --------------------
+
+1. инициализация нового канала(все)
+
+        Event: Newchannel
+        Privilege: call,all
+        Channel: SIP/channel2-0000004c - имя канала
+        ChannelState: 0
+        ChannelStateDesc: Down
+        CallerIDNum: 380639498374 - номер звонящего
+        CallerIDName: 380639498374
+        ConnectedLineNum: <unknown>
+        ConnectedLineName: <unknown>
+        Language: en
+        AccountCode:
+        Context: incoming_calls
+        Exten: 380931601750 - куда звонит
+        Priority: 1
+        Uniqueid: 1607959162.623 - идентификатор канала
+        Linkedid: 1607959162.623 - идентификатор звонка
+
+3. вызов агента(все)
+        создание канала
+
+        Event: Newchannel
+        Privilege: call,all
+        Channel: SIP/202-0000004d
+        ChannelState: 0
+        ChannelStateDesc: Down
+        CallerIDNum: <unknown>
+        CallerIDName: agent-202
+        ConnectedLineNum: <unknown>
+        ConnectedLineName: <unknown>
+        Language: en
+        AccountCode:
+        Context: office_1
+        Exten: s
+        Priority: 1
+        Uniqueid: 1607959162.628
+        Linkedid: 1607959162.623
+
+        Event: DialBegin
+        Privilege: call,all
+        Channel: SIP/channel2-0000001a - название канала
+        ChannelState: 6
+        ChannelStateDesc: Up
+        CallerIDNum: 0639498374 - номер звонящего
+        CallerIDName: <unknown>
+        ConnectedLineNum: <unknown>
+        ConnectedLineName: <unknown>
+        Language: en
+        AccountCode:
+        Context: macro-queue_inbound
+        Exten: s
+        Priority: 4
+        Uniqueid: 1607956230.217 - идентификатор вызывающего канала
+        Linkedid: 1607956230.217 - идентификатор звонка
+        DestChannel: SIP/202-0000001c - название вызываемого канала
+        DestChannelState: 0
+        DestChannelStateDesc: Down
+        DestCallerIDNum: <unknown>
+        DestCallerIDName: agent-202 - имя агента
+        DestConnectedLineNum: <unknown>
+        DestConnectedLineName: <unknown>
+        DestLanguage: en
+        DestAccountCode:
+        DestContext: office_1
+        DestExten:
+        DestPriority: 1
+        DestUniqueid: 1607956231.224 - идентификатор вызываемого канала
+        DestLinkedid: 1607956230.217 - идентификатор звонка
+        DialString: SIP/202 - номер вызываемого
+
+
+        3.1 вызов агента(на агента переадресовали звонок)
+
+            Event: DialBegin
+            Privilege: call,all
+            Channel: SIP/channel2-0000004e
+            ChannelState: 6
+            ChannelStateDesc: Up
+            CallerIDNum: 0639498374
+            CallerIDName: <unknown>
+            ConnectedLineNum: <unknown>
+            ConnectedLineName: dimad
+            Language: en
+            AccountCode:
+            Context: office_1
+            Exten: 202
+            Priority: 4
+            Uniqueid: 1607959704.642
+            Linkedid: 1607959704.642
+            DestChannel: SIP/202-00000051
+            DestChannelState: 0
+            DestChannelStateDesc: Down
+            DestCallerIDNum: 202
+            DestCallerIDName: dimad
+            DestConnectedLineNum: 0639498374
+            DestConnectedLineName: <unknown>
+            DestLanguage: en
+            DestAccountCode:
+            DestContext: office_1
+            DestExten: 202
+            DestPriority: 1
+            DestUniqueid: 1607959715.663
+            DestLinkedid: 1607959704.642
+            DialString: 202
+
+4. прекращение вызова(все)
+    4.1 Отвеченный
+
+        Event: DialEnd
+        Privilege: call,all
+        Channel: SIP/channel2-0000004c
+        ChannelState: 6
+        ChannelStateDesc: Up
+        CallerIDNum: 0639498374
+        CallerIDName: <unknown>
+        ConnectedLineNum: <unknown>
+        ConnectedLineName: <unknown>
+        Language: en
+        AccountCode:
+        Context: macro-queue_inbound
+        Exten: s
+        Priority: 4
+        Uniqueid: 1607959162.623
+        Linkedid: 1607959162.623
+        DestChannel: SIP/202-0000004d
+        DestChannelState: 6
+        DestChannelStateDesc: Up
+        DestCallerIDNum: <unknown>
+        DestCallerIDName: agent-202
+        DestConnectedLineNum: 0639498374
+        DestConnectedLineName: <unknown>
+        DestLanguage: en
+        DestAccountCode:
+        DestContext: office_1
+        DestExten: 380931601750
+        DestPriority: 1
+        DestUniqueid: 1607959162.628
+        DestLinkedid: 1607959162.623
+        DialStatus: ANSWER
+
+    4.2 агент сбросил
+
+        Event: DialEnd
+        Privilege: call,all
+        Channel: SIP/channel2-0000001a
+        ChannelState: 6
+        ChannelStateDesc: Up
+        CallerIDNum: 0639498374
+        CallerIDName: <unknown>
+        ConnectedLineNum: <unknown>
+        ConnectedLineName: <unknown>
+        Language: en
+        AccountCode:
+        Context: macro-queue_inbound
+        Exten: s
+        Priority: 4
+        Uniqueid: 1607956230.217
+        Linkedid: 1607956230.217
+        DestChannel: SIP/202-0000001c
+        DestChannelState: 5
+        DestChannelStateDesc: Ringing
+        DestCallerIDNum: <unknown>
+        DestCallerIDName: agent-202
+        DestConnectedLineNum: 0639498374
+        DestConnectedLineName: <unknown>
+        DestLanguage: en
+        DestAccountCode:
+        DestContext: office_1
+        DestExten: 380931601750
+        DestPriority: 1
+        DestUniqueid: 1607956231.224
+        DestLinkedid: 1607956230.217
+        DialStatus: BUSY
+
+    4.3 Агент не взял по таймауту
+
+        Event: DialEnd
+        Privilege: call,all
+        Channel: SIP/channel2-0000001a
+        ChannelState: 6
+        ChannelStateDesc: Up
+        CallerIDNum: 0639498374
+        CallerIDName: <unknown>
+        ConnectedLineNum: <unknown>
+        ConnectedLineName: <unknown>
+        Language: en
+        AccountCode:
+        Context: macro-queue_inbound
+        Exten: s
+        Priority: 4
+        Uniqueid: 1607956230.217
+        Linkedid: 1607956230.217
+        DestChannel: SIP/201-0000001b
+        DestChannelState: 5
+        DestChannelStateDesc: Ringing
+        DestCallerIDNum: <unknown>
+        DestCallerIDName: dimad
+        DestConnectedLineNum: 0639498374
+        DestConnectedLineName: <unknown>
+        DestLanguage: en
+        DestAccountCode:
+        DestContext: office_1
+        DestExten: 380931601750
+        DestPriority: 1
+        DestUniqueid: 1607956231.222
+        DestLinkedid: 1607956230.217
+        DialStatus: NOANSWER
+
+        Event: DialEnd
+        Privilege: call,all
+        Channel: SIP/channel2-0000001a
+        ChannelState: 6
+        ChannelStateDesc: Up
+        CallerIDNum: 0639498374
+        CallerIDName: <unknown>
+        ConnectedLineNum: <unknown>
+        ConnectedLineName: <unknown>
+        Language: en
+        AccountCode:
+        Context: macro-queue_inbound
+        Exten: s
+        Priority: 4
+        Uniqueid: 1607956230.217
+        Linkedid: 1607956230.217
+        DestChannel: SIP/201-0000001b
+        DestChannelState: 5
+        DestChannelStateDesc: Ringing
+        DestCallerIDNum: <unknown>
+        DestCallerIDName: dimad
+        DestConnectedLineNum: 0639498374
+        DestConnectedLineName: <unknown>
+        DestLanguage: en
+        DestAccountCode:
+        DestContext: office_1
+        DestExten: 380931601750
+        DestPriority: 1
+        DestUniqueid: 1607956231.222
+        DestLinkedid: 1607956230.217
+        DialStatus: CANCEL
+
+5. вход каналов в бридж(отвечен)
+
+    Event: BridgeEnter
+    Privilege: call,all
+    BridgeUniqueid: fd64e3f4-bdc8-404c-8485-f805e0b14d8d - ид бриджа
+    BridgeType: basic
+    BridgeTechnology: simple_bridge
+    BridgeCreator: <unknown>
+    BridgeName: <unknown>
+    BridgeNumChannels: 1
+    BridgeVideoSourceMode: none
+    Channel: SIP/202-0000004d - название канала
+    ChannelState: 6
+    ChannelStateDesc: Up
+    CallerIDNum: <unknown>
+    CallerIDName: agent-202 - имя агента
+    ConnectedLineNum: 0639498374 - с каким номером сопряжение
+    ConnectedLineName: <unknown>
+    Language: en
+    AccountCode:
+    Context: office_1
+    Exten: 380931601750
+    Priority: 1
+    Uniqueid: 1607959162.628 - идентификатор канала
+    Linkedid: 1607959162.623 - идентификатор звонка
+
+    Event: BridgeEnter
+    Privilege: call,all
+    BridgeUniqueid: fd64e3f4-bdc8-404c-8485-f805e0b14d8d
+    BridgeType: basic
+    BridgeTechnology: simple_bridge
+    BridgeCreator: <unknown>
+    BridgeName: <unknown>
+    BridgeNumChannels: 2
+    BridgeVideoSourceMode: none
+    Channel: SIP/channel2-0000004c
+    ChannelState: 6
+    ChannelStateDesc: Up
+    CallerIDNum: 0639498374
+    CallerIDName: <unknown>
+    ConnectedLineNum: <unknown>
+    ConnectedLineName: agent-202
+    Language: en
+    AccountCode:
+    Context: macro-queue_inbound
+    Exten: s
+    Priority: 4
+    Uniqueid: 1607959162.623
+    Linkedid: 1607959162.623
+
+6. запрос сброса вызова(отвечен)
+
+Event: HangupRequest
+Privilege: call,all
+Channel: SIP/202-0000004d - какой канал сбросил
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: <unknown>
+CallerIDName: agent-202 - имя канала
+ConnectedLineNum: 0639498374 - с кем было сопряжение
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607959162.628
+Linkedid: 1607959162.623
+Cause: 16
+
+6.1 трансфер(отвечен)
+
+Event: BlindTransfer
+Privilege: call,all
+Result: Success
+TransfererChannel: SIP/201-0000004f - название канала который переадресовывает
+TransfererChannelState: 6
+TransfererChannelStateDesc: Up
+TransfererCallerIDNum: <unknown>
+TransfererCallerIDName: dimad
+TransfererConnectedLineNum: 0639498374 - номер с которым сопряжен
+TransfererConnectedLineName: <unknown>
+TransfererLanguage: en
+TransfererAccountCode:
+TransfererContext: office_1
+TransfererExten: 380931601750
+TransfererPriority: 1
+TransfererUniqueid: 1607959704.647 - идентификатор канала
+TransfererLinkedid: 1607959704.642 - идентифифкатор звонка
+TransfereeChannel: SIP/channel2-0000004e - название переадресуемого канала
+TransfereeChannelState: 6
+TransfereeChannelStateDesc: Up
+TransfereeCallerIDNum: 0639498374 - номер канала
+TransfereeCallerIDName: <unknown>
+TransfereeConnectedLineNum: <unknown>
+TransfereeConnectedLineName: dimad
+TransfereeLanguage: en
+TransfereeAccountCode:
+TransfereeContext: macro-queue_inbound
+TransfereeExten: s
+TransfereePriority: 4
+TransfereeUniqueid: 1607959704.642 - ид переадресуемого канала
+TransfereeLinkedid: 1607959704.642 - ид звонка
+BridgeUniqueid: f54c409b-2659-4d54-b9eb-e42715dd0e55 - ид бриджа
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 2 - колл-во каналов в бридже
+BridgeVideoSourceMode: none
+IsExternal: Yes
+Context: office_1
+Extension: 202 - куда переадресовали
+
+7. выход из бриджа(отвечен)
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: fd64e3f4-bdc8-404c-8485-f805e0b14d8d
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 1
+BridgeVideoSourceMode: none
+Channel: SIP/202-0000004d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607959162.628
+Linkedid: 1607959162.623
+
+Event: BridgeLeave
+Privilege: call,all
+BridgeUniqueid: fd64e3f4-bdc8-404c-8485-f805e0b14d8d
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+Channel: SIP/channel2-0000004c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: agent-202
+Language: en
+AccountCode:
+Context: macro-queue_inbound
+Exten: s
+Priority: 4
+Uniqueid: 1607959162.623
+Linkedid: 1607959162.623
+
+    7.1 выход из бриджа по трансферу
+
+    Event: BridgeLeave
+    Privilege: call,all
+    BridgeUniqueid: f54c409b-2659-4d54-b9eb-e42715dd0e55
+    BridgeType: basic
+    BridgeTechnology: simple_bridge
+    BridgeCreator: <unknown>
+    BridgeName: <unknown>
+    BridgeNumChannels: 0
+    BridgeVideoSourceMode: none
+    Channel: SIP/channel2-0000004e
+    ChannelState: 6
+    ChannelStateDesc: Up
+    CallerIDNum: 0639498374
+    CallerIDName: <unknown>
+    ConnectedLineNum: <unknown>
+    ConnectedLineName: dimad
+    Language: en
+    AccountCode:
+    Context: office_1
+    Exten: 202 - куда переадресован канал
+    Priority: 1
+    Uniqueid: 1607959704.642
+    Linkedid: 1607959704.642
+
+
+8. разрушение бриджа, все каналы покинули бридж(отвечен)
+
+Event: BridgeDestroy
+Privilege: call,all
+BridgeUniqueid: fd64e3f4-bdc8-404c-8485-f805e0b14d8d - ид бриджа
+BridgeType: basic
+BridgeTechnology: simple_bridge
+BridgeCreator: <unknown>
+BridgeName: <unknown>
+BridgeNumChannels: 0
+BridgeVideoSourceMode: none
+
+9. запрос разрушения канала астериском(все)
+
+Event: SoftHangupRequest
+Privilege: call,all
+Channel: SIP/channel2-0000004c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: agent-202
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 6
+Uniqueid: 1607959162.623
+Linkedid: 1607959162.623
+Cause: 16
+
+10. разрушение каналов(все)
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/channel2-0000004c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 0639498374
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: agent-202
+Language: en
+AccountCode:
+Context: incoming_calls
+Exten: 380931601750
+Priority: 6
+Uniqueid: 1607959162.623
+Linkedid: 1607959162.623
+Cause: 16
+Cause-txt: Normal Clearing
+
+Event: Hangup
+Privilege: call,all
+Channel: SIP/202-0000004d
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: <unknown>
+CallerIDName: agent-202
+ConnectedLineNum: 0639498374
+ConnectedLineName: <unknown>
+Language: en
+AccountCode:
+Context: office_1
+Exten: 380931601750
+Priority: 1
+Uniqueid: 1607959162.628
+Linkedid: 1607959162.623
+Cause: 16
+Cause-txt: Normal Clearing
