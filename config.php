@@ -16,16 +16,6 @@ define('AMI_SETTINGS', [
 ]);
 
 /*
-Настройка логирования
-*/
-
-define('OFF', 'OFF');
-define('ERROR', 'ERROR');
-define('INFO', 'INFO');
-define('TRACE', 'TRACE');
-define('DEBUG', 'DEBUG');
-
-/*
 set log level. Available levels: OFF, ERROR, WARNING, INFO, TRACE, DEBUG
 TRACE - all levels without DEBUG level
 */

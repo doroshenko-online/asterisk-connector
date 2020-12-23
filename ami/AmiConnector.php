@@ -37,13 +37,16 @@ class AmiConnector
         $this->init();
         if(is_null(self::$fp)){
             Logger::log(INFO, 'Создание сокета...');
-            self::$fp = stream_socket_client($this->host . ':' . $this->port, $this->errno, $this->erst);
+            self::$fp = stream_socket_client($this->host . ':' . $this->port, $this->errno, $this->erst)
+                ?: throw new Exception("Не удалось открыть соединение с AMI. Проверьте настройки подключения", 500);
+
             Logger::log(INFO, 'Соединение с AMI установлено');
             fwrite(self::$fp, "Action: Login\r\n");
             fwrite(self::$fp, "Username: ".$this->username."\r\n");
             fwrite(self::$fp, "Secret: ".$this->password."\r\n\r\n");
+
             $this->auth = $this->checkAuth();
-            if (! $this->auth) {
+            if (!$this->auth) {
                 $this->destructConnector();
                 throw new Exception('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения', 401);
             }
@@ -66,7 +69,7 @@ class AmiConnector
 
         if(is_null(self::$fp) && is_null($this->auth))
         {
-            throw new Exception("Сначала необходимо открыть соединение с сокетом AMI", 500);
+            throw new Exception("Сначала необходимо открыть соединение с AMI", 500);
         }
 
         return $this->auth;
@@ -74,7 +77,7 @@ class AmiConnector
 
     public function destructConnector()
     {
-        if (! is_null(self::$fp) && ! is_null(self::$instance)) {
+        if (!is_null(self::$fp) && !is_null(self::$instance)) {
             fwrite(self::$fp, "Action: Logoff\r\n\r\n");
             fclose(self::$fp);
             self::$fp = null;

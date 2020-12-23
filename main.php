@@ -14,10 +14,32 @@ $connector = AmiConnector::getInstance();
 
 $socket = $connector->getSocketOrCreateAndAuth();
 
-$count = 1;
+$event = [];
+$write_event = false;
 while (!feof($socket)) {
-    $data = fgets($socket, 4096);
-    Logger::log(DEBUG, str_replace("\r\n", '', $data, $count));
+    $data = str_replace("\r\n", '', fgets($socket, 4096), $count);
+    Logger::log(DEBUG, $data);
+
+    if (str_contains($data, 'Event') !== false)
+    {
+        $write_event = true;
+    } elseif ($data === '' && !empty($event)) {
+        $write_event = false;
+        $class_name = "resources\\events\\" . $event['Event'];
+        if (class_exists($class_name))
+        {
+            new $class_name($event);
+        }
+
+        $event = [];
+        continue;
+    }
+
+    if($write_event)
+    {
+        $row = explode(': ', $data);
+        $event[$row[0]] = $row[1];
+    }
 }
 
 $connector = $socket = $connector->destructConnector();

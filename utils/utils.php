@@ -17,3 +17,24 @@ function getCurrentDateTime(string $format = 'Y-m-d H:i:s')
     $currentDateTime = $currentDateTime->format($format);
     return $currentDateTime;
 }
+
+/*
+Настройка логирования
+*/
+
+define('OFF', 'OFF');
+define('ERROR', 'ERROR');
+define('INFO', 'INFO');
+define('TRACE', 'TRACE');
+define('DEBUG', 'DEBUG');
+
+/*
+ *  Доступные типы звонков
+ */
+
+define('CALL', [
+    0 => 'inbound',
+    1 => 'outbound',
+    2 => 'inner',
+    3 => 'callback',
+]);
