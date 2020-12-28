@@ -10,7 +10,8 @@ class DialBegin extends BaseEvent
 
     public function __construct($event)
     {
-        parent::__construct($event);
+        $this->setTime();
+        $this->event = $event;
         $this->setCallerid();
         $this->setDestChannel();
         $this->setDestExten();

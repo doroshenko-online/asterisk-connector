@@ -24,6 +24,7 @@ function getCurrentDateTime(string $format = 'Y-m-d H:i:s')
 
 define('OFF', 'OFF');
 define('ERROR', 'ERROR');
+define('WARNING', 'WARNING');
 define('INFO', 'INFO');
 define('TRACE', 'TRACE');
 define('DEBUG', 'DEBUG');

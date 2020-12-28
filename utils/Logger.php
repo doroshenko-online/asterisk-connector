@@ -53,6 +53,11 @@ class Logger
                     $write = true;
                 }
                 break;
+            case WARNING:
+                if ($level === WARNING) {
+                    $write = true;
+                }
+                break;
             case INFO:
                 if ($level === INFO)
                 {
@@ -74,7 +79,7 @@ class Logger
             $currDateTime = getCurrentDateTime();
             $record = "[$currDateTime][$level] $message".PHP_EOL;
             fwrite(self::$logFile,$record);
-            print $message.PHP_EOL;
+            print $record;
         }
     }
 

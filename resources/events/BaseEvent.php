@@ -4,11 +4,8 @@
 namespace resources\events;
 
 
-class BaseEvent
+class BaseEvent extends CEvent
 {
-
-    use TEvent;
-
     public $callerid;
     public $exten;
     public $channel;
@@ -21,8 +18,7 @@ class BaseEvent
 
     public function __construct($event)
     {
-        $this->setTime();
-        $this->event = $event;
+        parent::__construct($event);
         $this->setChannel();
         $this->setLinkedid();
         $this->setUniqueid();

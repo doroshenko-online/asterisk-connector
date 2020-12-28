@@ -4,9 +4,8 @@
 namespace resources\events;
 
 
-class BlindTransfer
+class BlindTransfer extends CEvent
 {
-    public $event;
 
     public $transfererChannel;
     public $transfererCallerId;
@@ -21,10 +20,10 @@ class BlindTransfer
     public $bridgeUniqueid;
     public $extension;
 
-    public $createtime;
 
     public function __construct($event)
     {
+        parent::__construct($event);
         $this->transfererChannel = $this->setTransfererChannel($this->event['TransfererChannel']);
         $this->transfererCallerId = $this->setTransfererCallerId($this->event['TransfererCallerIdNum']);
         $this->transfererUniqueid = $this->setTransfererUniqueid($this->event['TransfererUniqueid']);
@@ -38,7 +37,6 @@ class BlindTransfer
         $this->bridgeUniqueid = $this->setBridgeUniqueid($this->event['BridgeUniqueid']);
         $this->extension = $this->setExtension($this->event['Extension']);
 
-        $this->createtime = time();
     }
 
     /**

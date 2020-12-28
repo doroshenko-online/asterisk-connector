@@ -16,6 +16,6 @@ class Hangup extends BaseEvent
 
     private function setCauseCode()
     {
-        $this->causeCode = $this->event['16'];
+        $this->causeCode = $this->event['Cause'];
     }
 }

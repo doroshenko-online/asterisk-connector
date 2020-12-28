@@ -7,4 +7,5 @@ namespace resources;
 class Call
 {
 
+    public $linkedid;
 }

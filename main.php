@@ -16,14 +16,20 @@ $socket = $connector->getSocketOrCreateAndAuth();
 
 $event = [];
 $write_event = false;
+
+Logger::log('INFO', 'Создание регистра звонков...');
+$registry = \resources\Registry::getInstance();
+Logger::log('INFO', 'OK');
+
+
 while (!feof($socket)) {
     $data = str_replace("\r\n", '', fgets($socket, 4096), $count);
-    Logger::log(DEBUG, $data);
 
     if (str_contains($data, 'Event') !== false)
     {
         $write_event = true;
     } elseif ($data === '' && !empty($event)) {
+        Logger::log(DEBUG, $data);
         $write_event = false;
         $class_name = "resources\\events\\" . $event['Event'];
         if (class_exists($class_name))
