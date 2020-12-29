@@ -23,3 +23,9 @@ TRACE - all levels without DEBUG level
 define('LOG_LEVEL', DEBUG);
 
 define("LOGS", 'Logs'.DIRECTORY_SEPARATOR);
+
+/*
+ * вывод в консоль
+ */
+
+define('OUTPUT_CONSOLE', true);

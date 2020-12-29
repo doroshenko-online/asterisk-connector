@@ -74,14 +74,14 @@ class Registry
 
     public static function getBridge($linkedid, $bridgeuniqueid)
     {
-        return self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['bridge'] ?: null;
+        return self::$calls[$linkedid]['bridges'][$bridgeuniqueid] ?: null;
     }
 
-    public static function addBridge(Bridge $object, $linkedid, $bridgeuniqueid)
+    public static function addBridge($linkedid, $bridgeuniqueid)
     {
         if (!isset(self::$calls[$linkedid]['bridges'][$bridgeuniqueid]))
         {
-            self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['bridge'] = $object;
+            self::$calls[$linkedid]['bridges'][$bridgeuniqueid] = [];
             Logger::log(INFO, "Создан новый бридж на звонке - $linkedid. Идентификатор бриджа - $bridgeuniqueid");
             return true;
         } else {
@@ -92,14 +92,14 @@ class Registry
 
     public static function destroyBridge($linkedid, $bridgeuniqueid)
     {
-        if (isset(self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['bridge']))
+        if (isset(self::$calls[$linkedid]['bridges'][$bridgeuniqueid]))
         {
             if (!empty(self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['channelsInBridge']))
             {
                 Logger::log(INFO, "Бридж $bridgeuniqueid при звонке $linkedid не пустой, в нем есть каналы. Нельзя разрушить");
                 return false;
             } else {
-                unset(self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['bridge']);
+                unset(self::$calls[$linkedid]['bridges'][$bridgeuniqueid]);
                 Logger::log(INFO, "Бридж $bridgeuniqueid от звонка $linkedid разрушен");
                 return true;
             }

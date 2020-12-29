@@ -13,9 +13,12 @@ class Newexten extends BaseEvent
     public function __construct($event)
     {
         parent::__construct($event);
-        $this->setAppData();
-        $this->setCallback();
-        $this->setOtzvon();
+        $userEvent = $this->setAppData();
+        if ($userEvent)
+        {
+            $this->setCallback();
+            $this->setOtzvon();
+        }
     }
 
     public function getAppData()
@@ -25,9 +28,9 @@ class Newexten extends BaseEvent
 
     public function setAppData()
     {
-        if ($this->event['Application'] === 'CELGenUserEvent')
-        {
+        if (($this->event['Application'] === 'CELGenUserEvent') && in_array(explode(',', $this->event['AppData'])[0], EVENTS, true)) {
             $this->appData = $this->event['AppData'];
+            return true;
         }
     }
 

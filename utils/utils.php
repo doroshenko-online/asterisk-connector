@@ -39,3 +39,11 @@ define('CALL', [
     2 => 'inner',
     3 => 'callback',
 ]);
+
+/*
+ * юзер ивенты для парсинга
+ */
+
+define('EVENTS', [
+    'CALLBACK_INIT', 'CALLBACK'
+]);

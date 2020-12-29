@@ -79,7 +79,10 @@ class Logger
             $currDateTime = getCurrentDateTime();
             $record = "[$currDateTime][$level] $message".PHP_EOL;
             fwrite(self::$logFile,$record);
-            print $record;
+            if (OUTPUT_CONSOLE)
+            {
+                print $record;
+            }
         }
     }
 
