@@ -22,6 +22,10 @@ TRACE - all levels without DEBUG level
 
 define('LOG_LEVEL', DEBUG);
 
+/*
+ * путь к папке с логами
+ */
+
 define("LOGS", 'Logs'.DIRECTORY_SEPARATOR);
 
 /*
@@ -29,3 +33,9 @@ define("LOGS", 'Logs'.DIRECTORY_SEPARATOR);
  */
 
 define('OUTPUT_CONSOLE', true);
+
+/*
+ * Папка записей звонков
+ */
+
+define("ARCHIVE_RECORD", '/var/spool/asterisk/archive');

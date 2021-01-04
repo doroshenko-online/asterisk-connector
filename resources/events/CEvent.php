@@ -15,9 +15,10 @@ class CEvent
     {
         $this->event = $event;
         $this->setTime();
-        foreach ($this->event as $key => $value)
-        {
-            Logger::log(DEBUG, "$key: $value");
+        if ($this->event['Event'] !== 'Newexten') {
+            foreach ($this->event as $key => $value) {
+                Logger::log(DEBUG, "$key: $value");
+            }
         }
     }
 

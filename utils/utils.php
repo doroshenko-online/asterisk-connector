@@ -47,3 +47,31 @@ define('CALL', [
 define('EVENTS', [
     'CALLBACK_INIT', 'CALLBACK'
 ]);
+
+/*
+ * статусы звонка
+ */
+
+define('CALL_STATUS', [
+    'established' => 0,
+    'dialing' => 1,
+    'dialEnd' => 2,
+    'conversation' => 3,
+    'transfer' => 4,
+    'completed' => 5,
+]);
+
+/*
+ *  Типы звонка
+ */
+
+define("CALL_TYPE", [
+    "inner" => 1,
+    "outbound" => 2,
+    "callback_request" => 3,
+    "callback" => 4,
+    "inbound" => 5,
+    "autocall" => 6,
+    "inner conference" => 7,
+    "outer conference" => 8
+]);

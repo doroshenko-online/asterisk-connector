@@ -4,11 +4,14 @@
 namespace resources\states;
 
 
-class StateCallEnd implements State
-{
+use resources\Registry;
 
-    public function proceedToNext($context)
+class StateCallEnd
+{
+    public function __construct($context)
     {
-        // TODO: Implement proceedToNext() method.
+        if ($context->callbackRequest === false) {
+            Registry::removeCall($context->linkedid);
+        }
     }
 }

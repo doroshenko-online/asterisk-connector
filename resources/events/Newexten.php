@@ -4,6 +4,8 @@
 namespace resources\events;
 
 
+use utils\Logger;
+
 class Newexten extends BaseEvent
 {
     public $appData;
@@ -30,6 +32,11 @@ class Newexten extends BaseEvent
     {
         if (($this->event['Application'] === 'CELGenUserEvent') && in_array(explode(',', $this->event['AppData'])[0], EVENTS, true)) {
             $this->appData = $this->event['AppData'];
+
+            foreach ($this->event as $key => $value) {
+                Logger::log(DEBUG, "$key: $value");
+            }
+
             return true;
         }
     }
