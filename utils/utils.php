@@ -30,22 +30,11 @@ define('TRACE', 'TRACE');
 define('DEBUG', 'DEBUG');
 
 /*
- *  Доступные типы звонков
- */
-
-define('CALL', [
-    0 => 'inbound',
-    1 => 'outbound',
-    2 => 'inner',
-    3 => 'callback',
-]);
-
-/*
  * юзер ивенты для парсинга
  */
 
 define('EVENTS', [
-    'CALLBACK_INIT', 'CALLBACK'
+    'CALLBACK_INIT', 'CALLBACK', 'conference', 'SIP_CALL_ID', 'CONF_OUT_AMI',
 ]);
 
 /*
@@ -74,4 +63,20 @@ define("CALL_TYPE", [
     "autocall" => 6,
     "inner conference" => 7,
     "outer conference" => 8
+]);
+
+/*
+ * Статусы диала
+ */
+
+define("DIAL_STATUS", [
+    "RINGING" => 0,
+    "ANSWER" => 1,
+    "BUSY" => 2,
+    "NOANSWER" => 3,
+    "CANCEL" => 4,
+    "CONGESTION" => 5,
+    "ABORT" => 6,
+    "CHANUNAVAIL" => 7,
+    "UNKNOWN" => 8,
 ]);

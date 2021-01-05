@@ -4,13 +4,12 @@
 namespace resources\events;
 
 
+use resources\Registry;
 use utils\Logger;
 
 class Newexten extends BaseEvent
 {
     public $appData;
-    public $callback = false;
-    public $otzvon = false;
 
     public function __construct($event)
     {
@@ -20,12 +19,13 @@ class Newexten extends BaseEvent
         {
             $this->setCallback();
             $this->setOtzvon();
+            $this->setOutConf();
         }
     }
 
-    public function getAppData()
+    public function getAppDataInfo()
     {
-        return $this->appData;
+        return explode(',', $this->event['AppData'])[1];
     }
 
     public function setAppData()
@@ -39,33 +39,54 @@ class Newexten extends BaseEvent
 
             return true;
         }
+        return null;
     }
-
-
-    public function isCallback()
-    {
-        return $this->callback;
-    }
-
 
     public function setCallback()
     {
         if (explode(',', $this->appData)[0] === 'CALLBACK_INIT')
         {
-            $this->callback = true;
+            $call = Registry::getCall($this->linkedid);
+            if ($call)
+            {
+                $call->callbackRequest = true;
+                $call->call_type = CALL_TYPE['callback_request'];
+                unset($call);
+            } else {
+                Logger::log(WARNING, "Невозможно отметить запрос коллбека на звонке. Нет звонка с идентификатором - $this->linkedid.");
+            }
         }
-    }
-
-    public function isOtzvon()
-    {
-        return $this->otzvon;
     }
 
     public function setOtzvon()
     {
         if (explode(',', $this->appData)[0] === 'CALLBACK')
         {
-            $this->otzvon = true;
+            $call = Registry::getCall($this->linkedid);
+            if ($call)
+            {
+                $call->otzvon = true;
+                $call->call_type = CALL_TYPE['callback'];
+                $call->callbackRequestLinkedid = $this->getAppDataInfo();
+                unset($call);
+            } else {
+                Logger::log(WARNING, "Невозможно отметить отзвон на звонке. Нет звонка с идентификатором - $this->linkedid.");
+            }
+        }
+    }
+
+    public function setOutConf()
+    {
+        if (explode(',', $this->appData)[0] === 'CONF_OUT_AMI')
+        {
+            $call = Registry::getCall($this->linkedid);
+            if ($call)
+            {
+                $call->call_type = CALL_TYPE['outer conference'];
+                unset($call);
+            } else {
+                Logger::log(WARNING, "Невозможно отметить внешнюю конференцию на звонке. Нет звонка с идентификатором - $this->linkedid.");
+            }
         }
     }
 

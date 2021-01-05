@@ -13,15 +13,15 @@ class Registry
 
     public static $calls = [];
 
-    public static function getCall($linkedid)
+    public static function getCall($linkedid) : ?Call
     {
         return self::$calls[$linkedid]['call'] ?: null;
     }
 
     public static function addCall(Call $object)
     {
-        if (!isset(self::$object[$object->linkedid]['call'])) {
-            self::$object[$object->linkedid]['call'] = $object;
+        if (!isset(self::$calls[$object->linkedid]['call'])) {
+            self::$calls[$object->linkedid]['call'] = $object;
             Logger::log(INFO, 'Создан новый звонок - ' . $object->linkedid);
             return true;
         } else {
@@ -143,5 +143,4 @@ class Registry
             return false;
         }
     }
-
 }
