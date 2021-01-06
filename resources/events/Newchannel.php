@@ -23,12 +23,27 @@ class Newchannel extends BaseEvent
         } else {
             $this->exten = null;
         }
-        if (preg_match("/\d+/s", $this->callerid, $matches))
+        if (preg_match("/^\d+$/s", $this->callerid, $matches))
         {
             $this->callerid = $matches[0];
-        } else {
-            $this->callerid = null;
         }
+
+        $call = Registry::getCall($this->linkedid);
+        if ($call)
+        {
+            if (($call->call_type === CALL_TYPE['inner'] || $call->call_type === CALL_TYPE['inbound'])
+                && preg_match("/^\d{3}$/s", $channame))
+            {
+                $this->callerid = $channame;
+            }
+        }
+        if (isset($call->lastPbxNum))
+        {
+            $this->callerid = $call->lastPbxNum;
+            $call->lastPbxNum = null;
+        }
+        unset($call);
+
         new Channel($name, $channame, $this->callerid, $this->exten, $this->uniqueid, $this->linkedid, $this->createtime);
     }
 

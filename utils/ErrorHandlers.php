@@ -8,12 +8,12 @@ class ErrorHandlers
 {
     public function __construct()
     {
-        set_exception_handler([$this, 'exceptionHandler']);
+        set_error_handler([$this, 'exceptionHandler'], E_ALL);
     }
 
-    public function exceptionHandler($e)
+    public function exceptionHandler($errno, $errstr, $errfile, $errline)
     {
-        $this->logErrors($e->getMessage(), $e->getFile(), $e->getLine(), $e->getCode());
+        $this->logErrors($errstr, $errfile, $errline, $errno);
     }
 
     protected function logErrors($errstr = '', $file = '', $line = '', $errno = 500)

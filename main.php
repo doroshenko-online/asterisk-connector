@@ -4,6 +4,7 @@
 require_once 'utils/autoload.php';
 
 use ami\AmiConnector;
+use resources\Registry;
 use utils\ErrorHandlers;
 use utils\Logger;
 
@@ -18,7 +19,7 @@ $event = [];
 $write_event = false;
 
 Logger::log('INFO', 'Создание регистра звонков...');
-$registry = \resources\Registry::getInstance();
+$registry = Registry::getInstance();
 Logger::log('INFO', 'OK');
 
 
@@ -29,7 +30,6 @@ while (!feof($socket)) {
     {
         $write_event = true;
     } elseif ($data === '' && !empty($event)) {
-        Logger::log(DEBUG, $data);
         $write_event = false;
         $class_name = "resources\\events\\" . $event['Event'];
         if (class_exists($class_name))

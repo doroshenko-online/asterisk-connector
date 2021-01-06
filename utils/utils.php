@@ -3,6 +3,7 @@
 namespace utils;
 
 use DateTime;
+use resources\Registry;
 
 function getLogFIleName()
 {
@@ -16,6 +17,18 @@ function getCurrentDateTime(string $format = 'Y-m-d H:i:s')
     $currentDateTime = new DateTime();
     $currentDateTime = $currentDateTime->format($format);
     return $currentDateTime;
+}
+
+function getCallOrWarning($linkedid, $errmesg = "")
+{
+    $call = Registry::getCall($linkedid);
+    if ($call)
+    {
+        return $call;
+    } else {
+        Logger::log(WARNING, $errmesg . " Звонка с идентификатором $linkedid не существует");
+        return null;
+    }
 }
 
 /*
@@ -34,7 +47,7 @@ define('DEBUG', 'DEBUG');
  */
 
 define('EVENTS', [
-    'CALLBACK_INIT', 'CALLBACK', 'conference', 'SIP_CALL_ID', 'CONF_OUT_AMI',
+    'CALLBACK_INIT', 'CALLBACK', 'conference', 'SIP_CALL_ID', 'CONF_OUT_AMI', 'PBX_NUM',
 ]);
 
 /*
@@ -44,10 +57,9 @@ define('EVENTS', [
 define('CALL_STATUS', [
     'established' => 0,
     'dialing' => 1,
-    'dialEnd' => 2,
-    'conversation' => 3,
-    'transfer' => 4,
-    'completed' => 5,
+    'conversation' => 2,
+    'transfer' => 3,
+    'completed' => 4,
 ]);
 
 /*

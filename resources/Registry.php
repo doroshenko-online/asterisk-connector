@@ -4,6 +4,7 @@
 namespace resources;
 
 
+use resources\states\StateBridgeDestroy;
 use utils\Logger;
 use utils\TSingleton;
 
@@ -15,7 +16,11 @@ class Registry
 
     public static function getCall($linkedid) : ?Call
     {
-        return self::$calls[$linkedid]['call'] ?: null;
+        if (isset(self::$calls[$linkedid]))
+        {
+            return self::$calls[$linkedid]['call'];
+        }
+        return null;
     }
 
     public static function addCall(Call $object)
@@ -42,9 +47,14 @@ class Registry
         }
     }
 
-    public static function getChannel($linkedid, $uniqueid)
+    public static function getChannel($linkedid, $uniqueid) : ?Channel
     {
-        return self::$calls[$linkedid]['channels'][$uniqueid] ?: null;
+        if (isset(self::$calls[$linkedid]['channels'][$uniqueid]))
+        {
+            return self::$calls[$linkedid]['channels'][$uniqueid];
+        }
+
+        return null;
     }
 
     public static function addChannel(Channel $object, $linkedid, $uniqueid)
@@ -65,6 +75,11 @@ class Registry
         if (isset(self::$calls[$linkedid]['channels'][$uniqueid]))
         {
             unset(self::$calls[$linkedid]['channels'][$uniqueid]);
+            if (empty(self::$calls[$linkedid]['channels']))
+            {
+                self::$calls[$linkedid]['call']->status = CALL_STATUS['completed'];
+                self::$calls[$linkedid]['call']->proceedToNext();
+            }
             return true;
         } else {
             Logger::log(WARNING, "Невозможно удалить несуществующий канал с идентификатором - $uniqueid в звонке с идентификатором - $linkedid");
@@ -99,6 +114,7 @@ class Registry
                 Logger::log(INFO, "Бридж $bridgeuniqueid при звонке $linkedid не пустой, в нем есть каналы. Нельзя разрушить");
                 return false;
             } else {
+                self::getCall($linkedid)->setState(new StateBridgeDestroy(self::getCall($linkedid)));
                 unset(self::$calls[$linkedid]['bridges'][$bridgeuniqueid]);
                 Logger::log(INFO, "Бридж $bridgeuniqueid от звонка $linkedid разрушен");
                 return true;

@@ -26,7 +26,10 @@ class BaseEvent extends CEvent
 
     public function setLinkedid()
     {
-        $this->linkedid = $this->event['Linkedid'];
+        if (isset($this->event['Linkedid']))
+        {
+            $this->linkedid = $this->event['Linkedid'];
+        }
     }
 
 
@@ -38,7 +41,10 @@ class BaseEvent extends CEvent
 
     protected function setChannel()
     {
-        $this->channel = $this->event['Channel'];
+        if (isset($this->event['Channel']))
+        {
+            $this->channel = $this->event['Channel'];
+        }
     }
 
     public function getChannel()
@@ -48,7 +54,10 @@ class BaseEvent extends CEvent
 
     protected function setUniqueid()
     {
-        $this->uniqueid = $this->event['Uniqueid'];
+        if (isset($this->event['Uniqueid']))
+        {
+            $this->uniqueid = $this->event['Uniqueid'];
+        }
     }
 
     public function getUniqueid()
@@ -63,10 +72,7 @@ class BaseEvent extends CEvent
 
     protected function setExten()
     {
-        if (preg_match('/\d{3, }/s', $this->event['Exten'], $matches))
-        {
-            $this->callerid = $this->event['Exten'];
-        }
+        $this->exten = $this->event['Exten'];
     }
 
     public function getCallerid()
@@ -76,9 +82,12 @@ class BaseEvent extends CEvent
 
     protected function setCallerid()
     {
-        if (preg_match('/\d{3, }/s', $this->event['CallerIDNum'], $matches))
+        if(isset($this->event['CallerIDNum']))
         {
-            $this->callerid = $this->event['CallerIDNum'];
+            if (preg_match('/^\d{2,}/s', $this->event['CallerIDNum'], $matches))
+            {
+                $this->callerid = $this->event['CallerIDNum'];
+            }
         }
     }
 

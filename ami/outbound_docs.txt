@@ -14,7 +14,7 @@ ConnectedLineName: <unknown>
 Language: en
 AccountCode:
 Context: office_1
-Exten: 0639498374 - нмоер назначения
+Exten: 0639498374 - номер назначения
 Priority: 1
 Uniqueid: 1607955196.93 - идентификатор канала
 Linkedid: 1607955196.93 - идентификатор звонка

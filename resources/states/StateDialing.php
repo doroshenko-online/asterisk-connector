@@ -4,11 +4,23 @@
 namespace resources\states;
 
 
+use resources\Call;
+
 class StateDialing implements State
 {
-
-    public function proceedToNext($context)
+    public function __construct($context)
     {
-        // TODO: Implement proceedToNext() method.
+
+    }
+
+    public function proceedToNext(Call $context)
+    {
+        if ($context->status === CALL_STATUS['dialing'])
+        {
+            $context->setState(new StateDialing($context));
+        } elseif ($context->status === CALL_STATUS['conversation'])
+        {
+            $context->setState(new StateAnswer($context));
+        }
     }
 }

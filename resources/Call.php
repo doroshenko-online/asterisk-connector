@@ -21,6 +21,7 @@ class Call
     public $bridgeDurations = [];
     public $transfers = [];
     public $dials = [];
+    public $lastPbxNum;
     public int $status = CALL_STATUS['established'];
     public ?int $call_type;
     public $createtime;
@@ -33,20 +34,34 @@ class Call
         $this->callerId = $channel->callerid;
         $this->destNumber = $channel->exten;
         $this->createtime = $channel->createtime;
-        $this->setType($channel);
         $this->setState(new StateCreated($this));
+        $this->setType($channel);
+
+        //LOGGING
+        $vars = get_object_vars($this);
+        foreach ($vars as $key => $value)
+        {
+            if (!is_array($value) && !is_object($value))
+            {
+                Logger::log(DEBUG, "$key: $value");
+            }
+        }
     }
 
-    public function addDial($uniqueid, $destUniqueid, $startTime)
+    public function addDial($uniqueid, $destUniqueid, $startTime, $callerid, $destExten)
     {
         $this->dials["$uniqueid - $destUniqueid"] = [
             "uniqueid" => $uniqueid,
             "destUniqueid" => $destUniqueid,
+            "callerid" => $callerid,
+            "destExten" => $destExten,
             "dialStartTime" => $startTime,
             "dialEndTime" => 0,
             "dialDuration" => 0,
             "dialStatus" => DIAL_STATUS['RINGING']
         ];
+        Logger::log(INFO, "Идет вызов... Тип " . array_search($this->call_type, CALL_TYPE, true) . " call. Ид звонка - $this->linkedid | Вызывающий канал - $uniqueid | Вызывающий номер - $callerid | Вызываемый канал - $destUniqueid | Вызываемый номер - $destExten");
+        $this->status = CALL_STATUS['dialing'];
         return $this->dials["$uniqueid - $destUniqueid"];
     }
 
@@ -55,8 +70,9 @@ class Call
         return $this->dials[$id];
     }
 
-    public function dialEnd($id, $endTime, $dialStatus)
+    public function dialEnd($uniqueid, $destUniqueid, $endTime, $dialStatus)
     {
+        $id = "$uniqueid - $destUniqueid";
         $this->dials[$id]['dialEndTime'] = $endTime;
         $this->dials[$id]['dialDuration'] = $this->dials[$id]['dialEndTime'] - $this->dials[$id]['dialStartTime'];
         if (!array_key_exists($dialStatus, DIAL_STATUS)) {
@@ -64,7 +80,18 @@ class Call
             $this->dials[$id]['dialStatus'] = DIAL_STATUS["UNKNOWN"];
         } else {
             $this->dials[$id]['dialStatus'] = DIAL_STATUS[$dialStatus];
+            if ($this->dials[$id]['dialStatus'] === DIAL_STATUS['ANSWER'])
+            {
+                $this->answer($id);
+            }
         }
+    }
+
+    public function answer($id)
+    {
+        Logger::log(INFO, "Звонок отвечен. Ид звонка - $this->linkedid | Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten'] . " | Вызывающий номер - " . $this->dials[$id]['callerid']);
+        $this->status = CALL_STATUS['conversation'];
+        $this->proceedToNext();
     }
 
     public function setType(Channel $channel)
@@ -90,6 +117,8 @@ class Call
                 $this->call_type = CALL_TYPE["autocall"];
             }
         }
+
+        Logger::log(INFO, "Тип звонка с ид - $this->linkedid предварительно определен как - " . array_search($this->call_type, CALL_TYPE, true));
     }
 
     public function isAnonymous()

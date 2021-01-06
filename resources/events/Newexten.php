@@ -6,10 +6,12 @@ namespace resources\events;
 
 use resources\Registry;
 use utils\Logger;
+use function utils\getCallOrWarning;
 
 class Newexten extends BaseEvent
 {
     public $appData;
+    public $appDataEvent;
 
     public function __construct($event)
     {
@@ -20,22 +22,22 @@ class Newexten extends BaseEvent
             $this->setCallback();
             $this->setOtzvon();
             $this->setOutConf();
+            $this->setPbxNum();
         }
-    }
-
-    public function getAppDataInfo()
-    {
-        return explode(',', $this->event['AppData'])[1];
     }
 
     public function setAppData()
     {
-        if (($this->event['Application'] === 'CELGenUserEvent') && in_array(explode(',', $this->event['AppData'])[0], EVENTS, true)) {
-            $this->appData = $this->event['AppData'];
+        $arrAppData = explode(',', $this->event['AppData']);
+        if (($this->event['Application'] === 'CELGenUserEvent') && in_array($arrAppData[0], EVENTS, true)) {
+            $this->appData = $arrAppData[1];
+            $this->appDataEvent = $arrAppData[0];
 
+            Logger::log(DEBUG, "");
             foreach ($this->event as $key => $value) {
                 Logger::log(DEBUG, "$key: $value");
             }
+            Logger::log(DEBUG, "");
 
             return true;
         }
@@ -44,14 +46,14 @@ class Newexten extends BaseEvent
 
     public function setCallback()
     {
-        if (explode(',', $this->appData)[0] === 'CALLBACK_INIT')
+        if ($this->appDataEvent === 'CALLBACK_INIT')
         {
             $call = Registry::getCall($this->linkedid);
             if ($call)
             {
                 $call->callbackRequest = true;
                 $call->call_type = CALL_TYPE['callback_request'];
-                unset($call);
+                Logger::log(INFO, "Тип звонка с ид - $this->linkedid установлен как - " . array_search($call->call_type, CALL_TYPE, true));
             } else {
                 Logger::log(WARNING, "Невозможно отметить запрос коллбека на звонке. Нет звонка с идентификатором - $this->linkedid.");
             }
@@ -60,32 +62,45 @@ class Newexten extends BaseEvent
 
     public function setOtzvon()
     {
-        if (explode(',', $this->appData)[0] === 'CALLBACK')
+        if ($this->appDataEvent === 'CALLBACK')
         {
-            $call = Registry::getCall($this->linkedid);
+            $call = getCallOrWarning($this->linkedid, "Невозможно отметить отзвон на звонке.");
             if ($call)
             {
                 $call->otzvon = true;
                 $call->call_type = CALL_TYPE['callback'];
-                $call->callbackRequestLinkedid = $this->getAppDataInfo();
-                unset($call);
-            } else {
-                Logger::log(WARNING, "Невозможно отметить отзвон на звонке. Нет звонка с идентификатором - $this->linkedid.");
+                Logger::log(INFO, "Тип звонка с ид - $this->linkedid установлен как - " . array_search($call->call_type, CALL_TYPE, true));
+
+                $call->callbackRequestLinkedid = $this->appData;
             }
         }
     }
 
     public function setOutConf()
     {
-        if (explode(',', $this->appData)[0] === 'CONF_OUT_AMI')
+        if ($this->appDataEvent === 'CONF_OUT_AMI')
         {
-            $call = Registry::getCall($this->linkedid);
+            $call = getCallOrWarning($this->linkedid, 'Невозможно отметить внешнюю конференцию на звонке.');
             if ($call)
             {
+                Logger::log(INFO, "Тип звонка с ид - $this->linkedid установлен как - " . array_search($call->call_type, CALL_TYPE, true));
+
                 $call->call_type = CALL_TYPE['outer conference'];
-                unset($call);
-            } else {
-                Logger::log(WARNING, "Невозможно отметить внешнюю конференцию на звонке. Нет звонка с идентификатором - $this->linkedid.");
+            }
+        }
+    }
+
+    public function setPbxNum()
+    {
+        if ($this->appDataEvent === 'PBX_NUM')
+        {
+            $call = getCallOrWarning($this->linkedid, 'Невозможно отметить на звонке PBX номер.');
+            if ($call)
+            {
+                if ($call->call_type === CALL_TYPE['outbound'] || $call->call_type === CALL_TYPE['callback'] || $call->call_type === CALL_TYPE['autocall'] || $call->call_type === CALL_TYPE['outer conference'])
+                {
+                    $call->lastPbxNum = $this->appData;
+                }
             }
         }
     }

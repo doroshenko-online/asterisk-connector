@@ -15,11 +15,11 @@ class StateCreated implements State
 
     public function proceedToNext($context)
     {
-        if ($context->status = 5)
+        if ($context->status === CALL_STATUS['completed'])
         {
             $context->setState(new StateCallEnd($context));
         } else {
-            $context->setState(new StateDialing());
+            $context->setState(new StateDialing($context));
         }
     }
 }
