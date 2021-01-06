@@ -4,7 +4,6 @@
 require_once 'utils/autoload.php';
 
 use ami\AmiConnector;
-use resources\Registry;
 use utils\ErrorHandlers;
 use utils\Logger;
 
@@ -19,7 +18,7 @@ $event = [];
 $write_event = false;
 
 Logger::log('INFO', 'Создание регистра звонков...');
-$registry = Registry::getInstance();
+$registry = \resources\Registry::getInstance();
 Logger::log('INFO', 'OK');
 
 
