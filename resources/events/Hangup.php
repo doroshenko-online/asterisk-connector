@@ -4,6 +4,8 @@
 namespace resources\events;
 
 
+use resources\Registry;
+
 class Hangup extends BaseEvent
 {
     public $causeCode;
@@ -12,6 +14,7 @@ class Hangup extends BaseEvent
     {
         parent::__construct($event);
         $this->setCauseCode();
+        Registry::removeChannel($this->linkedid, $this->uniqueid);
     }
 
     private function setCauseCode()

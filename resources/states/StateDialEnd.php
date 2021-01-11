@@ -9,6 +9,9 @@ class StateDialEnd implements State
 
     public function proceedToNext($context)
     {
-        // TODO: Implement proceedToNext() method.
+        if ($context->status === CALL_STATUS['completed'])
+        {
+            $context->setState(new StateCallEnd($context));
+        }
     }
 }

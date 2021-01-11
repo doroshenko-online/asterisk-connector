@@ -18,8 +18,6 @@ class StateCreated implements State
         if ($context->status === CALL_STATUS['completed'])
         {
             $context->setState(new StateCallEnd($context));
-        } else {
-            $context->setState(new StateDialing($context));
         }
     }
 }

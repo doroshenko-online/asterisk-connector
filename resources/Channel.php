@@ -12,13 +12,14 @@ class Channel
 
     public $name;
     public $channame;
+    public $pbxNum;
     public $callerid;
     public $exten;
     public $uniqueid;
     public $linkedid;
     public $createtime;
 
-    public function __construct($name, $channame, $callerid, $exten, $uniqueid, $linkedid, $createtime)
+    public function __construct($name, $channame, $callerid, $exten, $uniqueid, $linkedid, $createtime, $pbxNum = false)
     {
         $this->name = $name;
         $this->channame = $channame;
@@ -27,6 +28,10 @@ class Channel
         $this->uniqueid = $uniqueid;
         $this->linkedid = $linkedid;
         $this->createtime = $createtime;
+        if ($pbxNum)
+        {
+            $this->pbxNum = $pbxNum;
+        }
         //LOGGING
         $vars = get_object_vars($this);
         foreach ($vars as $key => $value)
@@ -47,9 +52,16 @@ class Channel
                 $call->lastPbxNum = null;
             }
         }
+        if ($call->call_type === CALL_TYPE['inbound'] || $call->call_type === CALL_TYPE['callback_request'])
+        {
+            if (!$this->pbxNum && preg_match('/\d{7,15}/s', $this->callerid) && preg_match('/\d{3,15}/s', $this->exten))
+            {
+                $this->pbxNum = $this->exten;
+            }
+        }
 
         Registry::addChannel($this, $this->linkedid, $this->uniqueid);
-        Logger::log(INFO, "Канал - $this->name | Имя канала - $this->channame | Номер канала - $this->callerid | Номер назначения - $this->exten | Ид канала - $this->uniqueid | Ид звонка - $this->linkedid");
+        Logger::log(INFO, "[$this->linkedid] Канал: $this->name | Имя канала: $this->channame | Номер канала: $this->callerid | Номер назначения: $this->exten | PBX NUM: $this->pbxNum | Ид канала: $this->uniqueid");
 
     }
 

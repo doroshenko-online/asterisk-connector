@@ -4,6 +4,8 @@
 namespace resources\events;
 
 
+use utils\Logger;
+
 class BaseEvent extends CEvent
 {
     public $callerid;
@@ -22,6 +24,14 @@ class BaseEvent extends CEvent
         $this->setChannel();
         $this->setLinkedid();
         $this->setUniqueid();
+
+        if ($this->event['Event'] !== 'Newexten') {
+            Logger::log(DEBUG, "");
+            foreach ($this->event as $key => $value) {
+                Logger::log(DEBUG, "[$this->linkedid] $key: $value");
+            }
+            Logger::log(DEBUG, "");
+        }
     }
 
     public function setLinkedid()

@@ -4,7 +4,6 @@
 namespace resources\events;
 
 
-use resources\Registry;
 use utils\Logger;
 use function utils\getCallOrWarning;
 
@@ -35,7 +34,7 @@ class Newexten extends BaseEvent
 
             Logger::log(DEBUG, "");
             foreach ($this->event as $key => $value) {
-                Logger::log(DEBUG, "$key: $value");
+                Logger::log(DEBUG, "[$this->linkedid] $key: $value");
             }
             Logger::log(DEBUG, "");
 
@@ -48,14 +47,10 @@ class Newexten extends BaseEvent
     {
         if ($this->appDataEvent === 'CALLBACK_INIT')
         {
-            $call = Registry::getCall($this->linkedid);
+            $call = getCallOrWarning($this->linkedid, "Невозможно отметить запрос коллбека на звонке.");
             if ($call)
             {
-                $call->callbackRequest = true;
-                $call->call_type = CALL_TYPE['callback_request'];
-                Logger::log(INFO, "Тип звонка с ид - $this->linkedid установлен как - " . array_search($call->call_type, CALL_TYPE, true));
-            } else {
-                Logger::log(WARNING, "Невозможно отметить запрос коллбека на звонке. Нет звонка с идентификатором - $this->linkedid.");
+                $call->setType(CALL_TYPE['callback_request'], true);
             }
         }
     }
@@ -67,10 +62,7 @@ class Newexten extends BaseEvent
             $call = getCallOrWarning($this->linkedid, "Невозможно отметить отзвон на звонке.");
             if ($call)
             {
-                $call->otzvon = true;
-                $call->call_type = CALL_TYPE['callback'];
-                Logger::log(INFO, "Тип звонка с ид - $this->linkedid установлен как - " . array_search($call->call_type, CALL_TYPE, true));
-
+                $call->setType(CALL_TYPE['callback'], false, true);
                 $call->callbackRequestLinkedid = $this->appData;
             }
         }
@@ -83,9 +75,7 @@ class Newexten extends BaseEvent
             $call = getCallOrWarning($this->linkedid, 'Невозможно отметить внешнюю конференцию на звонке.');
             if ($call)
             {
-                Logger::log(INFO, "Тип звонка с ид - $this->linkedid установлен как - " . array_search($call->call_type, CALL_TYPE, true));
-
-                $call->call_type = CALL_TYPE['outer conference'];
+                $call->setType(CALL_TYPE['outer conference']);
             }
         }
     }
@@ -97,10 +87,7 @@ class Newexten extends BaseEvent
             $call = getCallOrWarning($this->linkedid, 'Невозможно отметить на звонке PBX номер.');
             if ($call)
             {
-                if ($call->call_type === CALL_TYPE['outbound'] || $call->call_type === CALL_TYPE['callback'] || $call->call_type === CALL_TYPE['autocall'] || $call->call_type === CALL_TYPE['outer conference'])
-                {
-                    $call->lastPbxNum = $this->appData;
-                }
+                $call->lastPbxNum = $this->appData;
             }
         }
     }

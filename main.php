@@ -9,6 +9,7 @@ use utils\Logger;
 
 new ErrorHandlers();
 
+
 Logger::getInstance();
 $connector = AmiConnector::getInstance();
 

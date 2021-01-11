@@ -4,6 +4,10 @@
 namespace resources\events;
 
 
+use resources\states\StateTransfer;
+use utils\Logger;
+use function utils\getCallOrWarning;
+
 class BlindTransfer extends CEvent
 {
 
@@ -24,19 +28,32 @@ class BlindTransfer extends CEvent
     public function __construct($event)
     {
         parent::__construct($event);
-        $this->transfererChannel = $this->setTransfererChannel($this->event['TransfererChannel']);
-        $this->transfererCallerId = $this->setTransfererCallerId($this->event['TransfererCallerIdNum']);
-        $this->transfererUniqueid = $this->setTransfererUniqueid($this->event['TransfererUniqueid']);
-        $this->transfererLinkedid = $this->setTransfererLinkedid($this->event['TransfererLinkedid']);
+        $this->setTransfererChannel($this->event['TransfererChannel']);
+        $this->setTransfererCallerId($this->event['TransfererCallerIDNum']);
+        $this->setTransfererUniqueid($this->event['TransfererUniqueid']);
+        $this->setTransfererLinkedid($this->event['TransfererLinkedid']);
 
-        $this->transfereeChannel = $this->setTransfereeChannel($this->event['TransfereeChannel']);
-        $this->transfereeCallerId = $this->setTransfereeCallerId($this->event['TransfereeCallerIdNum']);
-        $this->transfereeUniqueid = $this->setTransfereeUniqueid($this->event['TransfereeUniqueid']);
-        $this->transfereeLinkedid = $this->setTransfereeLinkedid($this->event['TransfereeLinkedid']);
+        $this->setTransfereeChannel($this->event['TransfereeChannel']);
+        $this->setTransfereeCallerId($this->event['TransfereeCallerIDNum']);
+        $this->setTransfereeUniqueid($this->event['TransfereeUniqueid']);
+        $this->setTransfereeLinkedid($this->event['TransfereeLinkedid']);
 
-        $this->bridgeUniqueid = $this->setBridgeUniqueid($this->event['BridgeUniqueid']);
-        $this->extension = $this->setExtension($this->event['Extension']);
+        $this->setBridgeUniqueid($this->event['BridgeUniqueid']);
+        $this->setExtension($this->event['Extension']);
 
+        $call = getCallOrWarning($this->transfererLinkedid, "Невозможно добавить трансфер к звонку.");
+
+        Logger::log(DEBUG, "");
+        foreach ($this->event as $key => $value) {
+            Logger::log(DEBUG, "[$this->transfererLinkedid] $key: $value");
+        }
+        Logger::log(DEBUG, "");
+
+        if ($call)
+        {
+            $call->status = CALL_STATUS['transfer'];
+            $call->setState(new StateTransfer($call,$this));
+        }
     }
 
     /**

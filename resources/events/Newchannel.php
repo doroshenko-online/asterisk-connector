@@ -9,6 +9,7 @@ use resources\Registry;
 
 class Newchannel extends BaseEvent
 {
+    public $pbxNum = false;
 
     public function __construct($event)
     {
@@ -31,7 +32,7 @@ class Newchannel extends BaseEvent
         $call = Registry::getCall($this->linkedid);
         if ($call)
         {
-            if (($call->call_type === CALL_TYPE['inner'] || $call->call_type === CALL_TYPE['inbound'])
+            if (($call->call_type === CALL_TYPE['inner'] || $call->call_type === CALL_TYPE['inbound'] || !empty($call->transfers))
                 && preg_match("/^\d{3}$/s", $channame))
             {
                 $this->callerid = $channame;
@@ -39,12 +40,12 @@ class Newchannel extends BaseEvent
         }
         if (isset($call->lastPbxNum))
         {
-            $this->callerid = $call->lastPbxNum;
+            $this->pbxNum = $call->lastPbxNum;
             $call->lastPbxNum = null;
         }
         unset($call);
 
-        new Channel($name, $channame, $this->callerid, $this->exten, $this->uniqueid, $this->linkedid, $this->createtime);
+        new Channel($name, $channame, $this->callerid, $this->exten, $this->uniqueid, $this->linkedid, $this->createtime, $this->pbxNum);
     }
 
 }

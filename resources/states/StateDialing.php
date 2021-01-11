@@ -5,22 +5,25 @@ namespace resources\states;
 
 
 use resources\Call;
+use resources\Channel;
 
 class StateDialing implements State
 {
-    public function __construct($context)
+    public function __construct($context, Channel $dialingChannel)
     {
 
     }
 
     public function proceedToNext(Call $context)
     {
-        if ($context->status === CALL_STATUS['dialing'])
+        if ($context->status === CALL_STATUS['completed'])
         {
-            $context->setState(new StateDialing($context));
-        } elseif ($context->status === CALL_STATUS['conversation'])
-        {
-            $context->setState(new StateAnswer($context));
+            $context->setState(new StateCallEnd($context));
         }
+    }
+
+    public function sendApi()
+    {
+
     }
 }

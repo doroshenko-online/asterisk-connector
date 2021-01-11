@@ -22,13 +22,10 @@ function getCurrentDateTime(string $format = 'Y-m-d H:i:s')
 function getCallOrWarning($linkedid, $errmesg = "")
 {
     $call = Registry::getCall($linkedid);
-    if ($call)
-    {
-        return $call;
-    } else {
-        Logger::log(WARNING, $errmesg . " Звонка с идентификатором $linkedid не существует");
-        return null;
-    }
+    if ($call) return $call;
+
+    Logger::log(WARNING, $errmesg . " Звонка с идентификатором $linkedid не существует");
+    return null;
 }
 
 /*

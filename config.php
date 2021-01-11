@@ -20,7 +20,7 @@ set log level. Available levels: OFF, ERROR, WARNING, INFO, TRACE, DEBUG
 TRACE - all levels without DEBUG level
 */
 
-define('LOG_LEVEL', DEBUG);
+define('LOG_LEVEL', TRACE);
 
 /*
  * путь к папке с логами
@@ -35,7 +35,10 @@ define("LOGS", 'Logs'.DIRECTORY_SEPARATOR);
 define('OUTPUT_CONSOLE', true);
 
 /*
- * Папка записей звонков
+ * Ссылка для записи звонков
  */
 
-define("ARCHIVE_RECORD", '/var/spool/asterisk/archive');
+define('SERVER_IP', '178.150.31.232');
+define('PROTOCOL', 'http');
+
+define("ARCHIVE_RECORD", PROTOCOL . '://' . SERVER_IP . '/sndsarch/');

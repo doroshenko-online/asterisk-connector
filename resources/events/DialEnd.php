@@ -4,6 +4,8 @@
 namespace resources\events;
 
 
+use function utils\getCallOrWarning;
+
 class DialEnd extends BaseEvent
 {
     public $dialStatus;
@@ -15,10 +17,15 @@ class DialEnd extends BaseEvent
         $this->setDestChannel();
         $this->setDestUniqueId();
         $this->setDialStatus();
+        $call = getCallOrWarning($this->linkedid, "Невозможно добавить завершение диала к звонку.");
+        if ($call)
+        {
+            $call->dialEnd($this->uniqueid, $this->destUniqueId, $this->createtime, $this->dialStatus);
+        }
     }
 
     private function setDialStatus()
     {
-        $this->dialString = $this->event['DialStatus'];
+        $this->dialStatus = $this->event['DialStatus'];
     }
 }
