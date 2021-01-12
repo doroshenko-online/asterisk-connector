@@ -39,6 +39,8 @@ class BaseEvent extends CEvent
         if (isset($this->event['Linkedid']))
         {
             $this->linkedid = $this->event['Linkedid'];
+        } else {
+            $this->linkedid = $this->event['DestLinkedid'];
         }
     }
 

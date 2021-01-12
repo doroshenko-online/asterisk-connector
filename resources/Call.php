@@ -24,7 +24,9 @@ class Call
     public $transfers = [];
     public $dials = [];
     public $lastPbxNum;
-    public int $status = CALL_STATUS['established'];
+    public int $stateNum = CALL_STATE['established'];
+    public $status;
+    public int $bridgesDuration = 0;
     public ?int $call_type;
     public $createtime;
 
@@ -45,9 +47,11 @@ class Call
         {
             if (!is_array($value) && !is_object($value))
             {
-                Logger::log(DEBUG, "$key: $value");
+                Logger::log(DEBUG, "[$this->linkedid] $key: $value");
             }
         }
+        Logger::log(DEBUG, "");
+
     }
 
     public function addDial($uniqueid, $destUniqueid, $startTime, $callerid, $destExten)
@@ -63,8 +67,8 @@ class Call
             "dialStatus" => DIAL_STATUS['RINGING']
         ];
         Logger::log(INFO, "[$this->linkedid] Идет вызов... Тип " . array_search($this->call_type, CALL_TYPE, true) . " call. | Вызывающий канал - $uniqueid | Вызывающий номер - $callerid | Вызываемый канал - $destUniqueid | Вызываемый номер - $destExten");
-        $this->status = CALL_STATUS['dialing'];
-        $this->setState(new StateDialing($this, Registry::getChannel($this->linkedid, $destUniqueid)));
+        $this->stateNum = CALL_STATE['dialing'];
+        $this->setState(new StateDialing($this, $this->dials["$uniqueid - $destUniqueid"]));
         return $this->dials["$uniqueid - $destUniqueid"];
     }
 
@@ -88,7 +92,7 @@ class Call
     public function answer($id)
     {
         Logger::log(INFO, "[$this->linkedid] Звонок отвечен. Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten'] . " | Вызывающий номер - " . $this->dials[$id]['callerid']);
-        $this->status = CALL_STATUS['conversation'];
+        $this->stateNum = CALL_STATE['conversation'];
         $this->setState(new StateAnswer($this, Registry::getChannel($this->linkedid, $this->dials[$id]['destUniqueid'])));
     }
 
@@ -150,6 +154,44 @@ class Call
         return false;
     }
 
+    public function setCallStatus()
+    {
+        if (empty($this->dials))
+        {
+            $this->status = CALL_STATUS['NOANSWER'];
+            return $this->status;
+        }
+
+        foreach (CALL_STATUS as $value)
+        {
+            foreach ($this->dials as $item)
+            {
+                if ($item['dialStatus'] === $value)
+                {
+                    $this->status = $item['dialStatus'];
+                }
+            }
+        }
+
+        return $this->status;
+    }
+
+    public function setBridgesDuration()
+    {
+        if (empty($this->bridgeDurations))
+        {
+            $this->bridgesDuration = 0;
+            return $this->bridgesDuration;
+        }
+
+        foreach ($this->bridgeDurations as $item)
+        {
+            $this->bridgesDuration += $item['duration'];
+        }
+
+        return $this->bridgesDuration;
+    }
+
     public function setState(State $state)
     {
         $this->state = $state;
@@ -162,10 +204,19 @@ class Call
 
     public function __destruct()
     {
-        if (!empty($context->bridgeDurations))
-        {
-            $record_link = ARCHIVE_RECORD . getCurrentDateTime('Y/m/d/') . $context->linkedid . ".mp3";
-        }
+        $record_link = ARCHIVE_RECORD . getCurrentDateTime('Y/m/d/') . $this->linkedid . ".mp3";
+        $this->setCallStatus();
+        $this->setBridgesDuration();
+        $dateTimeCallStart = date('Y-m-d H:i:s', $this->createtime);
+        $dateTimeCallEnd = date('Y-m-d H:i:s', time());
+        $callDuration = time() - $this->createtime;
+        $timeBridgesDuration = date('H:i:s', mktime(0, 0, $this->bridgesDuration));
+        $timeCallDuration = date('H:i:s', mktime(0, 0, $callDuration));
+
+        Logger::log(INFO, "[$this->linkedid]"
+         . " Время начала звонка: $dateTimeCallStart | Время окончания звонка: $dateTimeCallEnd | Вызывающий номер: $this->callerId | Вызываемый номер: $this->destNumber"
+         . " | Тип звонка: " . array_search($this->call_type, CALL_TYPE, true) . " | Статус звонка: " . array_search($this->status, CALL_STATUS, true) . " | Длительность звонка: $timeCallDuration | Длительность разговора: $timeBridgesDuration"
+         . " | Ссылка на голосовую запись: $record_link");
 
         //TODO: Здесь должна быть отправка на апи
     }

@@ -28,6 +28,18 @@ function getCallOrWarning($linkedid, $errmesg = "")
     return null;
 }
 
+function normalizationNum($number)
+{
+    if (strlen($number) >= 10 && preg_match('/^\d+$/s', $number)) {
+        switch (COUNTRY) {
+            case 'UKR':
+                return "38" . substr($number, -10);
+        }
+    }
+
+    return $number;
+}
+
 /*
 Настройка логирования
 */
@@ -51,7 +63,7 @@ define('EVENTS', [
  * статусы звонка
  */
 
-define('CALL_STATUS', [
+define('CALL_STATE', [
     'established' => 0,
     'dialing' => 1,
     'conversation' => 2,
@@ -67,9 +79,9 @@ define("CALL_TYPE", [
     "inner" => 1,
     "outbound" => 2,
     "callback_request" => 3,
-    "callback" => 4,
-    "inbound" => 5,
-    "autocall" => 6,
+    "inbound" => 4,
+    "autocall" => 5,
+    "callback" => 6,
     "inner conference" => 7,
     "outer conference" => 8
 ]);
@@ -83,9 +95,20 @@ define("DIAL_STATUS", [
     "ANSWER" => 1,
     "BUSY" => 2,
     "NOANSWER" => 3,
-    "CANCEL" => 4,
-    "CONGESTION" => 5,
+    "CONGESTION" => 4,
+    "CANCEL" => 5,
     "ABORT" => 6,
     "CHANUNAVAIL" => 7,
     "UNKNOWN" => 8,
+]);
+
+/*
+ * Статусы звонка
+ */
+
+define('CALL_STATUS', [
+    'ANSWER' => 1,
+    'BUSY' => 2,
+    'NOANSWER' => 3,
+    'CONGESTION' => 4,
 ]);

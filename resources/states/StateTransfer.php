@@ -8,15 +8,17 @@ use resources\Call;
 use resources\events\BlindTransfer;
 use resources\Registry;
 use utils\Logger;
+use function utils\normalizationNum;
 
 class StateTransfer implements State
 {
     public function __construct(Call $context, BlindTransfer $event)
     {
+        Logger::log(DEBUG, "CallTransfer");
         $context->transfers[$event->bridgeUniqueid]['bridgeUniqueId'] = $event->bridgeUniqueid;
         $context->transfers[$event->bridgeUniqueid]['transfererChannelUniqueId'] = $event->transfererUniqueid;
         $context->transfers[$event->bridgeUniqueid]['transfereeChannelUniqueId'] = $event->transfereeUniqueid;
-        $context->transfers[$event->bridgeUniqueid]['transfererCallerIdNum'] = Registry::getChannel($context->linkedid, $event->transfererUniqueid)->callerid;
+        $context->transfers[$event->bridgeUniqueid]['transfererCallerIdNum'] = normalizationNum(Registry::getChannel($context->linkedid, $event->transfererUniqueid)->callerid);
         $context->transfers[$event->bridgeUniqueid]['transfereeCallerIdNum'] = $event->transfereeCallerId;
         $context->transfers[$event->bridgeUniqueid]['extension'] = $event->extension;
         Logger::log(INFO, "[$context->linkedid] Трансфер! Ид Бриджа: "
@@ -29,7 +31,7 @@ class StateTransfer implements State
 
     public function proceedToNext($context)
     {
-        if ($context->status === CALL_STATUS['completed'])
+        if ($context->stateNum === CALL_STATE['completed'])
         {
             $context->setState(new StateCallEnd($context));
         }

@@ -17,10 +17,13 @@ class DialEnd extends BaseEvent
         $this->setDestChannel();
         $this->setDestUniqueId();
         $this->setDialStatus();
-        $call = getCallOrWarning($this->linkedid, "Невозможно добавить завершение диала к звонку.");
-        if ($call)
+        if ($this->channel && !str_contains($this->destChannel, 'Local'))
         {
-            $call->dialEnd($this->uniqueid, $this->destUniqueId, $this->createtime, $this->dialStatus);
+            $call = getCallOrWarning($this->linkedid, "Невозможно добавить завершение диала к звонку.");
+            if ($call)
+            {
+                $call->dialEnd($this->uniqueid, $this->destUniqueId, $this->createtime, $this->dialStatus);
+            }
         }
     }
 

@@ -6,6 +6,7 @@ namespace resources\events;
 
 use resources\Channel;
 use resources\Registry;
+use function utils\normalizationNum;
 
 class Newchannel extends BaseEvent
 {
@@ -20,13 +21,13 @@ class Newchannel extends BaseEvent
         $channame = explode("-", $name)[0];
         if (preg_match("/\d+/s", $this->exten, $matches))
         {
-            $this->exten = $matches[0];
+            $this->exten = normalizationNum($matches[0]);
         } else {
             $this->exten = null;
         }
         if (preg_match("/^\d+$/s", $this->callerid, $matches))
         {
-            $this->callerid = $matches[0];
+            $this->callerid = normalizationNum($matches[0]);
         }
 
         $call = Registry::getCall($this->linkedid);
@@ -40,7 +41,7 @@ class Newchannel extends BaseEvent
         }
         if (isset($call->lastPbxNum))
         {
-            $this->pbxNum = $call->lastPbxNum;
+            $this->pbxNum = normalizationNum($call->lastPbxNum);
             $call->lastPbxNum = null;
         }
         unset($call);

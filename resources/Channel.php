@@ -32,12 +32,6 @@ class Channel
         {
             $this->pbxNum = $pbxNum;
         }
-        //LOGGING
-        $vars = get_object_vars($this);
-        foreach ($vars as $key => $value)
-        {
-            Logger::log(DEBUG, "$key: $value");
-        }
 
         if (Registry::getCall($this->linkedid) === null)
         {
@@ -59,6 +53,13 @@ class Channel
                 $this->pbxNum = $this->exten;
             }
         }
+        //LOGGING
+        $vars = get_object_vars($this);
+        foreach ($vars as $key => $value)
+        {
+            Logger::log(DEBUG, "[$this->linkedid] $key: $value");
+        }
+        Logger::log(DEBUG, "");
 
         Registry::addChannel($this, $this->linkedid, $this->uniqueid);
         Logger::log(INFO, "[$this->linkedid] Канал: $this->name | Имя канала: $this->channame | Номер канала: $this->callerid | Номер назначения: $this->exten | PBX NUM: $this->pbxNum | Ид канала: $this->uniqueid");

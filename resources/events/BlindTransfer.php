@@ -51,7 +51,7 @@ class BlindTransfer extends CEvent
 
         if ($call)
         {
-            $call->status = CALL_STATUS['transfer'];
+            $call->stateNum = CALL_STATE['transfer'];
             $call->setState(new StateTransfer($call,$this));
         }
     }

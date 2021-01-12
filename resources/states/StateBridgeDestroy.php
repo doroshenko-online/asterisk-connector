@@ -5,12 +5,14 @@ namespace resources\states;
 
 
 use resources\Call;
+use utils\Logger;
 
 class StateBridgeDestroy implements State
 {
 
     public function __construct(Call $context, $bridge)
     {
+        Logger::log(DEBUG, "CallBridgeDestroy");
         $context->bridgeDurations[$bridge['bridgeUniqueId']]['bridgeUniqueId'] = $bridge['bridgeUniqueId'];
         $context->bridgeDurations[$bridge['bridgeUniqueId']]['duration'] = $bridge['duration'];
         $context->bridgeDurations[$bridge['bridgeUniqueId']]['channels'] = $bridge['channels'];
@@ -24,7 +26,7 @@ class StateBridgeDestroy implements State
 
     public function proceedToNext($context)
     {
-        if ($context->status === CALL_STATUS['completed'])
+        if ($context->stateNum === CALL_STATE['completed'])
         {
             $context->setState(new StateCallEnd($context));
         }

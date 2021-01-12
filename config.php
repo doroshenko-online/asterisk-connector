@@ -2,6 +2,10 @@
 
 namespace config;
 
+//Страна. Если Россия - RUS
+
+define('COUNTRY', 'UKR');
+
 // Настройка временной зоны
 $TIMEZONE = 'Europe/Kiev';
 
@@ -20,7 +24,7 @@ set log level. Available levels: OFF, ERROR, WARNING, INFO, TRACE, DEBUG
 TRACE - all levels without DEBUG level
 */
 
-define('LOG_LEVEL', TRACE);
+define('LOG_LEVEL', DEBUG);
 
 /*
  * путь к папке с логами

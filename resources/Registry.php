@@ -27,7 +27,7 @@ class Registry
     {
         if (!isset(self::$calls[$object->linkedid]['call'])) {
             self::$calls[$object->linkedid]['call'] = $object;
-            Logger::log(INFO,  "[$object->linkedid]" . 'Создан новый звонок - ' . $object->linkedid);
+            Logger::log(INFO,  "[$object->linkedid]" . ' Создан новый звонок - ' . $object->linkedid);
             return true;
         } else {
             Logger::log(WARNING, "[$object->linkedid]" . 'Звонок уже существует в регистре');
@@ -62,7 +62,7 @@ class Registry
         if (!isset(self::$calls[$linkedid]['channels'][$uniqueid]))
         {
             self::$calls[$linkedid]['channels'][$uniqueid] = $object;
-            Logger::log(INFO, "[$linkedid]" . 'Создан новый канал - ' . $object->name . " | Uniqueid: $uniqueid");
+            Logger::log(INFO, "[$linkedid]" . ' Создан новый канал - ' . $object->name . " | Uniqueid: $uniqueid");
             return true;
         } else {
             Logger::log(WARNING, "[$linkedid]" . 'Канал уже существует в регистре - ' . $object->name . " | Uniqueid: $uniqueid");
@@ -77,7 +77,7 @@ class Registry
             unset(self::$calls[$linkedid]['channels'][$uniqueid]);
             if (empty(self::$calls[$linkedid]['channels']))
             {
-                self::$calls[$linkedid]['call']->status = CALL_STATUS['completed'];
+                self::$calls[$linkedid]['call']->stateNum = CALL_STATE['completed'];
                 self::$calls[$linkedid]['call']->proceedToNext();
             }
             return true;
@@ -155,7 +155,7 @@ class Registry
         if (!isset(self::$calls[$linkedid]['bridges'][$bridgeuniqueid]))
         {
             self::addBridge($linkedid, $bridgeuniqueid);
-            self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['createTime'] = $startTime;
+            self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['createTime'] = 0;
             self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['endTime'] = 0;
             self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['duration'] = 0;
         }
@@ -165,6 +165,10 @@ class Registry
             return false;
         }
 
+        if (!empty(self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['channels']) && self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['createTime'] === 0)
+        {
+            self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['createTime'] = $startTime;
+        }
         self::$calls[$linkedid]['bridges'][$bridgeuniqueid]['channels'][] = $uniqueid;
         Logger::log(INFO, "[$linkedid] Канал $uniqueid вошел в бридж $bridgeuniqueid");
         return true;
