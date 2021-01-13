@@ -107,7 +107,7 @@ class Call
     {
         if ($channel->type === CHANNEL_TYPE['inner'])
         {
-            if (preg_match("/^\d{3,4}$/s", $this->destNumber))
+            if (preg_match("/^\d{3}$/s", $this->destNumber))
             {
                 $this->call_type = CALL_TYPE["inner"];
             } elseif (preg_match("/^\d{6,15}$/s", $this->destNumber)) {

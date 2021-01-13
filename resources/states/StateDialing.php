@@ -9,10 +9,16 @@ use utils\Logger;
 
 class StateDialing implements State
 {
-    public function __construct($context, $dialArr)
+    public function __construct(Call $context, $dialArr)
     {
         Logger::log(DEBUG, "CallDialing");
-        if (strlen($dialArr['callerid']) === 3 || strlen($dialArr['destExten']) === 3)
+        if ($context->call_type === CALL_TYPE['outbound'])
+        {
+            if ((empty($context->transfers) && count($context->dials) === 1) || !empty($context->transfers))
+            {
+                $this->sendApi();
+            }
+        } elseif (strlen($dialArr['callerid']) === 3 || strlen($dialArr['destExten']) === 3)
         {
             $this->sendApi();
         }
