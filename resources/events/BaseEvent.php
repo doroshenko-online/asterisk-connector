@@ -98,7 +98,7 @@ class BaseEvent extends CEvent
     {
         if(isset($this->event['CallerIDNum']))
         {
-            if (preg_match('/^\d{3,}/s', $this->event['CallerIDNum'], $matches))
+            if (preg_match('/^\\+?\d{3,}/s', $this->event['CallerIDNum'], $matches))
             {
                 $this->callerid = normalizationNum($this->event['CallerIDNum']);
             }

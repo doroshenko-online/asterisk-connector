@@ -19,6 +19,7 @@ class DialBegin extends BaseEvent
         $this->setDestExten();
         $this->setDestUniqueId();
         $this->setDialString();
+        $this->setDestCallerId();
         if ($this->channel && !str_contains($this->destChannel, 'Local'))
         {
             $call = Registry::getCall($this->linkedid);
@@ -29,7 +30,7 @@ class DialBegin extends BaseEvent
                 if ($call->stateNum === CALL_STATE['transfer'])
                 {
                     $destChannel->setCallerId($this->destCallerId);
-                    $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->destCallerId);
+                    $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->destCallerId, $destChannel->pbxNum);
                 } else {
                     switch ($call->call_type)
                     {

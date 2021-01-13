@@ -46,7 +46,7 @@ class Logger
         }
 
         $currDateTime = getCurrentDateTime();
-        $record = "[$currDateTime][$level] $message".PHP_EOL;
+        $record = "[$currDateTime][" . LEVELS_LOG_NAME_VERBOSE[$level] . "] $message".PHP_EOL;
 
         if ($level <= LOG_LEVEL)
         {

@@ -20,7 +20,7 @@ class Newchannel extends BaseEvent
 
         $call = Registry::getCall($this->linkedid);
 
-        if ($call || ($call === null && $this->callerid))
+        if ($call || ($call === null && $this->callerid) || ($call === null && str_contains($this->channel, '@')))
         {
             $name = str_replace("Local/", "", str_replace("SIP/", "", $this->channel));
             $channame = explode("-", $name)[0];
@@ -43,8 +43,11 @@ class Newchannel extends BaseEvent
 
             if (isset($call->lastPbxNum))
             {
-                $this->pbxNum = $call->lastPbxNum;
-                $call->lastPbxNum = null;
+                if ($call->lastPbxNum)
+                {
+                    $this->pbxNum = $call->lastPbxNum;
+                    $call->lastPbxNum = null;
+                }
             }
 
             new Channel($name, $channame, $this->callerid, $this->exten, $this->uniqueid, $this->linkedid, $this->createtime, $this->type, $this->pbxNum);

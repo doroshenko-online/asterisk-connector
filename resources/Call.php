@@ -10,6 +10,7 @@ use resources\states\StateCreated;
 use resources\states\StateDialing;
 use utils\Logger;
 use function utils\getCurrentDateTime;
+use function utils\normalizationNum;
 
 class Call
 {
@@ -36,7 +37,7 @@ class Call
     {
         $this->linkedid = $channel->linkedid;
         $this->callerId = $channel->callerid;
-        $this->destNumber = $channel->exten;
+        $this->destNumber = normalizationNum($channel->exten);
         $this->createtime = $channel->createtime;
         $this->setState(new StateCreated($this));
         $this->checkTypeFirst($channel);
@@ -76,15 +77,21 @@ class Call
     public function dialEnd($uniqueid, $destUniqueid, $endTime, $dialStatus)
     {
         $id = "$uniqueid - $destUniqueid";
-        $this->dials[$id]['dialEndTime'] = $endTime;
-        $this->dials[$id]['dialDuration'] = $this->dials[$id]['dialEndTime'] - $this->dials[$id]['dialStartTime'];
-        if (!array_key_exists($dialStatus, DIAL_STATUS)) {
-            Logger::log(WARNING, "[$this->linkedid] Неожиданный статус вызова(DialEnd) - $dialStatus. " . "Вызываемый канал - " . $this->dials[$id]['destUniqueid']);
-            $this->dials[$id]['dialStatus'] = DIAL_STATUS["UNKNOWN"];
-        } else {
-            $this->dials[$id]['dialStatus'] = DIAL_STATUS[$dialStatus];
-            if ($this->dials[$id]['dialStatus'] === DIAL_STATUS['ANSWER'])
-            {
+        if ($this->dials[$id]['dialStatus'] === DIAL_STATUS['RINGING']) {
+            $this->dials[$id]['dialEndTime'] = $endTime;
+            $this->dials[$id]['dialDuration'] = $this->dials[$id]['dialEndTime'] - $this->dials[$id]['dialStartTime'];
+            if (!array_key_exists($dialStatus, DIAL_STATUS)) {
+                Logger::log(WARNING, "[$this->linkedid] Неожиданный статус вызова(DialEnd) - $dialStatus. " . "Вызываемый канал - " . $this->dials[$id]['destUniqueid']);
+                $this->dials[$id]['dialStatus'] = DIAL_STATUS["UNKNOWN"];
+            } else {
+                $this->dials[$id]['dialStatus'] = DIAL_STATUS[$dialStatus];
+            }
+            Logger::log(INFO, "[$this->linkedid] Диал завершен. Вызывающий канал: " . $this->dials[$id]['uniqueid']
+                . " | Вызывающий номер: " . $this->dials[$id]['callerid'] . " | Вызываемый канал: " . $this->dials[$id]['destUniqueid']
+                . " | Вызываемый номер: " . $this->dials[$id]['destExten'] . " | PBX номер: " . $this->dials[$id]['pbx_num']
+                . " | Длительность вызова: " . $this->dials[$id]['dialDuration'] . " | Статус диала: " . $this->dials[$id]['dialStatus']);
+
+            if ($this->dials[$id]['dialStatus'] === DIAL_STATUS['ANSWER']) {
                 $this->answer($id);
             }
         }
@@ -105,26 +112,27 @@ class Call
 
     public function checkTypeFirst(Channel $channel)
     {
-        if ($channel->type === CHANNEL_TYPE['inner'])
-        {
-            if (preg_match("/^\d{3}$/s", $this->destNumber))
-            {
-                $this->call_type = CALL_TYPE["inner"];
-            } elseif (preg_match("/^\d{6,15}$/s", $this->destNumber)) {
-                $this->call_type = CALL_TYPE["outbound"];
-            }
-        } elseif ($channel->type === CHANNEL_TYPE['outer'])
-        {
-            $this->call_type = CALL_TYPE["inbound"];
-            if ($this->isAnonymous())
-            {
-                $this->callerId = 'Anonymous';
-            }
-        } else {
-            if (str_contains($channel->channame, "@"))
-            {
-                $this->call_type = CALL_TYPE["autocall"];
-            }
+        switch ($channel->type){
+            case CHANNEL_TYPE['inner']:
+                if (preg_match("/^\d{3}$/s", $this->destNumber))
+                {
+                    $this->call_type = CALL_TYPE["inner"];
+                } elseif (preg_match("/^\d{6,15}$/s", $this->destNumber)) {
+                    $this->call_type = CALL_TYPE["outbound"];
+                }
+                break;
+            case CHANNEL_TYPE['outer']:
+                $this->call_type = CALL_TYPE["inbound"];
+                if ($this->isAnonymous())
+                {
+                    $this->callerId = 'Anonymous';
+                }
+                break;
+            default:
+                if (str_contains($channel->channame, "@"))
+                {
+                    $this->call_type = CALL_TYPE["autocall"];
+                }
         }
 
         Logger::log(INFO, "[$this->linkedid] Тип звонка предварительно определен как - " . array_search($this->call_type, CALL_TYPE, true));
@@ -165,21 +173,25 @@ class Call
     {
         if (empty($this->dials))
         {
-            $this->status = CALL_STATUS['NOANSWER'];
+            if ($this->call_type === CALL_TYPE['callback_request'])
+            {
+                $this->status = CALL_STATUS['CALLBACK REQUEST'];
+                return $this->status;
+            }
+            $this->status = CALL_STATUS['CONGESTION'];
             return $this->status;
         }
 
-        foreach (CALL_STATUS as $value)
+        $min_status = 100;
+
+        foreach ($this->dials as $item)
         {
-            foreach ($this->dials as $item)
+            if ((int) $item['dialStatus'] < $min_status)
             {
-                if ($item['dialStatus'] === $value)
-                {
-                    $this->status = $item['dialStatus'];
-                }
+                $min_status = $item['dialStatus'];
             }
         }
-
+        $this->status = $min_status;
         return $this->status;
     }
 

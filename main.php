@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUndefinedMethodInspection */
 
 
 require_once 'utils/autoload.php';
@@ -18,9 +18,9 @@ $socket = $connector->getSocketOrCreateAndAuth();
 $event = [];
 $write_event = false;
 
-Logger::log('INFO', 'Создание регистра звонков...');
+Logger::log(INFO, 'Создание регистра звонков...');
 $registry = \resources\Registry::getInstance();
-Logger::log('INFO', 'OK');
+Logger::log(INFO, 'OK');
 
 
 while (!feof($socket)) {

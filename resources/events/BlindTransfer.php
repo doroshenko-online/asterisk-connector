@@ -7,6 +7,7 @@ namespace resources\events;
 use resources\Registry;
 use resources\states\StateTransfer;
 use utils\Logger;
+use function utils\normalizationNum;
 
 class BlindTransfer extends CEvent
 {
@@ -213,7 +214,7 @@ class BlindTransfer extends CEvent
      */
     public function setExtension($extension): void
     {
-        $this->extension = $extension;
+        $this->extension = normalizationNum($extension);
     }
 
 

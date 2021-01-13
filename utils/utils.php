@@ -16,6 +16,15 @@ define('INFO', 3);
 define('TRACE', 4);
 define('DEBUG', 5);
 
+define("LEVELS_LOG_NAME_VERBOSE", [
+    OFF => 'OFF',
+    ERROR => 'ERROR',
+    WARNING => 'WARNING',
+    INFO => 'INFO',
+    TRACE => 'TRACE',
+    DEBUG => 'DEBUG',
+]);
+
 /*
  * Юзер ивенты для парсинга
  */
@@ -76,6 +85,8 @@ define('CALL_STATUS', [
     'BUSY' => 2,
     'NOANSWER' => 3,
     'CONGESTION' => 4,
+    'CANCEL' => 5,
+    'CALLBACK REQUEST' => 6,
 ]);
 
 /*
@@ -115,7 +126,7 @@ function getCallOrWarning($linkedid, $errmesg = "")
 
 function normalizationNum($number)
 {
-    if (strlen($number) >= 10 && preg_match('/^\d+$/s', $number)) {
+    if (strlen($number) >= 10 && preg_match('/^\\+?\d+$/s', $number)) {
         switch (COUNTRY) {
             case 'UKR':
                 return "38" . substr($number, -10);
