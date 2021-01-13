@@ -54,7 +54,7 @@ class Call
 
     }
 
-    public function addDial($uniqueid, $destUniqueid, $startTime, $callerid, $destExten)
+    public function addDial($uniqueid, $destUniqueid, $startTime, $callerid, $destExten, $pbx_num = "")
     {
         $this->dials["$uniqueid - $destUniqueid"] = [
             "uniqueid" => $uniqueid,
@@ -62,11 +62,12 @@ class Call
             "callerid" => $callerid,
             "destExten" => $destExten,
             "dialStartTime" => $startTime,
+            "pbx_num" => $pbx_num,
             "dialEndTime" => 0,
             "dialDuration" => 0,
             "dialStatus" => DIAL_STATUS['RINGING']
         ];
-        Logger::log(INFO, "[$this->linkedid] Идет вызов... Тип " . array_search($this->call_type, CALL_TYPE, true) . " call. | Вызывающий канал - $uniqueid | Вызывающий номер - $callerid | Вызываемый канал - $destUniqueid | Вызываемый номер - $destExten");
+        Logger::log(INFO, "[$this->linkedid] Идет вызов... Тип " . array_search($this->call_type, CALL_TYPE, true) . " call. | Вызывающий канал - $uniqueid | Вызывающий номер - $callerid | Вызываемый канал - $destUniqueid | Вызываемый номер - $destExten | Вызывающий PBX номер - $pbx_num");
         $this->stateNum = CALL_STATE['dialing'];
         $this->setState(new StateDialing($this, $this->dials["$uniqueid - $destUniqueid"]));
         return $this->dials["$uniqueid - $destUniqueid"];
@@ -91,6 +92,12 @@ class Call
 
     public function answer($id)
     {
+        // если абонент берет трубку при отзвоне
+        if ($this->call_type === CALL_TYPE['callback'] && Registry::getChannel($this->linkedid, $this->dials[$id]['destUniqueid'])->type === CHANNEL_TYPE['outer'])
+        {
+            Logger::log(INFO, "[$this->linkedid] Коллбек. Ответил внешний канал. Вызывающий номер - " . $this->dials[$id]['pbx_num'] . " | Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten']);
+            $this->otzvonNumber = $this->dials[$id]['pbx_num'];
+        }
         Logger::log(INFO, "[$this->linkedid] Звонок отвечен. Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten'] . " | Вызывающий номер - " . $this->dials[$id]['callerid']);
         $this->stateNum = CALL_STATE['conversation'];
         $this->setState(new StateAnswer($this, Registry::getChannel($this->linkedid, $this->dials[$id]['destUniqueid'])));
@@ -98,15 +105,15 @@ class Call
 
     public function checkTypeFirst(Channel $channel)
     {
-        if (preg_match("/^\d{3,4}$/s", $channel->channame) && $channel->channame == $this->callerId)
+        if ($channel->type === CHANNEL_TYPE['inner'])
         {
             if (preg_match("/^\d{3,4}$/s", $this->destNumber))
             {
                 $this->call_type = CALL_TYPE["inner"];
-            } elseif (preg_match("/^\d{7,15}$/s", $this->destNumber)) {
+            } elseif (preg_match("/^\d{6,15}$/s", $this->destNumber)) {
                 $this->call_type = CALL_TYPE["outbound"];
             }
-        } elseif (!str_contains($channel->channame, "@") && preg_match("/^\d{4,12}$/s", $this->destNumber))
+        } elseif ($channel->type === CHANNEL_TYPE['outer'])
         {
             $this->call_type = CALL_TYPE["inbound"];
             if ($this->isAnonymous())

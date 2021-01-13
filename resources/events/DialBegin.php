@@ -5,8 +5,6 @@ namespace resources\events;
 
 
 use resources\Registry;
-use function utils\getCallOrWarning;
-use function utils\normalizationNum;
 
 class DialBegin extends BaseEvent
 {
@@ -23,58 +21,43 @@ class DialBegin extends BaseEvent
         $this->setDialString();
         if ($this->channel && !str_contains($this->destChannel, 'Local'))
         {
-            $call = getCallOrWarning($this->linkedid, "Невозможно добавить диал к звонку.");
+            $call = Registry::getCall($this->linkedid);
             if ($call)
             {
                 $destChannel = Registry::getChannel($this->linkedid, $this->destUniqueId);
-                $currentChannel = Registry::getChannel($this->linkedid, $this->uniqueid);
 
-                if (preg_match('/^\d+$/s', $this->callerid))
+                if ($call->stateNum === CALL_STATE['transfer'])
                 {
-                    $currentChannel->callerid = normalizationNum($this->callerid);
-                }
-
-                if (strlen($destChannel->callerid) > 4 && str_contains($destChannel->callerid, $call->destNumber))
-                {
-                    $currentChannel->callerid = normalizationNum($this->event['DestCallerIDNum']);
-                    $call->destNumber = normalizationNum($this->event['DestCallerIDNum']);
-                }
-
-                if ($call->call_type === CALL_TYPE['outbound'] || $call->call_type === CALL_TYPE['callback']) {
-                    if (preg_match("/^\d{5,}$/s", $this->callerid) && empty($call->transfers))
+                    $destChannel->setCallerId($this->destCallerId);
+                    $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->destCallerId);
+                } else {
+                    switch ($call->call_type)
                     {
-                        $currentChannel->exten = normalizationNum($this->destExten);
+                        case CALL_TYPE['inner']:
+                        case CALL_TYPE['outbound']:
+                            $destChannel->setCallerId($this->destCallerId);
+                            $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->destCallerId, $destChannel->pbxNum);
+                            break;
+                        case CALL_TYPE['inbound']:
+                            $this->dialStringNum = str_replace('SIP/', '', $this->dialString);
+                            $destChannel->setCallerId($this->dialStringNum);
+                            $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->dialStringNum);
+                            break;
+                        case CALL_TYPE['callback']:
+                            $currChannel = Registry::getChannel($this->linkedid, $this->uniqueid);
+                            if ($this->destExten)
+                            {
+                                $currChannel->setCallerId($this->callerid);
+                                $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $destChannel->callerid, $this->destCallerId, $destChannel->pbxNum);
+                            } else {
+                                $currChannel->setCallerId($this->callerid);
+                                $destChannel->setCallerId($this->dialStringNum);
+                                $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->dialStringNum);
+                            }
+                            break;
                     }
                 }
 
-                if ($call->call_type === CALL_TYPE['outbound'] || $call->call_type === CALL_TYPE['inner'])
-                {
-                    $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $currentChannel->callerid, $this->destExten);
-                } elseif ($call->call_type === CALL_TYPE['inbound'])
-                {
-                    $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $currentChannel->callerid, str_replace('SIP/', '', $this->dialString));
-                } elseif ($call->call_type === CALL_TYPE['callback'])
-                {
-                    $this->dialStringNum = str_replace('SIP/', '', $this->dialString);
-                    if (preg_match('/^\d{3}$/s', $destChannel->channame) && $this->dialStringNum === $destChannel->channame)
-                    {
-                        $destChannel->callerid = $this->dialStringNum;
-                    }
-                    if (preg_match('/^\d+$/s', $this->event['DestCallerIDNum']) && $destChannel->callerid == null)
-                    {
-                        $destChannel->callerid = normalizationNum($this->event['DestCallerIDNum']);
-                    }
-
-                    if (preg_match('/^\d{3}$/s', $destChannel->callerid))
-                    {
-                        $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, normalizationNum($currentChannel->callerid), $destChannel->callerid);
-                    } else
-                    {
-                        $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $destChannel->pbxNum, $destChannel->callerid);
-                    }
-
-
-                }
             }
         }
     }

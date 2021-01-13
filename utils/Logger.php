@@ -32,7 +32,7 @@ class Logger
         return self::$instance;
     }
 
-    public static function log(string $level, string $message) : void
+    public static function log(int $level, string $message) : void
     {
         if (is_null(self::$instance))
         {
@@ -45,44 +45,16 @@ class Logger
             self::$instance->init();
         }
 
-        $write = false;
+        $currDateTime = getCurrentDateTime();
+        $record = "[$currDateTime][$level] $message".PHP_EOL;
 
-        switch (LOG_LEVEL) {
-            case ERROR:
-                if ($level === ERROR) {
-                    $write = true;
-                }
-                break;
-            case WARNING:
-                if ($level === WARNING) {
-                    $write = true;
-                }
-                break;
-            case INFO:
-                if ($level === INFO)
-                {
-                    $write = true;
-                }
-                break;
-            case TRACE:
-                if ($level !== DEBUG)
-                {
-                    $write = true;
-                }
-                break;
-            case DEBUG:
-                $write = true;
-                break;
-        }
-        if ($write)
+        if ($level <= LOG_LEVEL)
         {
-            $currDateTime = getCurrentDateTime();
-            $record = "[$currDateTime][$level] $message".PHP_EOL;
             fwrite(self::$logFile,$record);
-            if (OUTPUT_CONSOLE)
-            {
-                print $record;
-            }
+        }
+        if ($level <= OUTPUT_CONSOLE_LEVEL)
+        {
+            print $record;
         }
     }
 

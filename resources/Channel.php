@@ -18,8 +18,9 @@ class Channel
     public $uniqueid;
     public $linkedid;
     public $createtime;
+    public $type;
 
-    public function __construct($name, $channame, $callerid, $exten, $uniqueid, $linkedid, $createtime, $pbxNum = false)
+    public function __construct($name, $channame, $callerid, $exten, $uniqueid, $linkedid, $createtime, $type, $pbxNum = false)
     {
         $this->name = $name;
         $this->channame = $channame;
@@ -28,6 +29,7 @@ class Channel
         $this->uniqueid = $uniqueid;
         $this->linkedid = $linkedid;
         $this->createtime = $createtime;
+        $this->type = $type;
         if ($pbxNum)
         {
             $this->pbxNum = $pbxNum;
@@ -38,14 +40,7 @@ class Channel
             new Call($this);
         }
         $call = getCallOrWarning($this->linkedid);
-        if ($call)
-        {
-            if ($call->lastPbxNum)
-            {
-                $this->callerid = $call->lastPbxNum;
-                $call->lastPbxNum = null;
-            }
-        }
+
         if ($call->call_type === CALL_TYPE['inbound'] || $call->call_type === CALL_TYPE['callback_request'])
         {
             if (!$this->pbxNum && preg_match('/\d{7,15}/s', $this->callerid) && preg_match('/\d{3,15}/s', $this->exten))
@@ -63,7 +58,14 @@ class Channel
 
         Registry::addChannel($this, $this->linkedid, $this->uniqueid);
         Logger::log(INFO, "[$this->linkedid] Канал: $this->name | Имя канала: $this->channame | Номер канала: $this->callerid | Номер назначения: $this->exten | PBX NUM: $this->pbxNum | Ид канала: $this->uniqueid");
-
     }
 
+    public function setCallerId($callerid)
+    {
+        if ($this->callerid === null)
+        {
+            $this->callerid = $callerid;
+            Logger::log(INFO, "[$this->linkedid] У канала $this->uniqueid установлен callerid: $this->callerid");
+        }
+    }
 }

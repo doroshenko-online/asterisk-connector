@@ -14,7 +14,11 @@ class Hangup extends BaseEvent
     {
         parent::__construct($event);
         $this->setCauseCode();
-        Registry::removeChannel($this->linkedid, $this->uniqueid);
+        $call = Registry::getCall($this->linkedid);
+        if ($call)
+        {
+            Registry::removeChannel($this->linkedid, $this->uniqueid);
+        }
     }
 
     private function setCauseCode()

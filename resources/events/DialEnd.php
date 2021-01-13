@@ -4,6 +4,7 @@
 namespace resources\events;
 
 
+use resources\Registry;
 use function utils\getCallOrWarning;
 
 class DialEnd extends BaseEvent
@@ -17,12 +18,16 @@ class DialEnd extends BaseEvent
         $this->setDestChannel();
         $this->setDestUniqueId();
         $this->setDialStatus();
-        if ($this->channel && !str_contains($this->destChannel, 'Local'))
+        $call = Registry::getCall($this->linkedid);
+        if ($call)
         {
-            $call = getCallOrWarning($this->linkedid, "Невозможно добавить завершение диала к звонку.");
-            if ($call)
+            if ($this->channel && !str_contains($this->destChannel, 'Local'))
             {
-                $call->dialEnd($this->uniqueid, $this->destUniqueId, $this->createtime, $this->dialStatus);
+                $call = getCallOrWarning($this->linkedid, "Невозможно добавить завершение диала к звонку.");
+                if ($call)
+                {
+                    $call->dialEnd($this->uniqueid, $this->destUniqueId, $this->createtime, $this->dialStatus);
+                }
             }
         }
     }

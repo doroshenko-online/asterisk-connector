@@ -5,62 +5,27 @@ namespace utils;
 use DateTime;
 use resources\Registry;
 
-function getLogFIleName()
-{
-    $currentDate = new DateTime();
-    $currentDate = $currentDate->format('d_m_Y');
-    return 'log_' . $currentDate . '.log';
-}
-
-function getCurrentDateTime(string $format = 'Y-m-d H:i:s')
-{
-    $currentDateTime = new DateTime();
-    $currentDateTime = $currentDateTime->format($format);
-    return $currentDateTime;
-}
-
-function getCallOrWarning($linkedid, $errmesg = "")
-{
-    $call = Registry::getCall($linkedid);
-    if ($call) return $call;
-
-    Logger::log(WARNING, $errmesg . " Звонка с идентификатором $linkedid не существует");
-    return null;
-}
-
-function normalizationNum($number)
-{
-    if (strlen($number) >= 10 && preg_match('/^\d+$/s', $number)) {
-        switch (COUNTRY) {
-            case 'UKR':
-                return "38" . substr($number, -10);
-        }
-    }
-
-    return $number;
-}
-
 /*
-Настройка логирования
+Уровни логирования, идут по возрастанию.
 */
 
-define('OFF', 'OFF');
-define('ERROR', 'ERROR');
-define('WARNING', 'WARNING');
-define('INFO', 'INFO');
-define('TRACE', 'TRACE');
-define('DEBUG', 'DEBUG');
+define('OFF', 0);
+define('ERROR', 1);
+define('WARNING', 2);
+define('INFO', 3);
+define('TRACE', 4);
+define('DEBUG', 5);
 
 /*
- * юзер ивенты для парсинга
+ * Юзер ивенты для парсинга
  */
 
 define('EVENTS', [
-    'CALLBACK_INIT', 'CALLBACK', 'conference', 'SIP_CALL_ID', 'CONF_OUT_AMI', 'PBX_NUM',
+    'CALLBACK_INIT', 'CALLBACK', 'conference', 'CONF_OUT_AMI', 'PBX_NUM',
 ]);
 
 /*
- * статусы звонка
+ * Состояния звонка
  */
 
 define('CALL_STATE', [
@@ -112,3 +77,50 @@ define('CALL_STATUS', [
     'NOANSWER' => 3,
     'CONGESTION' => 4,
 ]);
+
+/*
+ * Типы каналов
+ */
+
+define('CHANNEL_TYPE', [
+    'inner' => 1,
+    'outer' => 2,
+    'local' => 3,
+]);
+
+/*
+ * Вспомогающие функции
+ */
+
+function getLogFIleName()
+{
+    return 'log_' . getCurrentDateTime('d_m_Y') . '.log';
+}
+
+function getCurrentDateTime(string $format = 'Y-m-d H:i:s')
+{
+    $currentDateTime = new DateTime();
+    $currentDateTime = $currentDateTime->format($format);
+    return $currentDateTime;
+}
+
+function getCallOrWarning($linkedid, $errmesg = "")
+{
+    $call = Registry::getCall($linkedid);
+    if ($call) return $call;
+
+    Logger::log(WARNING, $errmesg . " Звонка с идентификатором $linkedid не существует");
+    return null;
+}
+
+function normalizationNum($number)
+{
+    if (strlen($number) >= 10 && preg_match('/^\d+$/s', $number)) {
+        switch (COUNTRY) {
+            case 'UKR':
+                return "38" . substr($number, -10);
+        }
+    }
+
+    return $number;
+}

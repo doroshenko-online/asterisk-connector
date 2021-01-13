@@ -20,23 +20,23 @@ define('AMI_SETTINGS', [
 ]);
 
 /*
-set log level. Available levels: OFF, ERROR, WARNING, INFO, TRACE, DEBUG
+установка уровня логгирования в файл. Available levels: OFF, ERROR, WARNING, INFO, TRACE, DEBUG
 TRACE - all levels without DEBUG level
 */
 
 define('LOG_LEVEL', DEBUG);
 
 /*
+ * уровень вывода в консоль. levels: OFF, ERROR, WARNING, INFO, TRACE, DEBUG
+ */
+
+define('OUTPUT_CONSOLE_LEVEL', TRACE);
+
+/*
  * путь к папке с логами
  */
 
 define("LOGS", 'Logs'.DIRECTORY_SEPARATOR);
-
-/*
- * вывод в консоль
- */
-
-define('OUTPUT_CONSOLE', true);
 
 /*
  * Ссылка для записи звонков

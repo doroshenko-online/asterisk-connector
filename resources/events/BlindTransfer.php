@@ -4,9 +4,9 @@
 namespace resources\events;
 
 
+use resources\Registry;
 use resources\states\StateTransfer;
 use utils\Logger;
-use function utils\getCallOrWarning;
 
 class BlindTransfer extends CEvent
 {
@@ -41,16 +41,16 @@ class BlindTransfer extends CEvent
         $this->setBridgeUniqueid($this->event['BridgeUniqueid']);
         $this->setExtension($this->event['Extension']);
 
-        $call = getCallOrWarning($this->transfererLinkedid, "Невозможно добавить трансфер к звонку.");
-
-        Logger::log(DEBUG, "");
-        foreach ($this->event as $key => $value) {
-            Logger::log(DEBUG, "[$this->transfererLinkedid] $key: $value");
-        }
-        Logger::log(DEBUG, "");
+        $call = Registry::getCall($this->transfererLinkedid);
 
         if ($call)
         {
+            Logger::log(DEBUG, "");
+            foreach ($this->event as $key => $value) {
+                Logger::log(DEBUG, "[$this->transfererLinkedid] $key: $value");
+            }
+            Logger::log(DEBUG, "");
+
             $call->stateNum = CALL_STATE['transfer'];
             $call->setState(new StateTransfer($call,$this));
         }

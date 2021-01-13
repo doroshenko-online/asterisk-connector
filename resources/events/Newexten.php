@@ -4,8 +4,10 @@
 namespace resources\events;
 
 
+use resources\Registry;
 use utils\Logger;
 use function utils\getCallOrWarning;
+use function utils\normalizationNum;
 
 class Newexten extends BaseEvent
 {
@@ -15,13 +17,17 @@ class Newexten extends BaseEvent
     public function __construct($event)
     {
         parent::__construct($event);
-        $userEvent = $this->setAppData();
-        if ($userEvent)
+        $call = Registry::getCall($this->linkedid);
+        if ($call)
         {
-            $this->setCallback();
-            $this->setOtzvon();
-            $this->setOutConf();
-            $this->setPbxNum();
+            $userEvent = $this->setAppData();
+            if ($userEvent)
+            {
+                $this->setCallback();
+                $this->setOtzvon();
+                $this->setOutConf();
+                $this->setPbxNum();
+            }
         }
     }
 
@@ -87,7 +93,7 @@ class Newexten extends BaseEvent
             $call = getCallOrWarning($this->linkedid, 'Невозможно отметить на звонке PBX номер.');
             if ($call)
             {
-                $call->lastPbxNum = $this->appData;
+                $call->lastPbxNum = normalizationNum($this->appData);
             }
         }
     }

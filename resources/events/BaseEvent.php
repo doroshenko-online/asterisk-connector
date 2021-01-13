@@ -5,6 +5,7 @@ namespace resources\events;
 
 
 use utils\Logger;
+use function utils\normalizationNum;
 
 class BaseEvent extends CEvent
 {
@@ -17,6 +18,7 @@ class BaseEvent extends CEvent
     public $destUniqueId;
     public $destExten;
     public $bridgeUniqueid;
+    public $destCallerId;
 
     public function __construct($event)
     {
@@ -96,9 +98,9 @@ class BaseEvent extends CEvent
     {
         if(isset($this->event['CallerIDNum']))
         {
-            if (preg_match('/^\d{2,}/s', $this->event['CallerIDNum'], $matches))
+            if (preg_match('/^\d{3,}/s', $this->event['CallerIDNum'], $matches))
             {
-                $this->callerid = $this->event['CallerIDNum'];
+                $this->callerid = normalizationNum($this->event['CallerIDNum']);
             }
         }
     }
@@ -148,5 +150,10 @@ class BaseEvent extends CEvent
     protected function setBridgeUniqueid(): void
     {
         $this->bridgeUniqueid = $this->event['BridgeUniqueid'];
+    }
+
+    public function setDestCallerId()
+    {
+        $this->destCallerId = normalizationNum($this->event['DestCallerIDNum']);
     }
 }
