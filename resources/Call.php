@@ -128,16 +128,16 @@ class Call
             case CHANNEL_TYPE['inner']:
                 if (preg_match("/^\d{3}$/s", $this->destNumber))
                 {
-                    $this->call_type = CALL_TYPE["inner"];
+                    $this->setType(CALL_TYPE["inner"]);
                 } elseif (preg_match("/^\d{6,15}$/s", $this->destNumber)) {
-                    $this->call_type = CALL_TYPE["outbound"];
+                    $this->setType(CALL_TYPE["outbound"]);
                 } elseif (preg_match("/^1\d{3}$/s", $this->destNumber))
                 {
                     $this->call_type = CALL_TYPE["inner conference"];
                 }
                 break;
             case CHANNEL_TYPE['outer']:
-                $this->call_type = CALL_TYPE["inbound"];
+                $this->setType(CALL_TYPE["inbound"]);
                 if ($this->isAnonymous())
                 {
                     $this->callerId = 'Anonymous';
