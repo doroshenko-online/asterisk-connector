@@ -41,23 +41,27 @@ class Channel
         }
         $call = getCallOrWarning($this->linkedid);
 
-        if ($call->call_type === CALL_TYPE['inbound'] || $call->call_type === CALL_TYPE['callback_request'])
+        if ($call)
         {
-            if (!$this->pbxNum && preg_match('/\d{7,15}/s', $this->callerid) && preg_match('/\d{3,15}/s', $this->exten))
+            if ($call->call_type === CALL_TYPE['inbound'] || $call->call_type === CALL_TYPE['callback_request'])
             {
-                $this->pbxNum = $this->exten;
+                if (!$this->pbxNum && preg_match('/\d{7,15}/s', $this->callerid) && preg_match('/\d{3,15}/s', $this->exten))
+                {
+                    $this->pbxNum = $this->exten;
+                }
             }
-        }
-        //LOGGING
-        $vars = get_object_vars($this);
-        foreach ($vars as $key => $value)
-        {
-            Logger::log(DEBUG, "[$this->linkedid] $key: $value");
-        }
-        Logger::log(DEBUG, "");
+            //LOGGING
+            $vars = get_object_vars($this);
+            foreach ($vars as $key => $value)
+            {
+                Logger::log(DEBUG, "[$this->linkedid] $key: $value");
+            }
+            Logger::log(DEBUG, "");
 
-        Registry::addChannel($this, $this->linkedid, $this->uniqueid);
-        Logger::log(INFO, "[$this->linkedid] Канал: $this->name | Имя канала: $this->channame | Номер канала: $this->callerid | Номер назначения: $this->exten | PBX NUM: $this->pbxNum | Ид канала: $this->uniqueid");
+            Registry::addChannel($this, $this->linkedid, $this->uniqueid);
+            Logger::log(INFO, "[$this->linkedid] Канал: $this->name | Имя канала: $this->channame | Номер канала: $this->callerid"
+                . " | Номер назначения: $this->exten | PBX NUM: $this->pbxNum | Ид канала: $this->uniqueid | Тип канала: " . array_search($type, CHANNEL_TYPE, true));
+        }
     }
 
     public function setCallerId($callerid)

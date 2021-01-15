@@ -10,10 +10,11 @@ use resources\Registry;
 use utils\Logger;
 use function utils\normalizationNum;
 
-class StateTransfer implements State
+class StateTransfer extends State
 {
     public function __construct(Call $context, BlindTransfer $event)
     {
+        parent::__construct($context);
         Logger::log(DEBUG, "CallTransfer");
         $context->transfers[$event->bridgeUniqueid]['bridgeUniqueId'] = $event->bridgeUniqueid;
         $context->transfers[$event->bridgeUniqueid]['transfererChannelUniqueId'] = $event->transfererUniqueid;

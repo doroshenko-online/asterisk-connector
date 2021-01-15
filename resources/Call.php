@@ -9,7 +9,6 @@ use resources\states\StateAnswer;
 use resources\states\StateCreated;
 use resources\states\StateDialing;
 use utils\Logger;
-use function utils\getCurrentDateTime;
 use function utils\normalizationNum;
 
 class Call
@@ -17,10 +16,14 @@ class Call
     public $linkedid;
     public $callerId;
     public $destNumber;
-    public $callbackRequest = false;
-    public $otzvon = false;
+    public bool $callbackRequest = false;
+    public bool $removeCallbackRequestWithoutOtzvon = false;
+    public bool $otzvon = false;
     public $otzvonNumber;
-    public $callbackRequestLinkedid;
+    public ?Call $callbackRequestCall;
+    public int $callbackMaxRetries = 1;
+    public $guid;
+    public $innerConferenceExten;
     public $bridgeDurations = [];
     public $transfers = [];
     public $dials = [];
@@ -30,6 +33,11 @@ class Call
     public int $bridgesDuration = 0;
     public ?int $call_type;
     public $createtime;
+    public $endtime;
+    public $callDuration;
+    public int $retry = 0;
+    public $retryCalls = [];
+    public int $countInnerToOuterDials = 0;
 
     public State $state;
 
@@ -39,8 +47,8 @@ class Call
         $this->callerId = $channel->callerid;
         $this->destNumber = normalizationNum($channel->exten);
         $this->createtime = $channel->createtime;
-        $this->setState(new StateCreated($this));
         $this->checkTypeFirst($channel);
+        $this->setState(new StateCreated($this));
 
         //LOGGING
         $vars = get_object_vars($this);
@@ -55,7 +63,7 @@ class Call
 
     }
 
-    public function addDial($uniqueid, $destUniqueid, $startTime, $callerid, $destExten, $pbx_num = "")
+    public function addDial($uniqueid, $destUniqueid, $startTime, $callerid, $destExten, $type, $pbx_num = "")
     {
         $this->dials["$uniqueid - $destUniqueid"] = [
             "uniqueid" => $uniqueid,
@@ -66,9 +74,10 @@ class Call
             "pbx_num" => $pbx_num,
             "dialEndTime" => 0,
             "dialDuration" => 0,
-            "dialStatus" => DIAL_STATUS['RINGING']
+            "dialStatus" => DIAL_STATUS['RINGING'],
+            "type" => $type,
         ];
-        Logger::log(INFO, "[$this->linkedid] Идет вызов... Тип " . array_search($this->call_type, CALL_TYPE, true) . " call. | Вызывающий канал - $uniqueid | Вызывающий номер - $callerid | Вызываемый канал - $destUniqueid | Вызываемый номер - $destExten | Вызывающий PBX номер - $pbx_num");
+        Logger::log(INFO, "[$this->linkedid] Идет вызов... Тип " . array_search($this->call_type, CALL_TYPE, true) . " call. | Вызывающий канал - $uniqueid | Вызывающий номер - $callerid | Вызываемый канал - $destUniqueid | Вызываемый номер - $destExten | Вызывающий PBX номер - $pbx_num | Тип диала - " . array_search($type, CHANNEL_TYPE, true));
         $this->stateNum = CALL_STATE['dialing'];
         $this->setState(new StateDialing($this, $this->dials["$uniqueid - $destUniqueid"]));
         return $this->dials["$uniqueid - $destUniqueid"];
@@ -89,7 +98,7 @@ class Call
             Logger::log(INFO, "[$this->linkedid] Диал завершен. Вызывающий канал: " . $this->dials[$id]['uniqueid']
                 . " | Вызывающий номер: " . $this->dials[$id]['callerid'] . " | Вызываемый канал: " . $this->dials[$id]['destUniqueid']
                 . " | Вызываемый номер: " . $this->dials[$id]['destExten'] . " | PBX номер: " . $this->dials[$id]['pbx_num']
-                . " | Длительность вызова: " . $this->dials[$id]['dialDuration'] . " | Статус диала: " . $this->dials[$id]['dialStatus']);
+                . " | Длительность вызова: " . $this->dials[$id]['dialDuration'] . " | Статус диала: " . array_search($this->dials[$id]['dialStatus'], DIAL_STATUS, true));
 
             if ($this->dials[$id]['dialStatus'] === DIAL_STATUS['ANSWER']) {
                 $this->answer($id);
@@ -100,14 +109,17 @@ class Call
     public function answer($id)
     {
         // если абонент берет трубку при отзвоне
+        $this->countInnerToOuterDials = 0;
         if ($this->call_type === CALL_TYPE['callback'] && Registry::getChannel($this->linkedid, $this->dials[$id]['destUniqueid'])->type === CHANNEL_TYPE['outer'])
         {
             Logger::log(INFO, "[$this->linkedid] Коллбек. Ответил внешний канал. Вызывающий номер - " . $this->dials[$id]['pbx_num'] . " | Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten']);
             $this->otzvonNumber = $this->dials[$id]['pbx_num'];
+        } else
+        {
+            Logger::log(INFO, "[$this->linkedid] Звонок отвечен. Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten'] . " | Вызывающий номер - " . $this->dials[$id]['callerid']);
+            $this->stateNum = CALL_STATE['conversation'];
+            $this->setState(new StateAnswer($this, Registry::getChannel($this->linkedid, $this->dials[$id]['destUniqueid'])));
         }
-        Logger::log(INFO, "[$this->linkedid] Звонок отвечен. Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten'] . " | Вызывающий номер - " . $this->dials[$id]['callerid']);
-        $this->stateNum = CALL_STATE['conversation'];
-        $this->setState(new StateAnswer($this, Registry::getChannel($this->linkedid, $this->dials[$id]['destUniqueid'])));
     }
 
     public function checkTypeFirst(Channel $channel)
@@ -119,6 +131,9 @@ class Call
                     $this->call_type = CALL_TYPE["inner"];
                 } elseif (preg_match("/^\d{6,15}$/s", $this->destNumber)) {
                     $this->call_type = CALL_TYPE["outbound"];
+                } elseif (preg_match("/^1\d{3}$/s", $this->destNumber))
+                {
+                    $this->call_type = CALL_TYPE["inner conference"];
                 }
                 break;
             case CHANNEL_TYPE['outer']:
@@ -142,14 +157,19 @@ class Call
     {
         $this->call_type = $type;
         Logger::log(INFO, "[$this->linkedid] Тип звонка установлен как - " . array_search($this->call_type, CALL_TYPE, true));
-        if ($callbackRequest)
+        if (!in_array($this->call_type, ENABLE_CALL_TYPE, true))
         {
-            $this->callbackRequest = true;
+            Registry::removeCall($this->linkedid);
+        } else {
+            $this->callbackRequest = $callbackRequest;
         }
 
-        if ($otzvon)
+        if (!$this->otzvon && $otzvon)
         {
             $this->otzvon = true;
+            unset(Registry::$callbackRequestCalls[$this->callbackRequestCall->linkedid]);
+            $this->callbackRequestCall->retry++;
+            $this->callbackRequestCall->retryCalls[$this->linkedid] = $this;
         }
     }
 
@@ -181,16 +201,43 @@ class Call
             $this->status = CALL_STATUS['CONGESTION'];
             return $this->status;
         }
-
-        $min_status = 100;
+        $localDials = [];
+        $otherDials = [];
 
         foreach ($this->dials as $item)
         {
-            if ((int) $item['dialStatus'] < $min_status)
+            if ($item['type'] === CHANNEL_TYPE['local'])
             {
-                $min_status = $item['dialStatus'];
+                $localDials[] = $item;
+            } else
+            {
+                $otherDials[] = $item;
             }
         }
+
+        $min_status = 100;
+
+        if (!empty($otherDials))
+        {
+            foreach ($otherDials as $item)
+            {
+                $dialStatus = intval($item['dialStatus']);
+                if ($dialStatus < $min_status)
+                {
+                    $min_status = $dialStatus;
+                }
+            }
+        } else {
+            foreach ($localDials as $item)
+            {
+                $dialStatus = intval($item['dialStatus']);
+                if ($dialStatus < $min_status && $dialStatus > CALL_STATUS['ANSWER'])
+                {
+                    $min_status = $dialStatus;
+                }
+            }
+        }
+
         $this->status = $min_status;
         return $this->status;
     }
@@ -205,7 +252,15 @@ class Call
 
         foreach ($this->bridgeDurations as $item)
         {
-            $this->bridgesDuration += $item['duration'];
+            if ($this->call_type !== CALL_TYPE['outer conference'] && $this->call_type !== CALL_TYPE['autocall'])
+            {
+                if ($item['type'] === CHANNEL_TYPE['inner'])
+                {
+                    $this->bridgesDuration += intval($item['duration']);
+                }
+            } else {
+                $this->bridgesDuration += intval($item['duration']);
+            }
         }
 
         return $this->bridgesDuration;
@@ -219,24 +274,5 @@ class Call
     public function proceedToNext()
     {
         $this->state->proceedToNext($this);
-    }
-
-    public function __destruct()
-    {
-        $record_link = ARCHIVE_RECORD . getCurrentDateTime('Y/m/d/') . $this->linkedid . ".mp3";
-        $this->setCallStatus();
-        $this->setBridgesDuration();
-        $dateTimeCallStart = date('Y-m-d H:i:s', $this->createtime);
-        $dateTimeCallEnd = date('Y-m-d H:i:s', time());
-        $callDuration = time() - $this->createtime;
-        $timeBridgesDuration = date('H:i:s', mktime(0, 0, $this->bridgesDuration));
-        $timeCallDuration = date('H:i:s', mktime(0, 0, $callDuration));
-
-        Logger::log(INFO, "[$this->linkedid]"
-         . " Время начала звонка: $dateTimeCallStart | Время окончания звонка: $dateTimeCallEnd | Вызывающий номер: $this->callerId | Вызываемый номер: $this->destNumber"
-         . " | Тип звонка: " . array_search($this->call_type, CALL_TYPE, true) . " | Статус звонка: " . array_search($this->status, CALL_STATUS, true) . " | Длительность звонка: $timeCallDuration | Длительность разговора: $timeBridgesDuration"
-         . " | Ссылка на голосовую запись: $record_link");
-
-        //TODO: Здесь должна быть отправка на апи
     }
 }

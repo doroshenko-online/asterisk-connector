@@ -4,13 +4,15 @@
 namespace resources\states;
 
 
+use resources\Call;
 use utils\Logger;
 
-class StateDialEnd implements State
+class StateDialEnd extends State
 {
 
-    public function __construct($context)
+    public function __construct(Call $context)
     {
+        parent::__construct($context);
         Logger::log(DEBUG, "CallDialEnd");
     }
 

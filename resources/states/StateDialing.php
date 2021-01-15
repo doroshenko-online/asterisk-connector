@@ -5,23 +5,38 @@ namespace resources\states;
 
 
 use resources\Call;
+use resources\Registry;
 use utils\Logger;
 
-class StateDialing implements State
+class StateDialing extends State
 {
     public function __construct(Call $context, $dialArr)
     {
+        parent::__construct($context);
         Logger::log(DEBUG, "CallDialing");
-        if ($context->call_type === CALL_TYPE['outbound'])
+
+        $send = false;
+
+        $channel = Registry::getChannel($context->linkedid, $dialArr['uniqueid']);
+        $destChannel = Registry::getChannel($context->linkedid, $dialArr['destUniqueid']);
+
+        if ($channel->type === CHANNEL_TYPE['outer'] && $destChannel->type === CHANNEL_TYPE['inner'])
         {
-            if ((empty($context->transfers) && count($context->dials) === 1) || !empty($context->transfers))
-            {
-                $this->sendApi();
-            }
-        } elseif (strlen($dialArr['callerid']) === 3 || strlen($dialArr['destExten']) === 3)
+            $send = true;
+        } elseif ($channel->type === CHANNEL_TYPE['inner'] && $destChannel->type === CHANNEL_TYPE['outer'] && $context->countInnerToOuterDials < 1)
         {
-            $this->sendApi();
+            $send = true;
+            $context->countInnerToOuterDials++;
+        } elseif ($channel->type === CHANNEL_TYPE['inner'] && $destChannel->type === CHANNEL_TYPE['inner'])
+        {
+            $send = true;
         }
+
+        if ($send)
+        {
+            $this->sendApi($context->linkedid);
+        }
+
     }
 
     public function proceedToNext(Call $context)
@@ -32,8 +47,13 @@ class StateDialing implements State
         }
     }
 
-    public function sendApi()
+    public function sendApi($linkedid)
     {
-
+        parent::sendApi($linkedid);
+        if ($this->accessSendApiCallType)
+        {
+            //TODO: Здесь должна быть отправка на апи
+            Logger::log(INFO, 'SEND API');
+        }
     }
 }

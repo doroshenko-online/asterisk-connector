@@ -7,12 +7,14 @@ use resources\Call;
 use resources\Channel;
 use utils\Logger;
 
-class StateAnswer implements State
+class StateAnswer extends State
 {
 
     public function __construct(Call $context, Channel $answerChannel)
     {
+        parent::__construct($context);
         Logger::log(DEBUG, "CallAnswer");
+        $this->sendApi($context->linkedid);
     }
 
     public function proceedToNext(Call $context)
@@ -23,8 +25,13 @@ class StateAnswer implements State
         }
     }
 
-    public function apiSend()
+    public function sendApi($linkedid)
     {
-
+        parent::sendApi($linkedid);
+        if ($this->accessSendApiCallType)
+        {
+            //TODO: Здесь должна быть отправка на апи
+            Logger::log(INFO, 'SEND API');
+        }
     }
 }

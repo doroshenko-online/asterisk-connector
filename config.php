@@ -20,6 +20,36 @@ define('AMI_SETTINGS', [
 ]);
 
 /*
+ *  Типы звонка
+ */
+
+define("CALL_TYPE", [
+    "inner" => 1,
+    "outbound" => 2,
+    "callback_request" => 3,
+    "inbound" => 4,
+    "callback" => 5,
+    "autocall" => 6,
+    "inner conference" => 7,
+    "outer conference" => 8
+]);
+
+/*
+ * Обрабатываемые типы звонков. Доступные типы: inner, outbound, callback_request,
+ * inbound, callback, autocall, inner conference, outer conference
+ *
+ * Для добавления просто добавить константу CALL_TYPE['доступный тип звонка']
+ */
+
+define('ENABLE_CALL_TYPE', [
+    CALL_TYPE['inner'],
+    CALL_TYPE['outbound'],
+    CALL_TYPE['callback_request'],
+    CALL_TYPE['inbound'],
+    CALL_TYPE['callback'],
+]);
+
+/*
 установка уровня логгирования в файл. Available levels: OFF, ERROR, WARNING, INFO, TRACE, DEBUG
 TRACE - all levels without DEBUG level
 */

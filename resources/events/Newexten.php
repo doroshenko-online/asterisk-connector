@@ -4,6 +4,7 @@
 namespace resources\events;
 
 
+use resources\Call;
 use resources\Registry;
 use utils\Logger;
 use function utils\getCallOrWarning;
@@ -23,10 +24,7 @@ class Newexten extends BaseEvent
             $userEvent = $this->setAppData();
             if ($userEvent)
             {
-                $this->setCallback();
-                $this->setOtzvon();
-                $this->setOutConf();
-                $this->setPbxNum();
+                $this->handleUserevent($call);
             }
         }
     }
@@ -49,52 +47,40 @@ class Newexten extends BaseEvent
         return null;
     }
 
-    public function setCallback()
+    private function handleUserevent(Call $call)
     {
-        if ($this->appDataEvent === 'CALLBACK_INIT')
+        switch ($this->appDataEvent)
         {
-            $call = getCallOrWarning($this->linkedid, "Невозможно отметить запрос коллбека на звонке.");
-            if ($call)
-            {
+            case 'CALLBACK_INIT':
                 $call->setType(CALL_TYPE['callback_request'], true);
-            }
-        }
-    }
-
-    public function setOtzvon()
-    {
-        if ($this->appDataEvent === 'CALLBACK')
-        {
-            $call = getCallOrWarning($this->linkedid, "Невозможно отметить отзвон на звонке.");
-            if ($call)
-            {
+                break;
+            case 'CALLBACK':
+                $requestCallbackCall = getCallOrWarning($this->appData, "Не удалось получить экземпляр запроса отзвона.");
+                $call->callbackRequestCall = $requestCallbackCall;
+                $call->callbackMaxRetries = $requestCallbackCall->callbackMaxRetries;
                 $call->setType(CALL_TYPE['callback'], false, true);
-                $call->callbackRequestLinkedid = $this->appData;
-            }
-        }
-    }
-
-    public function setOutConf()
-    {
-        if ($this->appDataEvent === 'CONF_OUT_AMI')
-        {
-            $call = getCallOrWarning($this->linkedid, 'Невозможно отметить внешнюю конференцию на звонке.');
-            if ($call)
-            {
+                break;
+            case 'CONF_OUT_AMI':
                 $call->setType(CALL_TYPE['outer conference']);
-            }
-        }
-    }
-
-    public function setPbxNum()
-    {
-        if ($this->appDataEvent === 'PBX_NUM')
-        {
-            $call = getCallOrWarning($this->linkedid, 'Невозможно отметить на звонке PBX номер.');
-            if ($call)
-            {
+                break;
+            case 'PBX_NUM':
                 $call->lastPbxNum = normalizationNum($this->appData);
-            }
+                break;
+            case 'CALLBACK_MAX_RETRIES':
+                $maxRetries = intval($this->appData) + 1;
+                $call->callbackMaxRetries = $maxRetries;
+                Logger::log(INFO, "[$this->linkedid] Максимальное колл-во попыток отзвона установлено в - $maxRetries");
+                break;
+            case 'GUID':
+                $call->guid = $this->appData;
+                Logger::log(INFO, "[$this->linkedid] Autocall GUID: $call->guid");
+                $call->setType(CALL_TYPE['autocall']);
+                break;
+            case 'conference':
+                $call->innerConferenceExten = $this->appData;
+                Logger::log(INFO, "[$this->linkedid] Номер внутренней конференции: $call->innerConferenceExten");
+                $call->setType(CALL_TYPE['inner conference']);
+                break;
         }
     }
 

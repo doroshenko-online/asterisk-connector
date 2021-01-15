@@ -3,6 +3,7 @@
 namespace utils;
 
 use DateTime;
+use resources\Call;
 use resources\Registry;
 
 /*
@@ -30,7 +31,7 @@ define("LEVELS_LOG_NAME_VERBOSE", [
  */
 
 define('EVENTS', [
-    'CALLBACK_INIT', 'CALLBACK', 'conference', 'CONF_OUT_AMI', 'PBX_NUM',
+    'CALLBACK_INIT', 'CALLBACK', 'conference', 'CONF_OUT_AMI', 'PBX_NUM', 'CALLBACK_MAX_RETRIES', 'GUID',
 ]);
 
 /*
@@ -46,29 +47,14 @@ define('CALL_STATE', [
 ]);
 
 /*
- *  Типы звонка
- */
-
-define("CALL_TYPE", [
-    "inner" => 1,
-    "outbound" => 2,
-    "callback_request" => 3,
-    "inbound" => 4,
-    "autocall" => 5,
-    "callback" => 6,
-    "inner conference" => 7,
-    "outer conference" => 8
-]);
-
-/*
  * Статусы диала
  */
 
 define("DIAL_STATUS", [
     "RINGING" => 0,
     "ANSWER" => 1,
-    "BUSY" => 2,
-    "NOANSWER" => 3,
+    "NOANSWER" => 2,
+    "BUSY" => 3,
     "CONGESTION" => 4,
     "CANCEL" => 5,
     "ABORT" => 6,
@@ -82,8 +68,8 @@ define("DIAL_STATUS", [
 
 define('CALL_STATUS', [
     'ANSWER' => 1,
-    'BUSY' => 2,
-    'NOANSWER' => 3,
+    'NOANSWER' => 2,
+    'BUSY' => 3,
     'CONGESTION' => 4,
     'CANCEL' => 5,
     'CALLBACK REQUEST' => 6,
@@ -98,6 +84,12 @@ define('CHANNEL_TYPE', [
     'outer' => 2,
     'local' => 3,
 ]);
+
+/*
+ * Время жизни запроса отзвона в секундах
+ */
+
+define('CALL_ALIVE', 20);
 
 /*
  * Вспомогающие функции
@@ -134,4 +126,28 @@ function normalizationNum($number)
     }
 
     return $number;
+}
+
+function isDestroyCall(Call $call)
+{
+    if ($call->callbackRequest !== false)
+    {
+        if ($call->removeCallbackRequestWithoutOtzvon)
+        {
+            unset(Registry::$callbackRequestCalls[$call->linkedid]);
+            return true;
+        }
+        Registry::addCallbackRequestCall($call);
+        return false;
+    }
+
+    if ($call->otzvon)
+    {
+        if ($call->callbackRequestCall->retry < $call->callbackRequestCall->callbackMaxRetries && !$call->otzvonNumber)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }

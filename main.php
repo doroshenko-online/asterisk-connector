@@ -9,7 +9,6 @@ use utils\Logger;
 
 new ErrorHandlers();
 
-
 Logger::getInstance();
 $connector = AmiConnector::getInstance();
 
@@ -45,6 +44,19 @@ while (!feof($socket)) {
     {
         $row = explode(': ', $data);
         $event[$row[0]] = $row[1];
+        continue;
+    }
+
+    if (!empty(\resources\Registry::$callbackRequestCalls))
+    {
+        foreach (\resources\Registry::$callbackRequestCalls as $call)
+        {
+            if ((time() - $call->endtime) >= CALL_ALIVE)
+            {
+                $call->removeCallbackRequestWithoutOtzvon = true;
+                $call->proceedToNext();
+            }
+        }
     }
 }
 

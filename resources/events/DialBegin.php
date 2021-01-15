@@ -23,37 +23,53 @@ class DialBegin extends BaseEvent
         if ($this->channel && !str_contains($this->destChannel, 'Local'))
         {
             $call = Registry::getCall($this->linkedid);
+
             if ($call)
             {
                 $destChannel = Registry::getChannel($this->linkedid, $this->destUniqueId);
+                $currChannel = Registry::getChannel($this->linkedid, $this->uniqueid);
+                $this->dialStringNum = str_replace('SIP/', '', $this->dialString);
+
+                if ($currChannel->type === CHANNEL_TYPE['local'] && $destChannel->type !== CHANNEL_TYPE['inner'])
+                {
+                    $type = CHANNEL_TYPE['local'];
+                } elseif ($destChannel->type === CHANNEL_TYPE['outer'] && $currChannel->type === CHANNEL_TYPE['inner'])
+                {
+                    $type = CHANNEL_TYPE['outer'];
+                } elseif ($destChannel->type === CHANNEL_TYPE['inner'])
+                {
+                    $type = CHANNEL_TYPE['inner'];
+                } else {
+                    $type = CHANNEL_TYPE['local'];
+                }
 
                 if ($call->stateNum === CALL_STATE['transfer'])
                 {
                     $destChannel->setCallerId($this->destCallerId);
-                    $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->destCallerId, $destChannel->pbxNum);
+                    $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->destCallerId, $type, $destChannel->pbxNum);
                 } else {
                     switch ($call->call_type)
                     {
                         case CALL_TYPE['inner']:
                         case CALL_TYPE['outbound']:
                             $destChannel->setCallerId($this->destCallerId);
-                            $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->destCallerId, $destChannel->pbxNum);
+                            $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->destCallerId, $type, $destChannel->pbxNum);
                             break;
                         case CALL_TYPE['inbound']:
-                            $this->dialStringNum = str_replace('SIP/', '', $this->dialString);
                             $destChannel->setCallerId($this->dialStringNum);
-                            $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->dialStringNum);
+                            $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->dialStringNum, $type);
                             break;
                         case CALL_TYPE['callback']:
-                            $currChannel = Registry::getChannel($this->linkedid, $this->uniqueid);
+                        case CALL_TYPE['autocall']:
                             if ($this->destExten)
                             {
                                 $currChannel->setCallerId($this->callerid);
-                                $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $destChannel->callerid, $this->destCallerId, $destChannel->pbxNum);
+                                $destChannel->setCallerId($this->destCallerId);
+                                $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $destChannel->callerid, $this->destCallerId, $type, $destChannel->pbxNum);
                             } else {
                                 $currChannel->setCallerId($this->callerid);
                                 $destChannel->setCallerId($this->dialStringNum);
-                                $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->dialStringNum);
+                                $call->addDial($this->uniqueid, $this->destUniqueId, $this->createtime, $this->callerid, $this->dialStringNum, $type);
                             }
                             break;
                     }
