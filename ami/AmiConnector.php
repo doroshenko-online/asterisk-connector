@@ -48,7 +48,7 @@ class AmiConnector
             $this->auth = $this->checkAuth();
             if (!$this->auth) {
                 $this->destructConnector();
-                throw new Exception('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения', 401);
+                throw new \RuntimeException('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения', 401);
             }
             Logger::log(INFO, 'Авторизация на AMI прошла успешно');
         }

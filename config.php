@@ -16,7 +16,7 @@ define('AMI_SETTINGS', [
     'host' => 'localhost',
     'port' => '7462',
     'user' => 'connector',
-    'secret' => 'eLmfSg'
+    'secret' => 'eLmfSg1'
 ]);
 
 /*
