@@ -11,7 +11,7 @@ class ErrorHandlers
         set_exception_handler([$this, 'exceptionHandler']);
     }
 
-    public function exceptionHandler(\Exception $ex)
+    public function exceptionHandler($ex)
     {
         $this->logErrors($ex->getMessage(), $ex->getFile(), $ex->getLine(), $ex->getCode());
     }
