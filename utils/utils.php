@@ -118,10 +118,10 @@ function getCallOrWarning($linkedid, $errmesg = "")
 
 function normalizationNum($number)
 {
-    if (strlen($number) >= 10 && preg_match('/^\\+?\d+$/s', $number)) {
+    if (strlen($number) >= 9 && preg_match('/^\\+?\d+$/s', $number)) {
         switch (COUNTRY) {
             case 'UKR':
-                return "38" . substr($number, -10);
+                return "380" . substr($number, -9);
         }
     }
 
