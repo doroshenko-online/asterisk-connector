@@ -31,7 +31,7 @@ class StateAnswer extends State
         if ($this->accessSendApiCallType)
         {
             //TODO: Здесь должна быть отправка на апи
-            Logger::log(INFO, 'SEND API');
+            Logger::log(OK, 'SEND API');
         }
     }
 }

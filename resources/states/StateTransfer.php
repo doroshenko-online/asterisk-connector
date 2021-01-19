@@ -22,7 +22,7 @@ class StateTransfer extends State
         $context->transfers[$event->bridgeUniqueid]['transfererCallerIdNum'] = normalizationNum(Registry::getChannel($context->linkedid, $event->transfererUniqueid)->callerid);
         $context->transfers[$event->bridgeUniqueid]['transfereeCallerIdNum'] = $event->transfereeCallerId;
         $context->transfers[$event->bridgeUniqueid]['extension'] = $event->extension;
-        Logger::log(INFO, "[$context->linkedid] Трансфер! Ид Бриджа: "
+        Logger::log(OK, "[$context->linkedid] Трансфер! Ид Бриджа: "
             . $event->bridgeUniqueid . " | Переадресующий канал: " . $context->transfers[$event->bridgeUniqueid]['transfererChannelUniqueId']
         . " | Переадресующий номер: " . $context->transfers[$event->bridgeUniqueid]['transfererCallerIdNum']
         . " | Переадресовываемый канал: " . $context->transfers[$event->bridgeUniqueid]['transfereeChannelUniqueId']

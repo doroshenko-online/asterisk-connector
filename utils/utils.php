@@ -13,14 +13,16 @@ use resources\Registry;
 define('OFF', 0);
 define('ERROR', 1);
 define('WARNING', 2);
-define('INFO', 3);
-define('TRACE', 4);
-define('DEBUG', 5);
+define('OK', 3);
+define('INFO', 4);
+define('TRACE', 5);
+define('DEBUG', 6);
 
 define("LEVELS_LOG_NAME_VERBOSE", [
     OFF => 'OFF',
     ERROR => 'ERROR',
     WARNING => 'WARNING',
+    OK => 'OK',
     INFO => 'INFO',
     TRACE => 'TRACE',
     DEBUG => 'DEBUG',

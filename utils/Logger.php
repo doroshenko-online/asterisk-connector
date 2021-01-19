@@ -70,7 +70,7 @@ class Logger
                     Console::color('dark_gray')->write($record);
                     break;
                 default:
-                    Console::color('light_blue')->write($record);
+                    Console::color('light_green')->write($record);
             }
         }
     }

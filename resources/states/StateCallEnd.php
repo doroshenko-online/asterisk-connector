@@ -44,7 +44,7 @@ class StateCallEnd extends State
                     $callbackDuration += $item->callDuration;
                 }
                 $timeBridgesDuration = date('H:i:s', mktime(0, 0, $callbackBridgeDuration));
-                Logger::log(INFO, "[$call->linkedid]"
+                Logger::log(OK, "[$call->linkedid]"
                     . " Время начала звонка: $dateTimeCallStart | Время окончания звонка: $dateTimeCallEnd | Вызывающий номер: " . $call->callbackRequestCall->callerId . " | Вызываемый номер: " . $call->callbackRequestCall->destNumber
                     . " | Тип звонка: " . array_search($call->call_type, CALL_TYPE, true) . " | Статус звонка: " . array_search($call->status, CALL_STATUS, true) . " | Длительность звонка: $callbackDuration | Длительность разговора: $timeBridgesDuration"
                     . " | Ссылка на голосовую запись: $record_link");
@@ -67,7 +67,7 @@ class StateCallEnd extends State
                 $dateTimeCallStart = date('Y-m-d H:i:s', $call->createtime);
                 $dateTimeCallEnd = date('Y-m-d H:i:s', $call->endtime);
                 $timeBridgesDuration = date('H:i:s', mktime(0, 0, $call->bridgesDuration));
-                Logger::log(INFO, "[$call->linkedid]"
+                Logger::log(OK, "[$call->linkedid]"
                     . " Время начала звонка: $dateTimeCallStart | Время окончания звонка: $dateTimeCallEnd | Вызывающий номер: $call->callerId | Вызываемый номер: $call->destNumber"
                     . " | Тип звонка: " . array_search($call->call_type, CALL_TYPE, true) . " | Статус звонка: " . array_search($call->status, CALL_STATUS, true) . " | Длительность звонка: $call->callDuration | Длительность разговора: $timeBridgesDuration"
                     . " | Ссылка на голосовую запись: $record_link");
@@ -82,7 +82,7 @@ class StateCallEnd extends State
         if ($this->accessSendApiCallType)
         {
             //TODO: Здесь должна быть отправка на апи
-            Logger::log(INFO, 'SEND API');
+            Logger::log(OK, 'SEND API');
         }
     }
 }

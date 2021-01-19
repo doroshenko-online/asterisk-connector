@@ -77,7 +77,7 @@ class Call
             "dialStatus" => DIAL_STATUS['RINGING'],
             "type" => $type,
         ];
-        Logger::log(INFO, "[$this->linkedid] Идет вызов... Тип " . array_search($this->call_type, CALL_TYPE, true) . " call. | Вызывающий канал - $uniqueid | Вызывающий номер - $callerid | Вызываемый канал - $destUniqueid | Вызываемый номер - $destExten | Вызывающий PBX номер - $pbx_num | Тип диала - " . array_search($type, CHANNEL_TYPE, true));
+        Logger::log(OK, "[$this->linkedid] Идет вызов... Тип " . array_search($this->call_type, CALL_TYPE, true) . " call. | Вызывающий канал - $uniqueid | Вызывающий номер - $callerid | Вызываемый канал - $destUniqueid | Вызываемый номер - $destExten | Вызывающий PBX номер - $pbx_num | Тип диала - " . array_search($type, CHANNEL_TYPE, true));
         $this->stateNum = CALL_STATE['dialing'];
         $this->setState(new StateDialing($this, $this->dials["$uniqueid - $destUniqueid"]));
         return $this->dials["$uniqueid - $destUniqueid"];
@@ -116,7 +116,7 @@ class Call
             $this->otzvonNumber = $this->dials[$id]['pbx_num'];
         } else
         {
-            Logger::log(INFO, "[$this->linkedid] Звонок отвечен. Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten'] . " | Вызывающий номер - " . $this->dials[$id]['callerid']);
+            Logger::log(OK, "[$this->linkedid] Звонок отвечен. Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten'] . " | Вызывающий номер - " . $this->dials[$id]['callerid']);
             $this->stateNum = CALL_STATE['conversation'];
             $this->setState(new StateAnswer($this, Registry::getChannel($this->linkedid, $this->dials[$id]['destUniqueid'])));
         }
