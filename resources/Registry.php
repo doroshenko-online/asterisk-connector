@@ -49,7 +49,7 @@ class Registry
     {
         if (!isset(self::$calls[$object->linkedid]['call'])) {
             self::$calls[$object->linkedid]['call'] = $object;
-            Logger::log(INFO, "[$object->linkedid]" . ' Создан новый звонок - ' . $object->linkedid);
+            Logger::log(OK, "[$object->linkedid]" . ' Создан новый звонок - ' . $object->linkedid);
             return true;
         }
         Logger::log(WARNING, "[$object->linkedid]" . 'Звонок уже существует в регистре');

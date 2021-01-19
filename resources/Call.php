@@ -95,7 +95,7 @@ class Call
             } else {
                 $this->dials[$id]['dialStatus'] = DIAL_STATUS[$dialStatus];
             }
-            Logger::log(INFO, "[$this->linkedid] Диал завершен. Вызывающий канал: " . $this->dials[$id]['uniqueid']
+            Logger::log(OK, "[$this->linkedid] Диал завершен. Вызывающий канал: " . $this->dials[$id]['uniqueid']
                 . " | Вызывающий номер: " . $this->dials[$id]['callerid'] . " | Вызываемый канал: " . $this->dials[$id]['destUniqueid']
                 . " | Вызываемый номер: " . $this->dials[$id]['destExten'] . " | PBX номер: " . $this->dials[$id]['pbx_num']
                 . " | Длительность вызова: " . $this->dials[$id]['dialDuration'] . " | Статус диала: " . array_search($this->dials[$id]['dialStatus'], DIAL_STATUS, true));
@@ -147,16 +147,16 @@ class Call
                 if (str_contains($channel->channame, "@"))
                 {
                     $this->call_type = CALL_TYPE["autocall"];
+                    Logger::log(INFO, "[$this->linkedid] Тип звонка предварительно определен как - " . array_search($this->call_type, CALL_TYPE, true));
                 }
         }
 
-        Logger::log(INFO, "[$this->linkedid] Тип звонка предварительно определен как - " . array_search($this->call_type, CALL_TYPE, true));
     }
 
     public function setType($type, $callbackRequest=false, $otzvon=false)
     {
         $this->call_type = $type;
-        Logger::log(INFO, "[$this->linkedid] Тип звонка установлен как - " . array_search($this->call_type, CALL_TYPE, true));
+        Logger::log(OK, "[$this->linkedid] Тип звонка установлен как - " . array_search($this->call_type, CALL_TYPE, true));
         if (!in_array($this->call_type, ENABLE_CALL_TYPE, true))
         {
             Registry::removeCall($this->linkedid);
