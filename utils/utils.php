@@ -134,8 +134,9 @@ function isDestroyCall(Call $call)
     {
         if ($call->removeCallbackRequestWithoutOtzvon)
         {
-            unset(Registry::$callbackRequestCalls[$call->linkedid]);
-            return true;
+            if (Registry::removeCallbackRequest($call->linkedid)) {
+                return true;
+            }
         }
         Registry::addCallbackRequestCall($call);
         return false;
