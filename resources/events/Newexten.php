@@ -56,9 +56,15 @@ class Newexten extends BaseEvent
                 break;
             case 'CALLBACK':
                 $requestCallbackCall = getCallOrWarning($this->appData, "Не удалось получить экземпляр запроса отзвона.");
-                $call->callbackRequestCall = $requestCallbackCall;
-                $call->callbackMaxRetries = $requestCallbackCall->callbackMaxRetries;
-                $call->setType(CALL_TYPE['callback'], false, true);
+                if ($requestCallbackCall)
+                {
+                    $call->callbackRequestCall = $requestCallbackCall;
+                    $call->callbackMaxRetries = $requestCallbackCall->callbackMaxRetries;
+                    $call->setType(CALL_TYPE['callback'], false, true);
+                } else {
+                    Logger::log(WARNING, "[$call->linkedid] Нет запроса отзвона по данному звонку. Звонок удаляется...");
+                    Registry::removeCall($call->linkedid);
+                }
                 break;
             case 'CONF_OUT_AMI':
                 $call->setType(CALL_TYPE['outer conference']);
