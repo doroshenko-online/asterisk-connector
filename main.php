@@ -24,7 +24,7 @@ $write_event = false;
 
 Logger::log(INFO, 'Создание регистра звонков...');
 $registry = \resources\Registry::getInstance();
-Logger::log(INFO, 'OK');
+Logger::log(OK, 'OK');
 
 
 while (!feof($socket)) {
