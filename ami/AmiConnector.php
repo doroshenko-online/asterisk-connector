@@ -3,7 +3,6 @@
 namespace ami;
 
 
-use Exception;
 use utils\Logger;
 use utils\TSingleton;
 
@@ -37,8 +36,12 @@ class AmiConnector
         $this->init();
         if(is_null(self::$fp)){
             Logger::log(INFO, 'Создание сокета...');
-            self::$fp = stream_socket_client($this->host . ':' . $this->port, $this->errno, $this->erst)
-                ?: throw new Exception("Не удалось открыть соединение с AMI. Проверьте настройки подключения", 500);
+            self::$fp = stream_socket_client($this->host . ':' . $this->port, $this->errno, $this->erst);
+            if (!self::$fp){
+                self::$fp = null;
+                Logger::log(ERROR, "Не удалось открыть соединение с AMI. Проверьте настройки подключения");
+                return false;
+            }
 
             Logger::log(INFO, 'Соединение с AMI установлено');
             fwrite(self::$fp, "Action: Login\r\n");
@@ -47,8 +50,8 @@ class AmiConnector
 
             $this->auth = $this->checkAuth();
             if (!$this->auth) {
-                $this->destructConnector();
-                throw new \Exception('Ошибка авторизации в AMI. Проверьте логин и пароль для подключения', 401);
+                Logger::log(ERROR, "Ошибка авторизации в AMI. Проверьте логин и пароль для подключения");
+                return false;
             }
             Logger::log(INFO, 'Авторизация на AMI прошла успешно');
         }
@@ -69,7 +72,8 @@ class AmiConnector
 
         if(is_null(self::$fp) && is_null($this->auth))
         {
-            throw new Exception("Сначала необходимо открыть соединение с AMI", 500);
+            Logger::log(ERROR, "Сначала необходимо открыть соединение с AMI");
+            return false;
         }
 
         return $this->auth;

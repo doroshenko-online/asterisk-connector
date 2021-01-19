@@ -1,5 +1,7 @@
 <?php /** @noinspection PhpUndefinedMethodInspection */
 
+error_reporting(0);
+ini_set('display_errors', 0);
 
 require_once 'utils/autoload.php';
 
@@ -10,9 +12,13 @@ use utils\Logger;
 new ErrorHandlers();
 
 Logger::getInstance();
+start:
 $connector = AmiConnector::getInstance();
-
 $socket = $connector->getSocketOrCreateAndAuth();
+if (!$socket){
+    goto reload;
+}
+
 
 $event = [];
 $write_event = false;
@@ -60,4 +66,9 @@ while (!feof($socket)) {
     }
 }
 
+reload:
 $connector = $socket = $connector->destructConnector();
+Logger::log(WARNING, "Астериск перезагрузился или потеряно соединение с ним. Попытка переподключения...");
+sleep(2);
+goto start;
+
