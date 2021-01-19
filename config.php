@@ -15,7 +15,7 @@ date_default_timezone_set($TIMEZONE);
 define('AMI_SETTINGS', [
     'host' => 'localhost',
     'port' => '7462',
-    'user' => 'connector1',
+    'user' => 'connector',
     'secret' => 'eLmfSg'
 ]);
 

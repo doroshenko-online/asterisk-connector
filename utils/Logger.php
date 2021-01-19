@@ -1,12 +1,14 @@
 <?php
 
 namespace utils;
-
+require_once "Shasoft/src/Console.php";
 use Exception;
+use Shasoft\src\Console;
 
 class Logger
 {
     use TSingleton;
+
 
     private static $logFile;
 
@@ -54,7 +56,22 @@ class Logger
         }
         if ($level <= OUTPUT_CONSOLE_LEVEL)
         {
-            print $record;
+            switch ($level){
+                case INFO:
+                    Console::color('light_blue')->write($record);
+                    break;
+                case WARNING:
+                    Console::color('yellow')->write($record);
+                    break;
+                case ERROR:
+                    Console::color('light_red')->write($record);
+                    break;
+                case DEBUG:
+                    Console::color('dark_gray')->write($record);
+                    break;
+                default:
+                    Console::color('light_blue')->write($record);
+            }
         }
     }
 
