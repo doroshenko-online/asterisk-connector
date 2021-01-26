@@ -66,7 +66,7 @@ define('OUTPUT_CONSOLE_LEVEL', TRACE);
  * путь к папке с логами
  */
 
-define("LOGS", 'Logs'.DIRECTORY_SEPARATOR);
+define("LOGS", BASE_DIR .'/Logs'.DIRECTORY_SEPARATOR);
 
 /*
  * Ссылка для записи звонков

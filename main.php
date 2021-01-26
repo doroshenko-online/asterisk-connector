@@ -1,19 +1,24 @@
 <?php /** @noinspection PhpUndefinedMethodInspection */
 
 error_reporting(1);
+define("BASE_DIR", __DIR__);
 
-require_once 'utils/autoload.php';
+require_once BASE_DIR . '/utils/utils.php';
+require_once BASE_DIR. '/config.php';
+require_once BASE_DIR . '/utils/autoload.php';
 
 use ami\AmiConnector;
 use utils\ErrorHandlers;
 use utils\Logger;
 
-new ErrorHandlers();
+
 
 Logger::getInstance();
+new ErrorHandlers();
 start:
 $connector = AmiConnector::getInstance();
 $socket = $connector->getSocketOrCreateAndAuth();
+
 if (!$socket){
     goto reload;
 }

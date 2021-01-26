@@ -1,7 +1,7 @@
 <?php
 
 namespace utils;
-require_once "Shasoft/src/Console.php";
+require_once BASE_DIR . "/Shasoft/src/Console.php";
 use Exception;
 use Shasoft\src\Console;
 
