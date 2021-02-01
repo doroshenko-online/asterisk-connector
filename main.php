@@ -3,15 +3,14 @@
 error_reporting(1);
 define("BASE_DIR", __DIR__);
 
+
 require_once BASE_DIR . '/utils/utils.php';
-require_once BASE_DIR. '/config.php';
+require_once BASE_DIR . '/config.php';
 require_once BASE_DIR . '/utils/autoload.php';
 
 use ami\AmiConnector;
 use utils\ErrorHandlers;
 use utils\Logger;
-
-
 
 Logger::getInstance();
 new ErrorHandlers();
@@ -22,6 +21,7 @@ $socket = $connector->getSocketOrCreateAndAuth();
 if (!$socket){
     goto reload;
 }
+$stdout = popen("php " . BASE_DIR . "/api/socket/http-socket.php start " . BASE_DIR, 'r');
 
 
 $event = [];
@@ -30,7 +30,6 @@ $write_event = false;
 Logger::log(INFO, 'Создание регистра звонков...');
 $registry = \resources\Registry::getInstance();
 Logger::log(OK, 'OK');
-
 
 while (!feof($socket)) {
     $data = str_replace("\r\n", '', fgets($socket, 4096), $count);
@@ -69,10 +68,11 @@ while (!feof($socket)) {
         }
     }
 }
+pclose($stdout);
 
 reload:
 $connector = $socket = $connector->destructConnector();
 Logger::log(WARNING, "Астериск перезагрузился или потеряно соединение с ним. Попытка переподключения...");
-sleep(2);
+sleep(5);
 goto start;
 
