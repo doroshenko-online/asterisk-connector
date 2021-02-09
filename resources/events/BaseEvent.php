@@ -4,7 +4,7 @@
 namespace resources\events;
 
 
-use utils\Logger;
+use function utils\log;
 use function utils\normalizationNum;
 
 class BaseEvent extends CEvent
@@ -28,11 +28,11 @@ class BaseEvent extends CEvent
         $this->setUniqueid();
 
         if ($this->event['Event'] !== 'Newexten') {
-            Logger::log(DEBUG, "");
+            log(DEBUG, "");
             foreach ($this->event as $key => $value) {
-                Logger::log(DEBUG, "[$this->linkedid] $key: $value");
+                log(DEBUG, "[$this->linkedid] $key: $value");
             }
-            Logger::log(DEBUG, "");
+            log(DEBUG, "");
         }
     }
 

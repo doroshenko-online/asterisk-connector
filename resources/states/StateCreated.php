@@ -6,15 +6,14 @@ namespace resources\states;
 
 use resources\Call;
 use resources\Registry;
-use utils\Logger;
-
+use function utils\log;
 class StateCreated extends State
 {
     public function __construct(Call $context)
     {
         parent::__construct($context);
         Registry::addCall($context);
-        Logger::log(DEBUG, "CallCreated");
+        log(DEBUG, "CallCreated");
     }
 
     public function proceedToNext($context)

@@ -8,8 +8,10 @@ use resources\states\State;
 use resources\states\StateAnswer;
 use resources\states\StateCreated;
 use resources\states\StateDialing;
-use utils\Logger;
+use function utils\del_callback_request;
+use function utils\get_callback_request;
 use function utils\normalizationNum;
+use function utils\log;
 
 class Call
 {
@@ -17,7 +19,6 @@ class Call
     public $callerId;
     public $destNumber;
     public bool $callbackRequest = false;
-    public bool $removeCallbackRequestWithoutOtzvon = false;
     public bool $otzvon = false;
     public $otzvonNumber;
     public ?Call $callbackRequestCall;
@@ -56,10 +57,10 @@ class Call
         {
             if (!is_array($value) && !is_object($value))
             {
-                Logger::log(DEBUG, "[$this->linkedid] $key: $value");
+                log(DEBUG, "[$this->linkedid] $key: $value");
             }
         }
-        Logger::log(DEBUG, "");
+        log(DEBUG, "");
 
     }
 
@@ -77,7 +78,9 @@ class Call
             "dialStatus" => DIAL_STATUS['RINGING'],
             "type" => $type,
         ];
-        Logger::log(OK, "[$this->linkedid] Идет вызов... Тип " . array_search($this->call_type, CALL_TYPE, true) . " call. | Вызывающий канал - $uniqueid | Вызывающий номер - $callerid | Вызываемый канал - $destUniqueid | Вызываемый номер - $destExten | Вызывающий PBX номер - $pbx_num | Тип диала - " . array_search($type, CHANNEL_TYPE, true));
+        log(INFO, "[$this->linkedid] Идет вызов... Тип " . array_search($this->call_type, CALL_TYPE, true) . " call."
+            . " | Вызывающий канал - $uniqueid | Вызывающий номер - $callerid | Вызываемый канал - $destUniqueid | Вызываемый номер - $destExten"
+            . " | Вызывающий PBX номер - $pbx_num | Тип диала - " . array_search($type, CHANNEL_TYPE, true));
         $this->stateNum = CALL_STATE['dialing'];
         $this->setState(new StateDialing($this, $this->dials["$uniqueid - $destUniqueid"]));
         return $this->dials["$uniqueid - $destUniqueid"];
@@ -90,12 +93,12 @@ class Call
             $this->dials[$id]['dialEndTime'] = $endTime;
             $this->dials[$id]['dialDuration'] = $this->dials[$id]['dialEndTime'] - $this->dials[$id]['dialStartTime'];
             if (!array_key_exists($dialStatus, DIAL_STATUS)) {
-                Logger::log(WARNING, "[$this->linkedid] Неожиданный статус вызова(DialEnd) - $dialStatus. " . "Вызываемый канал - " . $this->dials[$id]['destUniqueid']);
+                log(WARNING, "[$this->linkedid] Неожиданный статус вызова(DialEnd) - $dialStatus. " . "Вызываемый канал - " . $this->dials[$id]['destUniqueid']);
                 $this->dials[$id]['dialStatus'] = DIAL_STATUS["UNKNOWN"];
             } else {
                 $this->dials[$id]['dialStatus'] = DIAL_STATUS[$dialStatus];
             }
-            Logger::log(OK, "[$this->linkedid] Диал завершен. Вызывающий канал: " . $this->dials[$id]['uniqueid']
+            log(INFO, "[$this->linkedid] Диал завершен. Вызывающий канал: " . $this->dials[$id]['uniqueid']
                 . " | Вызывающий номер: " . $this->dials[$id]['callerid'] . " | Вызываемый канал: " . $this->dials[$id]['destUniqueid']
                 . " | Вызываемый номер: " . $this->dials[$id]['destExten'] . " | PBX номер: " . $this->dials[$id]['pbx_num']
                 . " | Длительность вызова: " . $this->dials[$id]['dialDuration'] . " | Статус диала: " . array_search($this->dials[$id]['dialStatus'], DIAL_STATUS, true));
@@ -112,11 +115,11 @@ class Call
         $this->countInnerToOuterDials = 0;
         if ($this->call_type === CALL_TYPE['callback'] && Registry::getChannel($this->linkedid, $this->dials[$id]['destUniqueid'])->type === CHANNEL_TYPE['outer'])
         {
-            Logger::log(INFO, "[$this->linkedid] Коллбек. Ответил внешний канал. Вызывающий номер - " . $this->dials[$id]['pbx_num'] . " | Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten']);
+            log(OK, "[$this->linkedid] Коллбек. Ответил внешний канал. Вызывающий номер - " . $this->dials[$id]['pbx_num'] . " | Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten']);
             $this->otzvonNumber = $this->dials[$id]['pbx_num'];
         } else
         {
-            Logger::log(OK, "[$this->linkedid] Звонок отвечен. Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten'] . " | Вызывающий номер - " . $this->dials[$id]['callerid']);
+            log(OK, "[$this->linkedid] Звонок отвечен. Ответивший канал - " . $this->dials[$id]['destUniqueid'] . " | Ответивший номер - " . $this->dials[$id]['destExten'] . " | Вызывающий номер - " . $this->dials[$id]['callerid']);
             $this->stateNum = CALL_STATE['conversation'];
             $this->setState(new StateAnswer($this, Registry::getChannel($this->linkedid, $this->dials[$id]['destUniqueid'])));
         }
@@ -147,7 +150,7 @@ class Call
                 if (str_contains($channel->channame, "@"))
                 {
                     $this->call_type = CALL_TYPE["autocall"];
-                    Logger::log(INFO, "[$this->linkedid] Тип звонка предварительно определен как - " . array_search($this->call_type, CALL_TYPE, true));
+                    log(INFO, "[$this->linkedid] Тип звонка предварительно определен как - " . array_search($this->call_type, CALL_TYPE, true));
                 }
         }
 
@@ -156,7 +159,7 @@ class Call
     public function setType($type, $callbackRequest=false, $otzvon=false)
     {
         $this->call_type = $type;
-        Logger::log(OK, "[$this->linkedid] Тип звонка установлен как - " . array_search($this->call_type, CALL_TYPE, true));
+        log(OK, "[$this->linkedid] Тип звонка установлен как - " . array_search($this->call_type, CALL_TYPE, true));
         if (!in_array($this->call_type, ENABLE_CALL_TYPE, true))
         {
             Registry::removeCall($this->linkedid);
@@ -167,7 +170,7 @@ class Call
         if (!$this->otzvon && $otzvon)
         {
             $this->otzvon = true;
-            unset(Registry::$callbackRequestCalls[$this->callbackRequestCall->linkedid]);
+            del_callback_request($this->callbackRequestCall->linkedid);
             $this->callbackRequestCall->retry++;
             $this->callbackRequestCall->retryCalls[$this->linkedid] = $this;
         }

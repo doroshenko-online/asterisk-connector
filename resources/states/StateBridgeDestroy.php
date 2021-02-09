@@ -5,7 +5,7 @@ namespace resources\states;
 
 
 use resources\Call;
-use utils\Logger;
+use function utils\log;
 
 class StateBridgeDestroy extends State
 {
@@ -13,7 +13,7 @@ class StateBridgeDestroy extends State
     public function __construct(Call $context, $bridge)
     {
         parent::__construct($context);
-        Logger::log(DEBUG, "CallBridgeDestroy");
+        log(DEBUG, "CallBridgeDestroy");
         $context->bridgeDurations[$bridge['bridgeUniqueId']]['bridgeUniqueId'] = $bridge['bridgeUniqueId'];
         $context->bridgeDurations[$bridge['bridgeUniqueId']]['duration'] = $bridge['duration'];
         $context->bridgeDurations[$bridge['bridgeUniqueId']]['channels'] = $bridge['channels'];

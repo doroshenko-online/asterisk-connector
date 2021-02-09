@@ -1,9 +1,14 @@
 {
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "ca99893cded5b7007041e97737974927",
     "packages": [
         {
             "name": "predis/predis",
             "version": "v1.1.6",
-            "version_normalized": "1.1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/predis/predis.git",
@@ -26,7 +31,6 @@
                 "ext-curl": "Allows access to Webdis when paired with phpiredis",
                 "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
             },
-            "time": "2020-09-11T19:18:05+00:00",
             "type": "library",
             "extra": {
                 "composer-exit-on-patch-failure": true,
@@ -40,7 +44,6 @@
                     }
                 }
             },
-            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Predis\\": "src/"
@@ -80,12 +83,11 @@
                     "type": "github"
                 }
             ],
-            "install-path": "../predis/predis"
+            "time": "2020-09-11T19:18:05+00:00"
         },
         {
             "name": "workerman/workerman",
             "version": "v4.0.18",
-            "version_normalized": "4.0.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/Workerman.git",
@@ -103,9 +105,7 @@
             "suggest": {
                 "ext-event": "For better performance. "
             },
-            "time": "2021-01-02T06:14:59+00:00",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "psr-4": {
                     "Workerman\\": "./"
@@ -136,9 +136,16 @@
                 "source": "https://github.com/walkor/workerman",
                 "wiki": "http://doc.workerman.net/"
             },
-            "install-path": "../workerman/workerman"
+            "time": "2021-01-02T06:14:59+00:00"
         }
     ],
-    "dev": true,
-    "dev-package-names": []
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

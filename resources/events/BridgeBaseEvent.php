@@ -4,7 +4,7 @@
 namespace resources\events;
 
 
-use utils\Logger;
+use function utils\log;
 
 class BridgeBaseEvent extends BaseEvent
 {
@@ -12,6 +12,6 @@ class BridgeBaseEvent extends BaseEvent
     {
         parent::__construct($event);
         $this->setBridgeUniqueid();
-        Logger::log(DEBUG, "[$this->linkedid] BridgeUniqueId: $this->bridgeUniqueid");
+        log(DEBUG, "[$this->linkedid] BridgeUniqueId: $this->bridgeUniqueid");
     }
 }

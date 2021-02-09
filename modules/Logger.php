@@ -1,20 +1,35 @@
 <?php
 
-namespace utils;
-require_once BASE_DIR . "/Shasoft/src/Console.php";
+
+namespace modules;
 use Exception;
+use Predis\Autoloader;
+use Predis;
+use utils;
+use utils\ErrorHandlers;
 use Shasoft\src\Console;
+
+
+define("BASE_DIR", __DIR__ . DIRECTORY_SEPARATOR . "..");
+require_once BASE_DIR . "/Shasoft/src/Console.php";
+require_once BASE_DIR . '/config.php';
+require_once BASE_DIR . '/utils/utils.php';
+require_once BASE_DIR . '/utils/autoload.php';
+require_once BASE_DIR . '/vendor/predis/predis/src/Autoloader.php';
+Autoloader::register();
+
+new ErrorHandlers();
 
 class Logger
 {
-    use TSingleton;
+    use utils\TSingleton;
 
 
     private static $logFile;
 
     private function init()
     {
-        $filename = getLogFIleName();
+        $filename = utils\getLogFIleName();
         $fp = LOGS.$filename;
         self::$logFile = fopen($fp, 'ab');
     }
@@ -41,13 +56,13 @@ class Logger
             throw new Exception('Сначала необходимо создать экземпляр объекта логгера', 500);
         }
 
-        if (!file_exists(LOGS.getLogFIleName()))
+        if (!file_exists(LOGS.utils\getLogFIleName()))
         {
             self::$instance->fileClose();
             self::$instance->init();
         }
 
-        $currDateTime = getCurrentDateTime();
+        $currDateTime = utils\getCurrentDateTime();
         $record = "[$currDateTime][" . LEVELS_LOG_NAME_VERBOSE[$level] . "] $message".PHP_EOL;
 
         if ($level <= LOG_LEVEL)
@@ -79,5 +94,17 @@ class Logger
     {
         self::log(INFO, 'Завершение...');
         $this->fileClose();
+    }
+}
+Logger::getInstance();
+
+$redis = new Predis\Client("tcp://".REDIS_HOST.":".REDIS_PORT."?read_write_timeout=0");
+$pubSub = $redis->pubSubLoop();
+$pubSub->subscribe(array_values(LEVELS_LOG_NAME_VERBOSE));
+
+
+foreach ($pubSub as $mess) {
+    if ($mess->kind === 'message') {
+        Logger::log(constant($mess->channel), $mess->payload);
     }
 }

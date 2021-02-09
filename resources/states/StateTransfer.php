@@ -7,7 +7,7 @@ namespace resources\states;
 use resources\Call;
 use resources\events\BlindTransfer;
 use resources\Registry;
-use utils\Logger;
+use function utils\log;
 use function utils\normalizationNum;
 
 class StateTransfer extends State
@@ -15,14 +15,14 @@ class StateTransfer extends State
     public function __construct(Call $context, BlindTransfer $event)
     {
         parent::__construct($context);
-        Logger::log(DEBUG, "CallTransfer");
+        log(DEBUG, "CallTransfer");
         $context->transfers[$event->bridgeUniqueid]['bridgeUniqueId'] = $event->bridgeUniqueid;
         $context->transfers[$event->bridgeUniqueid]['transfererChannelUniqueId'] = $event->transfererUniqueid;
         $context->transfers[$event->bridgeUniqueid]['transfereeChannelUniqueId'] = $event->transfereeUniqueid;
         $context->transfers[$event->bridgeUniqueid]['transfererCallerIdNum'] = normalizationNum(Registry::getChannel($context->linkedid, $event->transfererUniqueid)->callerid);
         $context->transfers[$event->bridgeUniqueid]['transfereeCallerIdNum'] = $event->transfereeCallerId;
         $context->transfers[$event->bridgeUniqueid]['extension'] = $event->extension;
-        Logger::log(OK, "[$context->linkedid] Трансфер! Ид Бриджа: "
+        log(OK, "[$context->linkedid] Трансфер! Ид Бриджа: "
             . $event->bridgeUniqueid . " | Переадресующий канал: " . $context->transfers[$event->bridgeUniqueid]['transfererChannelUniqueId']
         . " | Переадресующий номер: " . $context->transfers[$event->bridgeUniqueid]['transfererCallerIdNum']
         . " | Переадресовываемый канал: " . $context->transfers[$event->bridgeUniqueid]['transfereeChannelUniqueId']

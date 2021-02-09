@@ -3,30 +3,14 @@
 namespace utils;
 
 use DateTime;
+use Predis\Autoloader;
 use resources\Call;
 use resources\Registry;
+use Predis;
 
-/*
-Уровни логирования, идут по возрастанию.
-*/
-
-define('OFF', 0);
-define('ERROR', 1);
-define('WARNING', 2);
-define('OK', 3);
-define('INFO', 4);
-define('TRACE', 5);
-define('DEBUG', 6);
-
-define("LEVELS_LOG_NAME_VERBOSE", [
-    OFF => 'OFF',
-    ERROR => 'ERROR',
-    WARNING => 'WARNING',
-    OK => 'OK',
-    INFO => 'INFO',
-    TRACE => 'TRACE',
-    DEBUG => 'DEBUG',
-]);
+require_once BASE_DIR . '/vendor/predis/predis/src/Autoloader.php';
+Autoloader::register();
+$redis = new Predis\Client("tcp://".REDIS_HOST.":".REDIS_PORT."?read_write_timeout=0");
 
 /*
  * Юзер ивенты для парсинга
@@ -88,14 +72,33 @@ define('CHANNEL_TYPE', [
 ]);
 
 /*
- * Время жизни запроса отзвона в секундах
- */
-
-define('CALL_ALIVE', 20);
-
-/*
  * Вспомогающие функции
  */
+
+function log($level, $msg) {
+    global $redis;
+    $redis->publish(LEVELS_LOG_NAME_VERBOSE[$level], $msg);
+}
+
+function redis_expire($string) {
+    global $redis;
+    $redis->expire($string, CALL_ALIVE);
+}
+
+function get_callback_request($linkedid) {
+    global $redis;
+    return $redis->hget($linkedid, 'callback_request');
+}
+
+function del_callback_request($linkedid) {
+    global $redis;
+    $redis->hdel($linkedid, (array)'callback_request');
+}
+
+function add_callback_request($linkedid, $serializedObj) {
+    global $redis;
+    $redis->hset("$linkedid", 'callback_request', $serializedObj);
+}
 
 function getLogFIleName()
 {
@@ -113,8 +116,7 @@ function getCallOrWarning($linkedid, $errmesg = "")
 {
     $call = Registry::getCall($linkedid);
     if ($call) return $call;
-
-    Logger::log(WARNING, $errmesg . " Звонка с идентификатором $linkedid не существует");
+    log(WARNING, $errmesg . " Звонка с идентификатором $linkedid не существует");
     return null;
 }
 
@@ -134,12 +136,6 @@ function isDestroyCall(Call $call)
 {
     if ($call->callbackRequest !== false)
     {
-        if ($call->removeCallbackRequestWithoutOtzvon)
-        {
-            if (Registry::removeCallbackRequest($call->linkedid)) {
-                return true;
-            }
-        }
         Registry::addCallbackRequestCall($call);
         return false;
     }

@@ -6,14 +6,14 @@ namespace resources\states;
 
 use resources\Call;
 use resources\Registry;
-use utils\Logger;
+use function utils\log;
 
 class StateDialing extends State
 {
     public function __construct(Call $context, $dialArr)
     {
         parent::__construct($context);
-        Logger::log(DEBUG, "CallDialing");
+        log(DEBUG, "CallDialing");
 
         $send = false;
 
@@ -53,7 +53,7 @@ class StateDialing extends State
         if ($this->accessSendApiCallType)
         {
             //TODO: Здесь должна быть отправка на апи
-            Logger::log(OK, 'SEND API');
+            log(OK, 'SEND API');
         }
     }
 }

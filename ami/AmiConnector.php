@@ -2,9 +2,11 @@
 
 namespace ami;
 
+define("BASE_DIR", __DIR__ . DIRECTORY_SEPARATOR . "..");
 
-use utils\Logger;
-use utils\TSingleton;
+require_once BASE_DIR . '/config.php';
+require_once BASE_DIR . '/utils/utils.php';
+use function utils\log;
 
 /**
  * Class AmiConnector
@@ -12,7 +14,7 @@ use utils\TSingleton;
  */
 class AmiConnector
 {
-    use TSingleton;
+    use \utils\TSingleton;
 
     private $host;
     private $port;
@@ -22,6 +24,7 @@ class AmiConnector
     private $erst;
     private static $fp;
     public $auth;
+    public $redis;
 
     private function init()
     {
@@ -35,25 +38,27 @@ class AmiConnector
     {
         $this->init();
         if(is_null(self::$fp)){
-            Logger::log(INFO, 'Создание сокета...');
+//            ini_set('default_socket_timeout', 30);
+            log(INFO, 'Создание сокета...');
             self::$fp = stream_socket_client($this->host . ':' . $this->port, $this->errno, $this->erst);
             if (!self::$fp){
                 self::$fp = null;
-                Logger::log(ERROR, "Не удалось открыть соединение с AMI. Проверьте настройки подключения");
+                log(ERROR, 'Не удалось открыть соединение с AMI. Проверьте настройки подключения');
                 return false;
             }
 
-            Logger::log(INFO, 'Соединение с AMI установлено');
+            log(OK, 'Соединение с AMI установлено');
             fwrite(self::$fp, "Action: Login\r\n");
             fwrite(self::$fp, "Username: ".$this->username."\r\n");
             fwrite(self::$fp, "Secret: ".$this->password."\r\n\r\n");
 
             $this->auth = $this->checkAuth();
             if (!$this->auth) {
-                Logger::log(ERROR, "Ошибка авторизации в AMI. Проверьте логин и пароль для подключения");
+                log(ERROR, 'Ошибка авторизации в AMI. Проверьте логин и пароль для подключения');
+
                 return false;
             }
-            Logger::log(INFO, 'Авторизация на AMI прошла успешно');
+            log(OK, 'Авторизация на AMI прошла успешно');
         }
         return self::$fp;
     }
@@ -72,7 +77,7 @@ class AmiConnector
 
         if(is_null(self::$fp) && is_null($this->auth))
         {
-            Logger::log(ERROR, "Сначала необходимо открыть соединение с AMI");
+            log(ERROR, 'Сначала необходимо открыть соединение с AMI');
             return false;
         }
 
@@ -86,7 +91,7 @@ class AmiConnector
             fclose(self::$fp);
             self::$fp = null;
             self::$instance = null;
-            Logger::log(INFO, 'Соеденение с AMI закрыто');
+            log(OK,'Соеденение с AMI закрыто');
         }
     }
 

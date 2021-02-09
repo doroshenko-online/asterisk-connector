@@ -21,6 +21,6 @@ class ErrorHandlers
         $dateLog = "[". date('Y-m-d H:i:s') ."] ";
         $message = "Код ошибки: $errno | Ошибка: $errstr | Файл: $file | Строка: $line";
         error_log($dateLog.$message."\n===========\n", 3, LOGS.DIRECTORY_SEPARATOR.'errors.log');
-        Logger::log(ERROR, $message . "\n===========");
+        print_r($message . "\n============\n");
     }
 }

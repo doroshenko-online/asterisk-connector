@@ -6,7 +6,8 @@ namespace resources\events;
 
 use resources\Call;
 use resources\Registry;
-use utils\Logger;
+use function utils\get_callback_request;
+use function utils\log;
 use function utils\getCallOrWarning;
 use function utils\normalizationNum;
 
@@ -36,11 +37,11 @@ class Newexten extends BaseEvent
             $this->appData = $arrAppData[1];
             $this->appDataEvent = $arrAppData[0];
 
-            Logger::log(DEBUG, "");
+            log(DEBUG, "");
             foreach ($this->event as $key => $value) {
-                Logger::log(DEBUG, "[$this->linkedid] $key: $value");
+                log(DEBUG, "[$this->linkedid] $key: $value");
             }
-            Logger::log(DEBUG, "");
+            log(DEBUG, "");
 
             return true;
         }
@@ -55,14 +56,21 @@ class Newexten extends BaseEvent
                 $call->setType(CALL_TYPE['callback_request'], true);
                 break;
             case 'CALLBACK':
-                $requestCallbackCall = getCallOrWarning($this->appData, "Не удалось получить экземпляр запроса отзвона.");
+                $requestCallbackCall = Registry::getCall($this->appData);
+                if (!$requestCallbackCall) {
+                    $requestCallbackCall = unserialize(get_callback_request($this->appData));
+                    if ($requestCallbackCall) {
+                        Registry::addCall($requestCallbackCall);
+                    }
+                }
+
                 if ($requestCallbackCall)
                 {
                     $call->callbackRequestCall = $requestCallbackCall;
                     $call->callbackMaxRetries = $requestCallbackCall->callbackMaxRetries;
                     $call->setType(CALL_TYPE['callback'], false, true);
                 } else {
-                    Logger::log(WARNING, "[$call->linkedid] Нет запроса отзвона по данному звонку. Звонок удаляется...");
+                    log(WARNING, "[$call->linkedid] Нет запроса отзвона по данному звонку. Звонок удаляется...");
                     Registry::removeCall($call->linkedid);
                 }
                 break;
@@ -75,16 +83,16 @@ class Newexten extends BaseEvent
             case 'CALLBACK_MAX_RETRIES':
                 $maxRetries = intval($this->appData) + 1;
                 $call->callbackMaxRetries = $maxRetries;
-                Logger::log(INFO, "[$this->linkedid] Максимальное колл-во попыток отзвона установлено в - $maxRetries");
+                log(INFO, "[$this->linkedid] Максимальное колл-во попыток отзвона установлено в - $maxRetries");
                 break;
             case 'GUID':
                 $call->guid = $this->appData;
-                Logger::log(INFO, "[$this->linkedid] Autocall GUID: $call->guid");
+                log(INFO, "[$this->linkedid] Autocall GUID: $call->guid");
                 $call->setType(CALL_TYPE['autocall']);
                 break;
             case 'conference':
                 $call->innerConferenceExten = $this->appData;
-                Logger::log(INFO, "[$this->linkedid] Номер внутренней конференции: $call->innerConferenceExten");
+                log(INFO, "[$this->linkedid] Номер внутренней конференции: $call->innerConferenceExten");
                 $call->setType(CALL_TYPE['inner conference']);
                 break;
         }

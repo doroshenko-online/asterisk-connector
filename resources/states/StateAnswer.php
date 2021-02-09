@@ -5,7 +5,7 @@ namespace resources\states;
 
 use resources\Call;
 use resources\Channel;
-use utils\Logger;
+use function utils\log;
 
 class StateAnswer extends State
 {
@@ -13,7 +13,7 @@ class StateAnswer extends State
     public function __construct(Call $context, Channel $answerChannel)
     {
         parent::__construct($context);
-        Logger::log(DEBUG, "CallAnswer");
+        log(DEBUG, "CallAnswer");
         $this->sendApi($context->linkedid);
     }
 
@@ -31,7 +31,7 @@ class StateAnswer extends State
         if ($this->accessSendApiCallType)
         {
             //TODO: Здесь должна быть отправка на апи
-            Logger::log(OK, 'SEND API');
+            log(OK, 'SEND API');
         }
     }
 }

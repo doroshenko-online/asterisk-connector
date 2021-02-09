@@ -6,7 +6,7 @@ namespace resources\events;
 
 use resources\Registry;
 use resources\states\StateTransfer;
-use utils\Logger;
+use function utils\log;
 use function utils\normalizationNum;
 
 class BlindTransfer extends CEvent
@@ -46,11 +46,11 @@ class BlindTransfer extends CEvent
 
         if ($call)
         {
-            Logger::log(DEBUG, "");
+            log(DEBUG, "");
             foreach ($this->event as $key => $value) {
-                Logger::log(DEBUG, "[$this->transfererLinkedid] $key: $value");
+                log(DEBUG, "[$this->transfererLinkedid] $key: $value");
             }
-            Logger::log(DEBUG, "");
+            log(DEBUG, "");
 
             $call->stateNum = CALL_STATE['transfer'];
             $call->setState(new StateTransfer($call,$this));

@@ -3,8 +3,7 @@
 
 namespace resources;
 
-
-use utils\Logger;
+use function utils\log;
 use function utils\getCallOrWarning;
 
 class Channel
@@ -54,12 +53,12 @@ class Channel
             $vars = get_object_vars($this);
             foreach ($vars as $key => $value)
             {
-                Logger::log(DEBUG, "[$this->linkedid] $key: $value");
+                log(DEBUG, "[$this->linkedid] $key: $value");
             }
-            Logger::log(DEBUG, "");
+            log(DEBUG, "");
 
             Registry::addChannel($this, $this->linkedid, $this->uniqueid);
-            Logger::log(INFO, "[$this->linkedid] Канал: $this->name | Имя канала: $this->channame | Номер канала: $this->callerid"
+            log(INFO, "[$this->linkedid] Канал: $this->name | Имя канала: $this->channame | Номер канала: $this->callerid"
                 . " | Номер назначения: $this->exten | PBX NUM: $this->pbxNum | Ид канала: $this->uniqueid | Тип канала: " . array_search($type, CHANNEL_TYPE, true));
         }
     }
@@ -69,7 +68,7 @@ class Channel
         if ($this->callerid === null)
         {
             $this->callerid = $callerid;
-            Logger::log(INFO, "[$this->linkedid] У канала $this->uniqueid установлен callerid: $this->callerid");
+            log(INFO, "[$this->linkedid] У канала $this->uniqueid установлен callerid: $this->callerid");
         }
     }
 }

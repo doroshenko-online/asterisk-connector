@@ -17,7 +17,6 @@ class Newchannel extends BaseEvent
         parent::__construct($event);
         $this->setCallerid();
         $this->setExten();
-
         $call = Registry::getCall($this->linkedid);
 
         if ($call || ($call === null && $this->callerid) || ($call === null && str_contains($this->channel, '@')))
@@ -49,7 +48,6 @@ class Newchannel extends BaseEvent
                     $call->lastPbxNum = null;
                 }
             }
-
             new Channel($name, $channame, $this->callerid, $this->exten, $this->uniqueid, $this->linkedid, $this->createtime, $this->type, $this->pbxNum);
         }
     }
