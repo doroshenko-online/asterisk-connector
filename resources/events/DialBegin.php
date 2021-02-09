@@ -5,6 +5,7 @@ namespace resources\events;
 
 
 use resources\Registry;
+use function utils\normalizationNum;
 
 class DialBegin extends BaseEvent
 {
@@ -28,7 +29,7 @@ class DialBegin extends BaseEvent
             {
                 $destChannel = Registry::getChannel($this->linkedid, $this->destUniqueId);
                 $currChannel = Registry::getChannel($this->linkedid, $this->uniqueid);
-                $this->dialStringNum = str_replace('SIP/', '', $this->dialString);
+                $this->dialStringNum = normalizationNum(str_replace('SIP/', '', $this->dialString));
 
                 if ($currChannel->type === CHANNEL_TYPE['local'] && $destChannel->type !== CHANNEL_TYPE['inner'])
                 {
