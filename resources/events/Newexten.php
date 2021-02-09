@@ -81,8 +81,8 @@ class Newexten extends BaseEvent
                 $call->lastPbxNum = normalizationNum($this->appData);
                 break;
             case 'CALLBACK_MAX_RETRIES':
-                $maxRetries = intval($this->appData) + 1;
-                $call->callbackMaxRetries = $maxRetries;
+                $maxRetries = intval($this->appData);
+                $call->callbackMaxRetries += $maxRetries;
                 log(INFO, "[$this->linkedid] Максимальное колл-во попыток отзвона установлено в - $maxRetries");
                 break;
             case 'GUID':

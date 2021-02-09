@@ -36,7 +36,7 @@ class Call
     public $createtime;
     public $endtime;
     public $callDuration;
-    public int $retry = 0;
+    public int $retry = 1;
     public $retryCalls = [];
     public int $countInnerToOuterDials = 0;
 

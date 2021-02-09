@@ -33,20 +33,20 @@ class BaseEvent extends CEvent
 
             if ($call || ($call === null && $this->callerid) || ($call === null && str_contains($this->channel, '@')))
             {
-                log(DEBUG, "");
+                log(DEBUG, "[$this->linkedid]");
                 foreach ($this->event as $key => $value) {
                     log(DEBUG, "[$this->linkedid] $key: $value");
                 }
-                log(DEBUG, "");
+                log(DEBUG, "[$this->linkedid]");
             }
         } else {
             $call = Registry::getCall($this->linkedid);
             if ($call) {
-                log(DEBUG, "");
+                log(DEBUG, "[$this->linkedid]");
                 foreach ($this->event as $key => $value) {
                     log(DEBUG, "[$this->linkedid] $key: $value");
                 }
-                log(DEBUG, "");
+                log(DEBUG, "[$this->linkedid]");
             }
         }
 
