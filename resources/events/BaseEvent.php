@@ -4,6 +4,7 @@
 namespace resources\events;
 
 
+use resources\Registry;
 use function utils\log;
 use function utils\normalizationNum;
 
@@ -26,6 +27,28 @@ class BaseEvent extends CEvent
         $this->setChannel();
         $this->setLinkedid();
         $this->setUniqueid();
+        if ($this->event['Event'] === 'Newchannel') {
+            $this->setCallerid();
+            $call = Registry::getCall($this->linkedid);
+
+            if ($call || ($call === null && $this->callerid) || ($call === null && str_contains($this->channel, '@')))
+            {
+                log(DEBUG, "");
+                foreach ($this->event as $key => $value) {
+                    log(DEBUG, "[$this->linkedid] $key: $value");
+                }
+                log(DEBUG, "");
+            }
+        } else {
+            $call = Registry::getCall($this->linkedid);
+            if ($call) {
+                log(DEBUG, "");
+                foreach ($this->event as $key => $value) {
+                    log(DEBUG, "[$this->linkedid] $key: $value");
+                }
+                log(DEBUG, "");
+            }
+        }
 
         if ($this->event['Event'] !== 'Newexten') {
             log(DEBUG, "");
