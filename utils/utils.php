@@ -122,6 +122,9 @@ function getCallOrWarning($linkedid, $errmesg = "")
 
 function normalizationNum($number)
 {
+    preg_match('/\d+/s', $number, $matches);
+    $number = $matches[0];
+
     if (strlen($number) >= 9 && preg_match('/^\\+?\d+$/s', $number)) {
         switch (COUNTRY) {
             case 'UKR':
