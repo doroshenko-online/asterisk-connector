@@ -37,6 +37,7 @@ class Newexten extends BaseEvent
             $this->appData = $arrAppData[1];
             $this->appDataEvent = $arrAppData[0];
 
+            // Logging
             log(DEBUG, "");
             foreach ($this->event as $key => $value) {
                 log(DEBUG, "[$this->linkedid] $key: $value");
@@ -83,7 +84,7 @@ class Newexten extends BaseEvent
             case 'CALLBACK_MAX_RETRIES':
                 $maxRetries = intval($this->appData);
                 $call->callbackMaxRetries += $maxRetries;
-                log(INFO, "[$this->linkedid] Максимальное колл-во попыток отзвона установлено в - $maxRetries");
+                log(INFO, "[$this->linkedid] Максимальное колл-во попыток отзвона установлено в - $call->callbackMaxRetries");
                 break;
             case 'GUID':
                 $call->guid = $this->appData;

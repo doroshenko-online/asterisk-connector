@@ -234,7 +234,7 @@ class Call
             foreach ($localDials as $item)
             {
                 $dialStatus = intval($item['dialStatus']);
-                if ($dialStatus < $min_status && $dialStatus > CALL_STATUS['ANSWER'])
+                if ($dialStatus < $min_status)
                 {
                     $min_status = $dialStatus;
                 }
@@ -257,7 +257,7 @@ class Call
         {
             if ($this->call_type !== CALL_TYPE['outer conference'] && $this->call_type !== CALL_TYPE['autocall'])
             {
-                if ($item['type'] === CHANNEL_TYPE['inner'])
+                if ($item['type'] !== CHANNEL_TYPE['local'])
                 {
                     $this->bridgesDuration += intval($item['duration']);
                 }

@@ -93,9 +93,11 @@ define('ENABLE_CALL_TYPE', [
 /*
 установка уровня логгирования в файл. Available levels: OFF, ERROR, WARNING, INFO, TRACE, DEBUG
 TRACE - all levels without DEBUG level
+
+ОСТОРОЖНО!! DEBUG выводит обрабатываемые ивенты ами, очень быстро может забить диск
 */
 
-define('LOG_LEVEL', DEBUG);
+define('LOG_LEVEL', TRACE);
 
 /*
  * уровень вывода в консоль. levels: OFF, ERROR, WARNING, INFO, TRACE, DEBUG

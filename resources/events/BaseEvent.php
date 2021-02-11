@@ -39,7 +39,7 @@ class BaseEvent extends CEvent
                 }
                 log(DEBUG, "[$this->linkedid]");
             }
-        } else {
+        } elseif ($this->event['Event'] !== 'Newexten') {
             $call = Registry::getCall($this->linkedid);
             if ($call) {
                 log(DEBUG, "[$this->linkedid]");
@@ -48,14 +48,6 @@ class BaseEvent extends CEvent
                 }
                 log(DEBUG, "[$this->linkedid]");
             }
-        }
-
-        if ($this->event['Event'] !== 'Newexten') {
-            log(DEBUG, "");
-            foreach ($this->event as $key => $value) {
-                log(DEBUG, "[$this->linkedid] $key: $value");
-            }
-            log(DEBUG, "");
         }
     }
 
@@ -156,7 +148,9 @@ class BaseEvent extends CEvent
 
     protected function setDestExten()
     {
-        $this->destExten = $this->event['DestExten'];
+        if (preg_match('/\d+/s', $this->event['DestExten'])) {
+            $this->destExten = $this->event['DestExten'];
+        }
     }
 
     /**

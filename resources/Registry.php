@@ -177,10 +177,11 @@ class Registry
         }
         self::$calls['bridges'][$bridgeuniqueid]['channels'][] = $uniqueid;
         $channel =  Registry::getChannel($linkedid, $uniqueid);
-        if (self::$calls['bridges'][$bridgeuniqueid]['type'] > $channel->type)
-        self::$calls['bridges'][$bridgeuniqueid]['type'] = $channel->type;
+        if (self::$calls['bridges'][$bridgeuniqueid]['type'] > $channel->type) {
+            self::$calls['bridges'][$bridgeuniqueid]['type'] = $channel->type;
+        }
         log(INFO, "[$linkedid] Канал $uniqueid вошел в бридж $bridgeuniqueid");
-        if (!in_array($linkedid, self::$calls['bridges'][$bridgeuniqueid]['calls'], true)){
+        if (!in_array($linkedid, self::$calls['bridges'][$bridgeuniqueid]['calls'], true)) {
             self::$calls['bridges'][$bridgeuniqueid]['calls'][] = $linkedid;
         }
         return true;
